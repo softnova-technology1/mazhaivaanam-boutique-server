@@ -1,0 +1,98 @@
+import { Router } from 'express';
+import { protect } from '../middleware/auth.middleware.js';
+import { adminOnly } from '../middleware/admin.middleware.js';
+import validate from '../middleware/validate.middleware.js';
+import { createProductValidator, updateProductValidator } from '../validators/product.validator.js';
+import { updateOrderStatusValidator } from '../validators/order.validator.js';
+import upload from '../middleware/upload.middleware.js';
+
+// Controllers
+import { createProduct, updateProduct, deleteProduct, hardDeleteProduct } from '../controllers/product.controller.js';
+import {
+  createCategory, updateCategory, deleteCategory,
+  createCollection, updateCollection, deleteCollection,
+} from '../controllers/category.controller.js';
+import { getAllOrders, updateOrderStatus } from '../controllers/order.controller.js';
+import { getInquiries, replyToInquiry } from '../controllers/contact.controller.js';
+import { approveReview, getPendingReviews } from '../controllers/review.controller.js';
+import {
+  getAllInventory, getProductInventory, restockProduct,
+  adjustStock, getLowStockProducts, getOutOfStockProducts,
+} from '../controllers/inventory.controller.js';
+import { uploadImage, deleteImage } from '../controllers/upload.controller.js';
+import {
+  getDashboard, getSalesAnalytics, getUsers, updateUserRole,
+  bulkUpdateOrderStatus, bulkDeleteProducts,
+} from '../controllers/admin.controller.js';
+import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
+import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
+
+const router = Router();
+
+// All admin routes require auth + admin role
+router.use(protect, adminOnly);
+
+// Dashboard
+router.get('/dashboard', getDashboard);
+router.get('/dashboard/sales', getSalesAnalytics);
+
+// Products
+router.post('/products', validate(createProductValidator), createProduct);
+router.post('/products/bulk/delete', bulkDeleteProducts);
+router.put('/products/:id', validate(updateProductValidator), updateProduct);
+router.delete('/products/:id', deleteProduct);
+router.delete('/products/:id/hard', hardDeleteProduct);
+
+// Categories
+router.post('/categories', createCategory);
+router.put('/categories/:id', updateCategory);
+router.delete('/categories/:id', deleteCategory);
+
+// Collections
+router.post('/collections', createCollection);
+router.put('/collections/:id', updateCollection);
+router.delete('/collections/:id', deleteCollection);
+
+// Orders
+router.get('/orders', getAllOrders);
+router.put('/orders/bulk/status', bulkUpdateOrderStatus);
+router.put('/orders/:orderId/status', validate(updateOrderStatusValidator), updateOrderStatus);
+
+// Users
+router.get('/users', getUsers);
+router.put('/users/:id/role', updateUserRole);
+
+// Reviews
+router.get('/reviews', getPendingReviews);
+router.put('/reviews/:reviewId/approve', approveReview);
+
+// Contact Inquiries
+router.get('/inquiries', getInquiries);
+router.put('/inquiries/:id/reply', replyToInquiry);
+
+// Inventory
+router.get('/inventory', getAllInventory);
+router.get('/inventory/low-stock', getLowStockProducts);
+router.get('/inventory/out-of-stock', getOutOfStockProducts);
+router.get('/inventory/:productId', getProductInventory);
+router.put('/inventory/:productId/restock', restockProduct);
+router.put('/inventory/:productId/adjust', adjustStock);
+
+// Coupons
+router.get('/coupons', getCoupons);
+router.post('/coupons', createCoupon);
+router.put('/coupons/:id', updateCoupon);
+router.delete('/coupons/:id', deleteCoupon);
+
+// Discounts
+router.get('/discounts', getDiscounts);
+router.put('/discounts/bulk', bulkUpdateDiscounts);
+router.post('/discounts/bulk-remove', bulkRemoveDiscounts);
+router.put('/discounts/:productId', updateDiscount);
+router.delete('/discounts/:productId', removeDiscount);
+
+// Image Upload
+router.post('/upload', upload.single('image'), uploadImage);
+router.delete('/upload/:publicId', deleteImage);
+
+export default router;
