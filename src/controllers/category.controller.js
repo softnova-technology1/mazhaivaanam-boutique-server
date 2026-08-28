@@ -14,6 +14,15 @@ export const getCategories = async (req, res, next) => {
   }
 };
 
+export const getAdminCategories = async (req, res, next) => {
+  try {
+    const categories = await Category.find().sort({ sortOrder: 1 }).lean();
+    successResponse(res, categories);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getCategoryBySlug = async (req, res, next) => {
   try {
     const category = await Category.findOne({ slug: req.params.slug, isActive: true }).lean();
@@ -67,9 +76,8 @@ export const deleteCategory = async (req, res, next) => {
       return errorResponse(res, `Cannot delete — ${count} products belong to this category`, 400);
     }
 
-    category.isActive = false;
-    await category.save();
-    successResponse(res, null, 'Category deleted');
+    await Category.findByIdAndDelete(req.params.id);
+    successResponse(res, null, 'Category deleted permanently');
   } catch (error) {
     next(error);
   }
@@ -80,6 +88,15 @@ export const deleteCategory = async (req, res, next) => {
 export const getCollections = async (req, res, next) => {
   try {
     const collections = await Collection.find({ isActive: true }).sort({ sortOrder: 1 }).lean();
+    successResponse(res, collections);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getAdminCollections = async (req, res, next) => {
+  try {
+    const collections = await Collection.find().sort({ sortOrder: 1 }).lean();
     successResponse(res, collections);
   } catch (error) {
     next(error);
@@ -134,9 +151,8 @@ export const deleteCollection = async (req, res, next) => {
     if (!collection) {
       return errorResponse(res, 'Collection not found', 404);
     }
-    collection.isActive = false;
-    await collection.save();
-    successResponse(res, null, 'Collection deleted');
+    await Collection.findByIdAndDelete(req.params.id);
+    successResponse(res, null, 'Collection deleted permanently');
   } catch (error) {
     next(error);
   }

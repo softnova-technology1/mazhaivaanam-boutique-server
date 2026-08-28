@@ -73,6 +73,11 @@ export const login = async (req, res, next) => {
       return errorResponse(res, 'Invalid email or password', 401);
     }
 
+    // Check if account is active
+    if (user.isActive === false) {
+      return errorResponse(res, 'Your account has been deactivated. Please contact support.', 403);
+    }
+
     // Generate tokens
     const { accessToken, refreshToken } = generateTokenPair(user._id);
 

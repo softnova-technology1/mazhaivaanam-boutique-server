@@ -105,6 +105,20 @@ export const getPendingReviews = async (req, res, next) => {
   }
 };
 
+// Admin: Get all reviews (pending and approved)
+export const getAllReviews = async (req, res, next) => {
+  try {
+    const reviews = await Review.find()
+      .populate('product', 'name slug images')
+      .populate('user', 'firstName lastName email')
+      .sort({ createdAt: -1 })
+      .lean();
+    successResponse(res, reviews);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Helper: Recalculate product average rating
 async function recalculateRating(productId) {
   const stats = await Review.aggregate([
