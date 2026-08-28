@@ -11,8 +11,12 @@ const transporter = nodemailer.createTransport({
 });
 
 // Verify connection on startup (non-blocking)
-transporter.verify()
-  .then(() => console.log('✅ Email transport ready'))
-  .catch((err) => console.warn('⚠️  Email transport not configured:', err.message));
+if (!process.env.SMTP_USER || process.env.SMTP_USER === 'your_email@gmail.com' || !process.env.SMTP_PASS || process.env.SMTP_PASS === 'your_email_app_password') {
+  console.log('ℹ️  Email transport disabled (using placeholder credentials in .env)');
+} else {
+  transporter.verify()
+    .then(() => console.log('✅ Email transport ready'))
+    .catch((err) => console.warn('⚠️  Email transport not configured:', err.message));
+}
 
 export default transporter;

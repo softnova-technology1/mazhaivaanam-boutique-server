@@ -87,14 +87,15 @@ export const createOrder = async (req, res, next) => {
     let razorpayOrder;
     try {
       razorpayOrder = await razorpay.orders.create({
-        amount: totalAmount * 100, // paise
+        amount: Math.round(totalAmount * 100), // paise (must be integer)
         currency: 'INR',
         receipt: orderId,
         notes: { orderId, userId: req.user._id.toString() },
       });
     } catch (rpError) {
-      console.error('Razorpay error:', rpError.message);
-      return errorResponse(res, 'Payment gateway error — please try again', 502);
+      const errorMsg = rpError.error?.description || rpError.message || JSON.stringify(rpError);
+      console.error('Razorpay error details:', errorMsg);
+      return errorResponse(res, `Razorpay Error: ${errorMsg}`, 502);
     }
 
     // 6. Reserve inventory
