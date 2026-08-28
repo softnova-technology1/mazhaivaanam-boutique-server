@@ -6,6 +6,16 @@ import transporter from '../config/email.js';
  */
 const sendEmail = async ({ to, subject, html, text }) => {
   try {
+    const isPlaceholder = !process.env.SMTP_USER || 
+                          process.env.SMTP_USER === 'your_email@gmail.com' || 
+                          !process.env.SMTP_PASS || 
+                          process.env.SMTP_PASS === 'your_email_app_password';
+
+    if (isPlaceholder) {
+      console.log(`ℹ️  [Email Skipped] "${subject}" -> ${to} (SMTP credentials not configured in .env)`);
+      return null;
+    }
+
     const mailOptions = {
       from: `"Mazhai Vaanam Boutique" <${process.env.SMTP_USER}>`,
       to,

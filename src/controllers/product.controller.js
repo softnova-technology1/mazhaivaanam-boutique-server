@@ -5,6 +5,23 @@ import Inventory from '../models/Inventory.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { isDiscountActive, computeDiscountedPrice } from './discount.controller.js';
 
+export const formatProductOutput = (p) => {
+  if (!p) return p;
+  const images = (p.images && Array.isArray(p.images) && p.images.length > 0)
+    ? p.images.map(img => ({
+        ...img,
+        url: (typeof img.url === 'string' && img.url.startsWith('blob:')) ? '/Images/saree1.png' : (img.url || '/Images/saree1.png')
+      }))
+    : [{ url: '/Images/saree1.png', publicId: '' }];
+
+  return {
+    ...p,
+    images,
+    discountedPrice: computeDiscountedPrice(p.price, p.discount),
+    discountActive: isDiscountActive(p.discount),
+  };
+};
+
 /**
  * GET /api/products
  * List products with filtering, sorting, search, and pagination
@@ -83,12 +100,8 @@ export const getProducts = async (req, res, next) => {
       Product.countDocuments(filter),
     ]);
 
-    // Enrich with discount info
-    const enriched = products.map((p) => ({
-      ...p,
-      discountedPrice: computeDiscountedPrice(p.price, p.discount),
-      discountActive: isDiscountActive(p.discount),
-    }));
+    // Enrich with discount info & image sanitization
+    const enriched = products.map(formatProductOutput);
 
     paginatedResponse(res, enriched, {
       total,
@@ -114,11 +127,7 @@ export const getFeaturedProducts = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-    const enriched = products.map((p) => ({
-      ...p,
-      discountedPrice: computeDiscountedPrice(p.price, p.discount),
-      discountActive: isDiscountActive(p.discount),
-    }));
+    const enriched = products.map(formatProductOutput);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -136,11 +145,7 @@ export const getNewArrivals = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-    const enriched = products.map((p) => ({
-      ...p,
-      discountedPrice: computeDiscountedPrice(p.price, p.discount),
-      discountActive: isDiscountActive(p.discount),
-    }));
+    const enriched = products.map(formatProductOutput);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -179,11 +184,7 @@ export const getBestSellers = async (req, res, next) => {
       products = [...products, ...dynamicTopSellers];
     }
 
-    const enriched = products.map((p) => ({
-      ...p,
-      discountedPrice: computeDiscountedPrice(p.price, p.discount),
-      discountActive: isDiscountActive(p.discount),
-    }));
+    const enriched = products.map(formatProductOutput);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -199,11 +200,7 @@ export const getPreOrders = async (req, res, next) => {
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .lean();
-    const enriched = products.map((p) => ({
-      ...p,
-      discountedPrice: computeDiscountedPrice(p.price, p.discount),
-      discountActive: isDiscountActive(p.discount),
-    }));
+    const enriched = products.map(formatProductOutput);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -229,7 +226,9 @@ export const searchProducts = async (req, res, next) => {
       .limit(20)
       .lean();
 
-    successResponse(res, products);
+    const enriched = products.map(formatProductOutput);
+
+    successResponse(res, enriched);
   } catch (error) {
     next(error);
   }
@@ -265,11 +264,10 @@ export const getProductBySlug = async (req, res, next) => {
         }
       : { available: 0, isLowStock: true, isOutOfStock: true };
 
-    // Enrich with discount info
-    product.discountedPrice = computeDiscountedPrice(product.price, product.discount);
-    product.discountActive = isDiscountActive(product.discount);
+    const formatted = formatProductOutput(product);
+    formatted.stock = product.stock;
 
-    successResponse(res, product);
+    successResponse(res, formatted);
   } catch (error) {
     next(error);
   }

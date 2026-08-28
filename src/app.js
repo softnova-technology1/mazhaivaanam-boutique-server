@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
 import errorHandler from './middleware/error.middleware.js';
 
 // Route imports
@@ -55,10 +56,11 @@ const authLimiter = rateLimit({
   message: { success: false, message: 'Too many auth attempts — please try again later' },
 });
 
-// ==================== BODY PARSING ====================
+// ==================== BODY PARSING & STATIC ====================
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads')));
 
 // ==================== HEALTH CHECK ====================
 
