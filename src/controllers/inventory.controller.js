@@ -1,6 +1,7 @@
 import Inventory from '../models/Inventory.js';
 import Product from '../models/Product.js';
 import { successResponse, errorResponse } from '../utils/apiResponse.js';
+import { formatProductOutput } from './product.controller.js';
 
 export const getAllInventory = async (req, res, next) => {
   try {
@@ -16,9 +17,10 @@ export const getAllInventory = async (req, res, next) => {
     // Include all valid products (even deactivated ones for admin visibility)
     const validInventory = inventory.filter(inv => inv.product);
 
-    // Add virtual fields
+    // Add virtual fields & sanitize images
     const enriched = validInventory.map((inv) => ({
       ...inv,
+      product: formatProductOutput(inv.product),
       availableStock: Math.max(0, inv.totalStock - inv.reserved - inv.sold),
       isLowStock: inv.totalStock - inv.reserved - inv.sold <= inv.lowStockThreshold,
       isOutOfStock: inv.totalStock - inv.reserved - inv.sold <= 0,
