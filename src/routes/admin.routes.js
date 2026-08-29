@@ -9,12 +9,14 @@ import upload from '../middleware/upload.middleware.js';
 // Controllers
 import { createProduct, updateProduct, deleteProduct, hardDeleteProduct } from '../controllers/product.controller.js';
 import {
-  createCategory, updateCategory, deleteCategory,
-  createCollection, updateCollection, deleteCollection,
+  createCategory, updateCategory, deleteCategory, getAdminCategories,
+  createCollection, updateCollection, deleteCollection, getAdminCollections,
 } from '../controllers/category.controller.js';
 import { getAllOrders, updateOrderStatus } from '../controllers/order.controller.js';
 import { getInquiries, replyToInquiry } from '../controllers/contact.controller.js';
-import { approveReview, getPendingReviews } from '../controllers/review.controller.js';
+import {
+  getProductReviews, createReview, deleteReview, getPendingReviews, approveReview, getAllReviews,
+} from '../controllers/review.controller.js';
 import {
   getAllInventory, getProductInventory, restockProduct,
   adjustStock, getLowStockProducts, getOutOfStockProducts,
@@ -22,10 +24,12 @@ import {
 import { uploadImage, deleteImage } from '../controllers/upload.controller.js';
 import {
   getDashboard, getSalesAnalytics, getUsers, updateUserRole,
+  toggleUserStatus, deleteUser,
   bulkUpdateOrderStatus, bulkDeleteProducts,
 } from '../controllers/admin.controller.js';
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
+import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
 
 const router = Router();
 
@@ -44,11 +48,13 @@ router.delete('/products/:id', deleteProduct);
 router.delete('/products/:id/hard', hardDeleteProduct);
 
 // Categories
+router.get('/categories', getAdminCategories);
 router.post('/categories', createCategory);
 router.put('/categories/:id', updateCategory);
 router.delete('/categories/:id', deleteCategory);
 
 // Collections
+router.get('/collections', getAdminCollections);
 router.post('/collections', createCollection);
 router.put('/collections/:id', updateCollection);
 router.delete('/collections/:id', deleteCollection);
@@ -61,9 +67,12 @@ router.put('/orders/:orderId/status', validate(updateOrderStatusValidator), upda
 // Users
 router.get('/users', getUsers);
 router.put('/users/:id/role', updateUserRole);
+router.put('/users/:id/status', toggleUserStatus);
+router.delete('/users/:id', deleteUser);
 
 // Reviews
 router.get('/reviews', getPendingReviews);
+router.get('/reviews/all', getAllReviews);
 router.put('/reviews/:reviewId/approve', approveReview);
 
 // Contact Inquiries
@@ -94,5 +103,9 @@ router.delete('/discounts/:productId', removeDiscount);
 // Image Upload
 router.post('/upload', upload.single('image'), uploadImage);
 router.delete('/upload/:publicId', deleteImage);
+
+// Limited Offer Config
+router.get('/limited-offer/config', getOfferConfig);
+router.put('/limited-offer', updateOfferConfig);
 
 export default router;

@@ -160,6 +160,48 @@ export const updateUserRole = async (req, res, next) => {
 };
 
 /**
+ * PUT /api/admin/users/:id/status
+ * Toggle user active/inactive status
+ */
+export const toggleUserStatus = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return errorResponse(res, 'User not found', 404);
+    
+    // Prevent self-deactivation if admin
+    if (user._id.toString() === req.user._id.toString()) {
+      return errorResponse(res, 'You cannot deactivate your own account', 400);
+    }
+
+    user.isActive = !user.isActive;
+    await user.save();
+    successResponse(res, user, `User ${user.isActive ? 'activated' : 'deactivated'} successfully`);
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * DELETE /api/admin/users/:id
+ * Delete a user completely
+ */
+export const deleteUser = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return errorResponse(res, 'User not found', 404);
+
+    if (user._id.toString() === req.user._id.toString()) {
+      return errorResponse(res, 'You cannot delete your own account', 400);
+    }
+
+    await User.findByIdAndDelete(req.params.id);
+    successResponse(res, null, 'User deleted successfully');
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * PUT /api/admin/orders/bulk-status
  * Bulk update status for selected orders
  */

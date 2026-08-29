@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Review from '../models/Review.js';
 import Product from '../models/Product.js';
 import Order from '../models/Order.js';
@@ -6,20 +7,24 @@ import { successResponse, errorResponse } from '../utils/apiResponse.js';
 export const getProductReviews = async (req, res, next) => {
   try {
     const { productId } = req.params;
+    let targetProductId = productId;
 
-    // To prevent CastError, check if it's a valid ObjectId
-    if (!productId.match(/^[0-9a-fA-F]{24}$/)) {
-      // If it's a dummy ID like 'prod-catalog-1', it won't have reviews in DB by this ID
-      // We can try to look it up by slug or just return empty
-      return successResponse(res, []);
+    if (!mongoose.isValidObjectId(productId)) {
+      const product = await Product.findOne({ $or: [{ slug: productId }, { id: productId }] });
+      if (product) {
+        targetProductId = product._id;
+      } else {
+        return successResponse(res, []);
+      }
     }
 
     const reviews = await Review.find({
-      product: productId,
+      product: targetProductId,
       isApproved: true,
     })
       .sort({ createdAt: -1 })
       .lean();
+
     successResponse(res, reviews);
   } catch (error) {
     next(error);
@@ -31,21 +36,23 @@ export const createReview = async (req, res, next) => {
     const { rating, text, name, location, photo } = req.body;
     const productId = req.params.productId;
 
-    // Check if product exists (search by _id or slug/custom ID)
     let product = null;
-    if (productId.match(/^[0-9a-fA-F]{24}$/)) {
+    if (mongoose.isValidObjectId(productId)) {
       product = await Product.findById(productId);
     }
     if (!product) {
-      product = await Product.findOne({ slug: productId });
+      product = await Product.findOne({ $or: [{ slug: productId }, { id: productId }] });
     }
     if (!product) {
-      // Fallback find first matching or create on active product
       product = await Product.findOne();
     }
 
+    if (!product) {
+      return errorResponse(res, 'Product not found', 404);
+    }
+
     const review = await Review.create({
-      product: product?._id || productId,
+      product: product._id,
       user: req.user?._id || null,
       name: name || req.user?.fullName || req.user?.firstName || 'Valued Patron',
       location: location || 'Verified Patron',
@@ -53,14 +60,10 @@ export const createReview = async (req, res, next) => {
       text,
       photo: photo || '',
       isVerified: true,
-      isApproved: true,
+      isApproved: false, // Requires Admin Approval
     });
 
-    if (product) {
-      await recalculateRating(product._id);
-    }
-
-    successResponse(res, review, 'Appraisal submitted successfully! ✨', 201);
+    successResponse(res, review, 'Appraisal submitted successfully and is awaiting admin approval! ✨', 201);
   } catch (error) {
     next(error);
   }
@@ -68,13 +71,16 @@ export const createReview = async (req, res, next) => {
 
 export const deleteReview = async (req, res, next) => {
   try {
-    const review = await Review.findOne({ _id: req.params.reviewId, user: req.user._id });
+    const review = await Review.findById(req.params.reviewId);
     if (!review) return errorResponse(res, 'Review not found', 404);
 
+    const productId = review.product;
     await review.deleteOne();
 
     // Recalculate product rating
-    await recalculateRating(review.product);
+    if (productId) {
+      await recalculateRating(productId);
+    }
 
     successResponse(res, null, 'Review deleted');
   } catch (error) {
@@ -104,6 +110,20 @@ export const approveReview = async (req, res, next) => {
 export const getPendingReviews = async (req, res, next) => {
   try {
     const reviews = await Review.find({ isApproved: false })
+      .populate('product', 'name slug images')
+      .populate('user', 'firstName lastName email')
+      .sort({ createdAt: -1 })
+      .lean();
+    successResponse(res, reviews);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Admin: Get all reviews (pending and approved)
+export const getAllReviews = async (req, res, next) => {
+  try {
+    const reviews = await Review.find()
       .populate('product', 'name slug images')
       .populate('user', 'firstName lastName email')
       .sort({ createdAt: -1 })

@@ -258,10 +258,10 @@ export const getProductBySlug = async (req, res, next) => {
     const inventory = await Inventory.findOne({ product: product._id }).lean();
     product.stock = inventory
       ? {
-          available: Math.max(0, inventory.totalStock - inventory.reserved - inventory.sold),
-          isLowStock: inventory.totalStock - inventory.reserved - inventory.sold <= inventory.lowStockThreshold,
-          isOutOfStock: inventory.totalStock - inventory.reserved - inventory.sold <= 0,
-        }
+        available: Math.max(0, inventory.totalStock - inventory.reserved - inventory.sold),
+        isLowStock: inventory.totalStock - inventory.reserved - inventory.sold <= inventory.lowStockThreshold,
+        isOutOfStock: inventory.totalStock - inventory.reserved - inventory.sold <= 0,
+      }
       : { available: 0, isLowStock: true, isOutOfStock: true };
 
     const formatted = formatProductOutput(product);
@@ -362,7 +362,7 @@ export const hardDeleteProduct = async (req, res, next) => {
 
     // Delete inventory record
     await Inventory.findOneAndDelete({ product: product._id });
-    
+
     // Delete product
     await Product.findByIdAndDelete(req.params.id);
 

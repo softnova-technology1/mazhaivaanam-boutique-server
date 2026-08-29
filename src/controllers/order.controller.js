@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import mongoose from 'mongoose';
 import Order from '../models/Order.js';
 import Product from '../models/Product.js';
 import Inventory from '../models/Inventory.js';
@@ -362,7 +363,12 @@ export const updateOrderStatus = async (req, res, next) => {
   try {
     const { status, location, note, trackingNumber, courier } = req.body;
 
-    const order = await Order.findOne({ orderId: req.params.orderId });
+    const paramId = req.params.orderId;
+    const query = mongoose.Types.ObjectId.isValid(paramId)
+      ? { $or: [{ orderId: paramId }, { _id: paramId }] }
+      : { orderId: paramId };
+
+    const order = await Order.findOne(query);
     if (!order) {
       return errorResponse(res, 'Order not found', 404);
     }
@@ -397,14 +403,33 @@ export const updateOrderStatus = async (req, res, next) => {
  */
 export const getAllOrders = async (req, res, next) => {
   try {
-    const { status, page = 1, limit = 20 } = req.query;
+    const { status, dateRange, sort = 'newest', page = 1, limit = 20 } = req.query;
     const filter = {};
     if (status) filter.status = status;
+    
+    if (dateRange) {
+      if (dateRange === '7days') {
+        const now = new Date();
+        filter.createdAt = { $gte: new Date(now.setDate(now.getDate() - 7)) };
+      } else if (dateRange === '30days') {
+        const now = new Date();
+        filter.createdAt = { $gte: new Date(now.setDate(now.getDate() - 30)) };
+      } else {
+        // Assume dateRange is a specific date string (YYYY-MM-DD)
+        const startOfDay = new Date(dateRange);
+        startOfDay.setHours(0, 0, 0, 0);
+        const endOfDay = new Date(dateRange);
+        endOfDay.setHours(23, 59, 59, 999);
+        filter.createdAt = { $gte: startOfDay, $lte: endOfDay };
+      }
+    }
+
+    const sortOption = sort === 'oldest' ? { createdAt: 1 } : { createdAt: -1 };
 
     const [orders, total] = await Promise.all([
       Order.find(filter)
         .populate('user', 'firstName lastName email')
-        .sort({ createdAt: -1 })
+        .sort(sortOption)
         .skip((parseInt(page) - 1) * parseInt(limit))
         .limit(parseInt(limit))
         .lean(),
