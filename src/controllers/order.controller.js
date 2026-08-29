@@ -362,7 +362,12 @@ export const updateOrderStatus = async (req, res, next) => {
   try {
     const { status, location, note, trackingNumber, courier } = req.body;
 
-    const order = await Order.findOne({ orderId: req.params.orderId });
+    const isObjectId = /^[0-9a-fA-F]{24}$/.test(req.params.orderId);
+    const query = isObjectId
+      ? { $or: [{ _id: req.params.orderId }, { orderId: req.params.orderId }] }
+      : { orderId: req.params.orderId };
+
+    const order = await Order.findOne(query);
     if (!order) {
       return errorResponse(res, 'Order not found', 404);
     }
