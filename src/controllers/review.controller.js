@@ -5,8 +5,17 @@ import { successResponse, errorResponse } from '../utils/apiResponse.js';
 
 export const getProductReviews = async (req, res, next) => {
   try {
+    const { productId } = req.params;
+
+    // To prevent CastError, check if it's a valid ObjectId
+    if (!productId.match(/^[0-9a-fA-F]{24}$/)) {
+      // If it's a dummy ID like 'prod-catalog-1', it won't have reviews in DB by this ID
+      // We can try to look it up by slug or just return empty
+      return successResponse(res, []);
+    }
+
     const reviews = await Review.find({
-      product: req.params.productId,
+      product: productId,
       isApproved: true,
     })
       .sort({ createdAt: -1 })

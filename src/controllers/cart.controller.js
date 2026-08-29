@@ -181,3 +181,45 @@ export const getCartCount = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * POST /api/cart/sync
+ * Sync local storage cart to DB
+ */
+export const syncCart = async (req, res, next) => {
+  try {
+    const { items = [] } = req.body;
+
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return successResponse(res, null, 'No items to sync');
+    }
+
+    let cart = await Cart.findOne({ user: req.user._id });
+    if (!cart) {
+      cart = new Cart({ user: req.user._id, items: [] });
+    }
+
+    for (const item of items) {
+      const productId = item.id || item.product || item._id;
+      if (!productId) continue;
+
+      const product = await Product.findOne({ _id: productId, isActive: true });
+      if (!product) continue;
+
+      const existingItem = cart.items.find(
+        (i) => i.product.toString() === productId
+      );
+
+      if (existingItem) {
+        existingItem.quantity += (item.quantity || 1);
+      } else {
+        cart.items.push({ product: productId, quantity: item.quantity || 1 });
+      }
+    }
+
+    await cart.save();
+    successResponse(res, null, 'Cart synced successfully');
+  } catch (error) {
+    next(error);
+  }
+};
