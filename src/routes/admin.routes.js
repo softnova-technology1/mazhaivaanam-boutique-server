@@ -29,6 +29,7 @@ import {
 } from '../controllers/admin.controller.js';
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
+import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
 
 const router = Router();
 
@@ -102,5 +103,9 @@ router.delete('/discounts/:productId', removeDiscount);
 // Image Upload
 router.post('/upload', upload.single('image'), uploadImage);
 router.delete('/upload/:publicId', deleteImage);
+
+// Limited Offer Config
+router.get('/limited-offer/config', getOfferConfig);
+router.put('/limited-offer', updateOfferConfig);
 
 export default router;
