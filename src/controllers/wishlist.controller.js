@@ -130,3 +130,42 @@ export const moveToCart = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * POST /api/wishlist/sync
+ * Sync local storage wishlist to DB
+ */
+export const syncWishlist = async (req, res, next) => {
+  try {
+    const { items = [] } = req.body; // expecting array of product IDs
+
+    if (!items || !Array.isArray(items) || items.length === 0) {
+      return successResponse(res, null, 'No items to sync');
+    }
+
+    let wishlist = await Wishlist.findOne({ user: req.user._id });
+    if (!wishlist) {
+      wishlist = new Wishlist({ user: req.user._id, items: [] });
+    }
+
+    for (const productId of items) {
+      if (!productId) continue;
+
+      const product = await Product.findOne({ _id: productId, isActive: true });
+      if (!product) continue;
+
+      const existingIndex = wishlist.items.findIndex(
+        (item) => item.product.toString() === productId
+      );
+
+      if (existingIndex === -1) {
+        wishlist.items.push({ product: productId });
+      }
+    }
+
+    await wishlist.save();
+    successResponse(res, null, 'Wishlist synced successfully');
+  } catch (error) {
+    next(error);
+  }
+};

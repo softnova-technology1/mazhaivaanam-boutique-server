@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import mongoose from 'mongoose';
 import Order from '../models/Order.js';
 import Product from '../models/Product.js';
 import Inventory from '../models/Inventory.js';
@@ -362,10 +363,10 @@ export const updateOrderStatus = async (req, res, next) => {
   try {
     const { status, location, note, trackingNumber, courier } = req.body;
 
-    const isObjectId = /^[0-9a-fA-F]{24}$/.test(req.params.orderId);
-    const query = isObjectId
-      ? { $or: [{ _id: req.params.orderId }, { orderId: req.params.orderId }] }
-      : { orderId: req.params.orderId };
+    const paramId = req.params.orderId;
+    const query = mongoose.Types.ObjectId.isValid(paramId)
+      ? { $or: [{ orderId: paramId }, { _id: paramId }] }
+      : { orderId: paramId };
 
     const order = await Order.findOne(query);
     if (!order) {
