@@ -403,9 +403,10 @@ export const updateOrderStatus = async (req, res, next) => {
  */
 export const getAllOrders = async (req, res, next) => {
   try {
-    const { status, dateRange, sort = 'newest', page = 1, limit = 20 } = req.query;
+    const { status, paymentStatus, dateRange, sort = 'newest', page = 1, limit = 20 } = req.query;
     const filter = {};
     if (status) filter.status = status;
+    if (paymentStatus) filter.paymentStatus = paymentStatus;
     
     if (dateRange) {
       if (dateRange === '7days') {
