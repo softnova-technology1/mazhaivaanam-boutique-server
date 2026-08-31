@@ -22,7 +22,11 @@ const app = express();
 // ==================== SECURITY MIDDLEWARE ====================
 
 // Helmet — HTTP security headers
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+);
 
 // CORS — Allow frontend + admin origins
 const allowedOrigins = [
