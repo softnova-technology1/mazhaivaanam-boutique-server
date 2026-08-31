@@ -33,15 +33,15 @@ const orderSchema = new mongoose.Schema(
     // Shipping address snapshot
     shippingAddress: {
       fullName: { type: String, required: true },
-      addressLine: { type: String, required: true },
-      city: { type: String, required: true },
-      state: { type: String, required: true },
-      pinCode: { type: String, required: true },
+      addressLine: { type: String, default: '' },
+      city: { type: String, default: '' },
+      state: { type: String, default: '' },
+      pinCode: { type: String, default: '' },
       phone: { type: String, required: true },
     },
     deliveryMode: {
       type: String,
-      enum: ['express', 'standard'],
+      enum: ['express', 'standard', 'pickup'],
       default: 'standard',
     },
 
@@ -64,6 +64,7 @@ const orderSchema = new mongoose.Schema(
     couponDiscount: { type: Number, default: 0 },
     giftPackCharge: { type: Number, default: 0 },
     convenienceFee: { type: Number, default: 0 },
+    shippingFee: { type: Number, default: 0 },
     totalAmount: { type: Number, required: true },
     totalSavings: { type: Number, default: 0 },
 
