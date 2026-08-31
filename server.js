@@ -9,9 +9,6 @@ let server;
 
 const startServer = async () => {
   try {
-    // Connect to MongoDB
-    await connectDB();
-
     server = http.createServer(app);
 
     server.on('error', (err) => {
@@ -30,9 +27,11 @@ const startServer = async () => {
       console.log(`   ├─ Health:      http://localhost:${PORT}/api/health`);
       console.log(`   └─ Frontend:    ${process.env.FRONTEND_URL || 'http://localhost:5173'}\n`);
     });
+
+    // Connect to MongoDB
+    await connectDB();
   } catch (error) {
     console.error('❌ Failed to start server:', error.message);
-    process.exit(1);
   }
 };
 
