@@ -33,16 +33,6 @@ const productSchema = new mongoose.Schema(
     fabric: {
       type: String,
       required: [true, 'Fabric type is required'],
-      enum: ['Pure Silk', 'Cotton', 'Tussar', 'Organza', 'Linen', 'Georgette', 'Chiffon', 'Chanderi'],
-    },
-    color: {
-      name: { type: String, default: '' },
-      hex: { type: String, default: '#000000' },
-    },
-    occasion: {
-      type: String,
-      enum: ['Wedding', 'Festival', 'Party Wear', 'Reception', 'Traditional', 'Casual', 'Bridal'],
-      default: 'Traditional',
     },
     price: {
       type: Number,
@@ -128,6 +118,18 @@ const productSchema = new mongoose.Schema(
       width: { type: String, default: '' },
       washCare: { type: String, default: '' },
     },
+    
+    // Additional requested fields
+    weight: { type: String, default: '' },
+    pattern: { type: String, default: '' },
+    pallu: { type: String, default: '' },
+    sareeLength: { type: String, default: '' },
+    blouseLength: { type: String, default: '' },
+    blouse: { type: String, default: '' },
+    height: { type: String, default: '' },
+    washCare: { type: String, default: '' },
+    returnPolicy: { type: String, default: '' },
+    note: { type: String, default: '' },
 
     averageRating: {
       type: Number,
@@ -163,7 +165,6 @@ productSchema.index({ name: 'text', description: 'text' });
 productSchema.index({ price: 1 });
 productSchema.index({ tag: 1 });
 productSchema.index({ fabric: 1 });
-productSchema.index({ occasion: 1 });
 productSchema.index({ isFeatured: 1, isActive: 1 });
 
 const Product = mongoose.model('Product', productSchema);

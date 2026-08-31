@@ -200,7 +200,7 @@ export const syncCart = async (req, res, next) => {
     }
 
     for (const item of items) {
-      const productId = item.id || item.product || item._id;
+      const productId = item.productId || item.id || item.product || item._id;
       if (!productId) continue;
 
       const product = await Product.findOne({ _id: productId, isActive: true });

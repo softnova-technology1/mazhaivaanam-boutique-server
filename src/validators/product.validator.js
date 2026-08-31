@@ -6,12 +6,7 @@ export const createProductValidator = {
     description: Joi.string().trim().max(2000).required(),
     category: Joi.string().required(), // ObjectId
     collection: Joi.string().allow(null, '').optional(),
-    fabric: Joi.string().valid('Pure Silk', 'Cotton', 'Tussar', 'Organza', 'Linen', 'Georgette', 'Chiffon', 'Chanderi').required(),
-    color: Joi.object({
-      name: Joi.string().allow('').optional(),
-      hex: Joi.string().pattern(/^#[0-9A-Fa-f]{6}$/).optional(),
-    }).optional(),
-    occasion: Joi.string().valid('Wedding', 'Festival', 'Party Wear', 'Reception', 'Traditional', 'Casual', 'Bridal').optional(),
+    fabric: Joi.string().required(),
     price: Joi.number().min(0).required(),
     mrpPrice: Joi.number().min(0).optional(),
     images: Joi.array().items(
@@ -41,6 +36,16 @@ export const createProductValidator = {
       width: Joi.string().allow('').optional(),
       washCare: Joi.string().allow('').optional(),
     }).optional(),
+    weight: Joi.string().allow('').optional(),
+    pattern: Joi.string().allow('').optional(),
+    pallu: Joi.string().allow('').optional(),
+    sareeLength: Joi.string().allow('').optional(),
+    blouseLength: Joi.string().allow('').optional(),
+    blouse: Joi.string().allow('').optional(),
+    height: Joi.string().allow('').optional(),
+    washCare: Joi.string().allow('').optional(),
+    returnPolicy: Joi.string().allow('').optional(),
+    note: Joi.string().allow('').optional(),
   }),
 };
 
