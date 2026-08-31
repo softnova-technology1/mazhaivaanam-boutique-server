@@ -46,6 +46,19 @@ export const createOrder = async (req, res, next) => {
       }
     }
 
+    // 2b. Validate shipping address fields if not pickup deliveryMode
+    if (deliveryMode !== 'pickup') {
+      if (
+        !shippingAddress ||
+        !shippingAddress.addressLine?.trim() ||
+        !shippingAddress.city?.trim() ||
+        !shippingAddress.state?.trim() ||
+        !shippingAddress.pinCode?.trim()
+      ) {
+        return errorResponse(res, 'Shipping address fields (address, city, state, pin code) are required for delivery', 400);
+      }
+    }
+
     // 3. Calculate pricing
     const orderItems = items.map((item) => {
       const prod = products.find((p) => p._id.toString() === item.product);
@@ -68,6 +81,7 @@ export const createOrder = async (req, res, next) => {
     const subtotal = orderItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
     const festivalDiscount = Math.round(subtotal * (FESTIVAL_DISCOUNT_PERCENT / 100));
     const giftPackCharge = giftPackaging ? GIFT_WRAP_PRICE : 0;
+    const shippingFee = deliveryMode === 'pickup' ? 0 : (deliveryMode === 'express' ? 150 : 100);
 
     // Apply coupon
     let couponDiscount = 0;
@@ -78,7 +92,7 @@ export const createOrder = async (req, res, next) => {
       }
     }
 
-    const totalAmount = Math.max(0, subtotal - festivalDiscount - couponDiscount + giftPackCharge + CONVENIENCE_FEE);
+    const totalAmount = Math.max(0, subtotal - festivalDiscount - couponDiscount + giftPackCharge + CONVENIENCE_FEE + shippingFee);
     const totalSavings = mrpTotal - subtotal + festivalDiscount + couponDiscount;
 
     // 4. Generate order ID
@@ -132,6 +146,7 @@ export const createOrder = async (req, res, next) => {
       couponDiscount,
       giftPackCharge,
       convenienceFee: CONVENIENCE_FEE,
+      shippingFee,
       totalAmount,
       totalSavings,
       paymentMethod,
