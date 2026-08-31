@@ -7,7 +7,7 @@ import { updateOrderStatusValidator } from '../validators/order.validator.js';
 import upload from '../middleware/upload.middleware.js';
 
 // Controllers
-import { createProduct, updateProduct, deleteProduct, hardDeleteProduct } from '../controllers/product.controller.js';
+import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts } from '../controllers/product.controller.js';
 import {
   createCategory, updateCategory, deleteCategory, getAdminCategories,
   createCollection, updateCollection, deleteCollection, getAdminCollections,
@@ -25,7 +25,7 @@ import { uploadImage, deleteImage } from '../controllers/upload.controller.js';
 import {
   getDashboard, getSalesAnalytics, getUsers, updateUserRole,
   toggleUserStatus, deleteUser,
-  bulkUpdateOrderStatus, bulkDeleteProducts,
+  bulkUpdateOrderStatus, bulkDeleteProducts, hardBulkDeleteProducts,
 } from '../controllers/admin.controller.js';
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
@@ -41,8 +41,10 @@ router.get('/dashboard', getDashboard);
 router.get('/dashboard/sales', getSalesAnalytics);
 
 // Products
+router.get('/products', getAdminProducts);
 router.post('/products', validate(createProductValidator), createProduct);
 router.post('/products/bulk/delete', bulkDeleteProducts);
+router.post('/products/bulk/hard-delete', hardBulkDeleteProducts);
 router.put('/products/:id', validate(updateProductValidator), updateProduct);
 router.delete('/products/:id', deleteProduct);
 router.delete('/products/:id/hard', hardDeleteProduct);

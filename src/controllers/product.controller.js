@@ -276,6 +276,63 @@ export const getProductBySlug = async (req, res, next) => {
 // ============ ADMIN ENDPOINTS ============
 
 /**
+ * GET /api/admin/products
+ * Get all products (including inactive) for admin
+ */
+export const getAdminProducts = async (req, res, next) => {
+  try {
+    const { category, tag, search, sort, page = 1, limit = 15, preorder } = req.query;
+    const filter = {};
+
+    if (category) {
+      const cat = await Category.findOne({ slug: category });
+      if (cat) filter.category = cat._id;
+    }
+
+    if (tag) filter.tag = tag;
+    if (preorder === 'true') filter.isPreorder = true;
+
+    if (search) {
+      filter.$text = { $search: search };
+    }
+
+    let sortOption = { createdAt: -1 };
+    switch (sort) {
+      case 'price_asc': sortOption = { price: 1 }; break;
+      case 'price_desc': sortOption = { price: -1 }; break;
+      case 'name_asc': sortOption = { name: 1 }; break;
+      case 'name_desc': sortOption = { name: -1 }; break;
+    }
+
+    const pageNum = Math.max(1, parseInt(page));
+    const limitNum = Math.min(100, Math.max(1, parseInt(limit)));
+    const skip = (pageNum - 1) * limitNum;
+
+    const [products, total] = await Promise.all([
+      Product.find(filter)
+        .populate('category', 'name slug')
+        .sort(sortOption)
+        .skip(skip)
+        .limit(limitNum)
+        .lean(),
+      Product.countDocuments(filter),
+    ]);
+
+    const enriched = products.map(formatProductOutput);
+
+    paginatedResponse(res, enriched, {
+      total,
+      page: pageNum,
+      limit: limitNum,
+      totalPages: Math.ceil(total / limitNum),
+      hasMore: pageNum * limitNum < total,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * POST /api/admin/products
  * Create a new product (Admin)
  */

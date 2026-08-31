@@ -256,3 +256,23 @@ export const bulkDeleteProducts = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * POST /api/admin/products/bulk-hard-delete
+ * Bulk permanently delete products
+ */
+export const hardBulkDeleteProducts = async (req, res, next) => {
+  try {
+    const { productIds } = req.body;
+    if (!productIds || !Array.isArray(productIds) || productIds.length === 0) {
+      return errorResponse(res, 'Please provide an array of product IDs', 400);
+    }
+
+    await Inventory.deleteMany({ product: { $in: productIds } });
+    const result = await Product.deleteMany({ _id: { $in: productIds } });
+
+    successResponse(res, result, `Successfully permanently deleted ${result.deletedCount} products`);
+  } catch (error) {
+    next(error);
+  }
+};
