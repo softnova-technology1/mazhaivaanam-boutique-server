@@ -128,6 +128,17 @@ const productSchema = new mongoose.Schema(
       width: { type: String, default: '' },
       washCare: { type: String, default: '' },
     },
+    
+    // Additional requested fields
+    weight: { type: String, default: '' },
+    pattern: { type: String, default: '' },
+    border: { type: String, default: '' },
+    pallu: { type: String, default: '' },
+    sareeLength: { type: String, default: '' },
+    blouseLength: { type: String, default: '' },
+    style: { type: String, default: '' },
+    returnPolicy: { type: String, default: '' },
+    note: { type: String, default: '' },
 
     averageRating: {
       type: Number,
