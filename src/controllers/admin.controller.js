@@ -17,6 +17,7 @@ export const getDashboard = async (req, res, next) => {
       totalProducts,
       pendingInquiries,
       revenueResult,
+      pendingCheckoutResult,
       recentOrders,
     ] = await Promise.all([
       Order.countDocuments(),
@@ -25,6 +26,10 @@ export const getDashboard = async (req, res, next) => {
       ContactInquiry.countDocuments({ status: 'new' }),
       Order.aggregate([
         { $match: { paymentStatus: 'paid' } },
+        { $group: { _id: null, total: { $sum: '$totalAmount' }, count: { $sum: 1 } } },
+      ]),
+      Order.aggregate([
+        { $match: { paymentStatus: { $in: ['pending', 'failed'] } } },
         { $group: { _id: null, total: { $sum: '$totalAmount' }, count: { $sum: 1 } } },
       ]),
       Order.find()
@@ -36,6 +41,8 @@ export const getDashboard = async (req, res, next) => {
 
     const revenue = revenueResult[0]?.total || 0;
     const paidOrders = revenueResult[0]?.count || 0;
+    const pendingCheckoutsCount = pendingCheckoutResult[0]?.count || 0;
+    const pendingCheckoutsRevenue = pendingCheckoutResult[0]?.total || 0;
 
     // Order status breakdown
     const statusBreakdown = await Order.aggregate([
@@ -56,6 +63,8 @@ export const getDashboard = async (req, res, next) => {
         totalRevenue: revenue,
         totalOrders,
         paidOrders,
+        pendingCheckoutsCount,
+        pendingCheckoutsRevenue,
         totalUsers,
         totalProducts,
         pendingInquiries,
