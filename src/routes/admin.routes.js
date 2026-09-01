@@ -5,6 +5,7 @@ import validate from '../middleware/validate.middleware.js';
 import { createProductValidator, updateProductValidator } from '../validators/product.validator.js';
 import { updateOrderStatusValidator } from '../validators/order.validator.js';
 import upload from '../middleware/upload.middleware.js';
+import { getAllFabrics, getAdminFabrics, createFabric, updateFabric, deleteFabric } from '../controllers/fabric.controller.js';
 
 // Controllers
 import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts } from '../controllers/product.controller.js';
@@ -51,6 +52,10 @@ router.delete('/products/:id/hard', hardDeleteProduct);
 
 // Categories
 router.get('/categories', getAdminCategories);
+router.get('/fabrics', getAdminFabrics);
+router.post('/fabrics', createFabric);
+router.put('/fabrics/:id', updateFabric);
+router.delete('/fabrics/:id', deleteFabric);
 router.post('/categories', createCategory);
 router.put('/categories/:id', updateCategory);
 router.delete('/categories/:id', deleteCategory);

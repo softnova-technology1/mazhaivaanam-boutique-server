@@ -63,14 +63,17 @@ export const createOrder = async (req, res, next) => {
     // 3. Calculate pricing
     const orderItems = items.map((item) => {
       const prod = products.find((p) => p._id.toString() === item.product);
+      // For pre-order products: charge deposit only, not full price
+      const isPreorderDeposit = prod.isPreorder && prod.preorderDeposit > 0;
+      const chargePrice = isPreorderDeposit ? prod.preorderDeposit : prod.price;
       return {
         product: prod._id,
-        name: prod.name,
-        price: prod.price,
+        name: isPreorderDeposit ? `${prod.name} (Pre-order Deposit)` : prod.name,
+        price: chargePrice,
         image: prod.images?.[0]?.url || '',
         quantity: item.quantity,
         fabric: prod.fabric,
-        weightKg: prod.weightKg || 0.5, // per-item weight for shipping calc
+        weightKg: prod.weightKg || 0.5,
         category: '',
       };
     });
@@ -169,6 +172,18 @@ export const createOrder = async (req, res, next) => {
         const prod = products.find((p) => p._id.toString() === i.product.toString());
         return prod?.isPreorder;
       }),
+      // Track if this order is deposit-only and how much balance is due
+      isDepositOnly: items.some((item) => {
+        const prod = products.find((p) => p._id.toString() === item.product);
+        return prod?.isPreorder && prod?.preorderDeposit > 0;
+      }),
+      preorderBalanceDue: items.reduce((sum, item) => {
+        const prod = products.find((p) => p._id.toString() === item.product);
+        if (prod?.isPreorder && prod?.preorderDeposit > 0) {
+          return sum + (prod.price - prod.preorderDeposit) * item.quantity;
+        }
+        return sum;
+      }, 0),
     });
 
     // 8. Increment coupon usage

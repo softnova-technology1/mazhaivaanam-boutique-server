@@ -117,6 +117,8 @@ const orderSchema = new mongoose.Schema(
     // Pre-order specific
     isPreorder: { type: Boolean, default: false },
     preorderStatus: { type: String, default: '' },
+    isDepositOnly: { type: Boolean, default: false },       // true = only deposit charged
+    preorderBalanceDue: { type: Number, default: 0 },       // remaining amount on delivery
   },
   {
     timestamps: true,
