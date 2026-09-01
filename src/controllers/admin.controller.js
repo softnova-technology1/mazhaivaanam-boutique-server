@@ -20,7 +20,8 @@ export const getDashboard = async (req, res, next) => {
       pendingCheckoutResult,
       recentOrders,
     ] = await Promise.all([
-      Order.countDocuments(),
+      // Only count orders where payment is confirmed (paid) — exclude pending/abandoned
+      Order.countDocuments({ paymentStatus: 'paid' }),
       User.countDocuments({ role: 'customer' }),
       Product.countDocuments({ isActive: true }),
       ContactInquiry.countDocuments({ status: 'new' }),
@@ -32,7 +33,8 @@ export const getDashboard = async (req, res, next) => {
         { $match: { paymentStatus: { $in: ['pending', 'failed'] } } },
         { $group: { _id: null, total: { $sum: '$totalAmount' }, count: { $sum: 1 } } },
       ]),
-      Order.find()
+      // Recent orders: only show confirmed (paid) orders to admin
+      Order.find({ paymentStatus: 'paid' })
         .populate('user', 'firstName lastName email')
         .sort({ createdAt: -1 })
         .limit(10)
@@ -44,8 +46,9 @@ export const getDashboard = async (req, res, next) => {
     const pendingCheckoutsCount = pendingCheckoutResult[0]?.count || 0;
     const pendingCheckoutsRevenue = pendingCheckoutResult[0]?.total || 0;
 
-    // Order status breakdown
+    // Order status breakdown — only for confirmed (paid) orders
     const statusBreakdown = await Order.aggregate([
+      { $match: { paymentStatus: 'paid' } },
       { $group: { _id: '$status', count: { $sum: 1 } } },
     ]);
 

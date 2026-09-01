@@ -8,7 +8,7 @@ import upload from '../middleware/upload.middleware.js';
 import { getAllFabrics, getAdminFabrics, createFabric, updateFabric, deleteFabric } from '../controllers/fabric.controller.js';
 
 // Controllers
-import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts } from '../controllers/product.controller.js';
+import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts, bulkImportProducts } from '../controllers/product.controller.js';
 import {
   createCategory, updateCategory, deleteCategory, getAdminCategories,
   createCollection, updateCollection, deleteCollection, getAdminCollections,
@@ -31,6 +31,7 @@ import {
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
 import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
+import { updateStoreConfig } from '../controllers/storeConfig.controller.js';
 
 const router = Router();
 
@@ -44,6 +45,7 @@ router.get('/dashboard/sales', getSalesAnalytics);
 // Products
 router.get('/products', getAdminProducts);
 router.post('/products', validate(createProductValidator), createProduct);
+router.post('/products/bulk/import', bulkImportProducts);
 router.post('/products/bulk/delete', bulkDeleteProducts);
 router.post('/products/bulk/hard-delete', hardBulkDeleteProducts);
 router.put('/products/:id', validate(updateProductValidator), updateProduct);
@@ -115,5 +117,9 @@ router.delete('/upload/:publicId', deleteImage);
 // Limited Offer Config
 router.get('/limited-offer/config', getOfferConfig);
 router.put('/limited-offer', updateOfferConfig);
+
+// Store Config (Festival Discount, Fees)
+router.get('/store/config', async (req, res, next) => { const { getStoreConfig } = await import('../controllers/storeConfig.controller.js'); getStoreConfig(req, res, next); });
+router.put('/store/config', updateStoreConfig);
 
 export default router;
