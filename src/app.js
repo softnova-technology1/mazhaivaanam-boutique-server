@@ -79,13 +79,20 @@ app.get('/api/health', (req, res) => {
 
 // ==================== API ROUTES ====================
 
-import { getOfferConfig } from './controllers/offer.controller.js';
+import { getOfferConfig, spinWheel } from './controllers/offer.controller.js';
+import { protect } from './middleware/auth.middleware.js';
+import { getAllFabrics } from './controllers/fabric.controller.js';
+import { getStoreConfig } from './controllers/storeConfig.controller.js';
 
 app.get('/api/limited-offer/config', getOfferConfig);
+app.post('/api/limited-offer/spin', protect, spinWheel);
+app.get('/api/store/config', getStoreConfig); // Public — Client fetches discount config
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRouter);
 app.use('/api/collections', collectionRouter);
+app.get('/api/fabrics', getAllFabrics);
+
 app.use('/api/cart', cartRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/addresses', addressRoutes);

@@ -5,6 +5,7 @@ import validate from '../middleware/validate.middleware.js';
 import { createProductValidator, updateProductValidator } from '../validators/product.validator.js';
 import { updateOrderStatusValidator } from '../validators/order.validator.js';
 import upload from '../middleware/upload.middleware.js';
+import { getAllFabrics, getAdminFabrics, createFabric, updateFabric, deleteFabric } from '../controllers/fabric.controller.js';
 
 // Controllers
 import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts, bulkImportProducts } from '../controllers/product.controller.js';
@@ -30,6 +31,7 @@ import {
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
 import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
+import { updateStoreConfig } from '../controllers/storeConfig.controller.js';
 
 const router = Router();
 
@@ -52,6 +54,10 @@ router.delete('/products/:id/hard', hardDeleteProduct);
 
 // Categories
 router.get('/categories', getAdminCategories);
+router.get('/fabrics', getAdminFabrics);
+router.post('/fabrics', createFabric);
+router.put('/fabrics/:id', updateFabric);
+router.delete('/fabrics/:id', deleteFabric);
 router.post('/categories', createCategory);
 router.put('/categories/:id', updateCategory);
 router.delete('/categories/:id', deleteCategory);
@@ -111,5 +117,9 @@ router.delete('/upload/:publicId', deleteImage);
 // Limited Offer Config
 router.get('/limited-offer/config', getOfferConfig);
 router.put('/limited-offer', updateOfferConfig);
+
+// Store Config (Festival Discount, Fees)
+router.get('/store/config', async (req, res, next) => { const { getStoreConfig } = await import('../controllers/storeConfig.controller.js'); getStoreConfig(req, res, next); });
+router.put('/store/config', updateStoreConfig);
 
 export default router;

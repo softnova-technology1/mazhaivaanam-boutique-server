@@ -6,15 +6,16 @@ import Inventory from '../models/Inventory.js';
 import Cart from '../models/Cart.js';
 import Coupon from '../models/Coupon.js';
 import User from '../models/User.js';
+import StoreConfig from '../models/StoreConfig.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
 import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 
-const GIFT_WRAP_PRICE = 499;
-const CONVENIENCE_FEE = 2;
-const FESTIVAL_DISCOUNT_PERCENT = 5;
+// Fallback constants (used if DB config unavailable)
+const DEFAULT_GIFT_WRAP_PRICE = 499;
+const DEFAULT_CONVENIENCE_FEE = 2;
 
 /**
  * POST /api/orders
@@ -63,14 +64,17 @@ export const createOrder = async (req, res, next) => {
     // 3. Calculate pricing
     const orderItems = items.map((item) => {
       const prod = products.find((p) => p._id.toString() === item.product);
+      // For pre-order products: charge deposit only, not full price
+      const isPreorderDeposit = prod.isPreorder && prod.preorderDeposit > 0;
+      const chargePrice = isPreorderDeposit ? prod.preorderDeposit : prod.price;
       return {
         product: prod._id,
-        name: prod.name,
-        price: prod.price,
+        name: isPreorderDeposit ? `${prod.name} (Pre-order Deposit)` : prod.name,
+        price: chargePrice,
         image: prod.images?.[0]?.url || '',
         quantity: item.quantity,
         fabric: prod.fabric,
-        weightKg: prod.weightKg || 0.5, // per-item weight for shipping calc
+        weightKg: prod.weightKg || 0.5,
         category: '',
       };
     });
@@ -81,8 +85,12 @@ export const createOrder = async (req, res, next) => {
     }, 0);
 
     const subtotal = orderItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-    const festivalDiscount = Math.round(subtotal * (FESTIVAL_DISCOUNT_PERCENT / 100));
-    const giftPackCharge = giftPackaging ? GIFT_WRAP_PRICE : 0;
+
+    // Fetch store config for fees
+    const storeConfig = await StoreConfig.getConfig();
+    const GIFT_WRAP_PRICE = storeConfig.giftWrapPrice  ?? DEFAULT_GIFT_WRAP_PRICE;
+    const CONVENIENCE_FEE = storeConfig.convenienceFee ?? DEFAULT_CONVENIENCE_FEE;
+    const giftPackCharge  = giftPackaging ? GIFT_WRAP_PRICE : 0;
 
     // Weight-based shipping calculation
     const totalWeightKg = calculateTotalWeight(orderItems);
@@ -97,8 +105,8 @@ export const createOrder = async (req, res, next) => {
       }
     }
 
-    const totalAmount = Math.max(0, subtotal - festivalDiscount - couponDiscount + giftPackCharge + CONVENIENCE_FEE + shippingFee);
-    const totalSavings = mrpTotal - subtotal + festivalDiscount + couponDiscount;
+    const totalAmount  = Math.max(0, subtotal - couponDiscount + giftPackCharge + CONVENIENCE_FEE + shippingFee);
+    const totalSavings = (mrpTotal - subtotal) + couponDiscount;
 
     // 4. Generate order ID
     const orderId = generateOrderId();
@@ -110,7 +118,32 @@ export const createOrder = async (req, res, next) => {
         amount: Math.round(totalAmount * 100), // paise (must be integer)
         currency: 'INR',
         receipt: orderId,
-        notes: { orderId, userId: req.user._id.toString() },
+        notes: {
+            // Order identification
+            orderId,
+            userId: req.user._id.toString(),
+
+            // Customer details
+            customerName: shippingAddress?.fullName || '',
+            customerPhone: shippingAddress?.phone || '',
+            customerEmail: req.user.email || '',
+
+            // Shipping address (Razorpay notes max 15 keys, keep compact)
+            shippingCity: shippingAddress?.city || '',
+            shippingState: shippingAddress?.state || '',
+            shippingPinCode: shippingAddress?.pinCode || '',
+            shippingAddress: `${shippingAddress?.addressLine || ''}, ${shippingAddress?.city || ''}, ${shippingAddress?.state || ''} - ${shippingAddress?.pinCode || ''}`.trim(),
+
+            // Order items summary (compact — join names)
+            items: orderItems.map(i => `${i.name} x${i.quantity}`).join(' | ').substring(0, 255),
+            totalItems: orderItems.reduce((s, i) => s + i.quantity, 0),
+
+            // Delivery & extras
+            deliveryMode: deliveryMode || 'standard',
+            couponCode: couponCode || '',
+            giftPackaging: giftPackaging ? 'Yes' : 'No',
+            giftMessage: (giftMessage || '').substring(0, 100),
+          },
       });
     } catch (rpError) {
       const errorMsg = rpError.error?.description || rpError.message || JSON.stringify(rpError);
@@ -146,7 +179,7 @@ export const createOrder = async (req, res, next) => {
       giftMessage: giftMessage || '',
       mrpTotal,
       subtotal,
-      discount: festivalDiscount,
+      discount: 0,        // festival discount removed
       couponCode: couponCode || '',
       couponDiscount,
       giftPackCharge,
@@ -169,6 +202,18 @@ export const createOrder = async (req, res, next) => {
         const prod = products.find((p) => p._id.toString() === i.product.toString());
         return prod?.isPreorder;
       }),
+      // Track if this order is deposit-only and how much balance is due
+      isDepositOnly: items.some((item) => {
+        const prod = products.find((p) => p._id.toString() === item.product);
+        return prod?.isPreorder && prod?.preorderDeposit > 0;
+      }),
+      preorderBalanceDue: items.reduce((sum, item) => {
+        const prod = products.find((p) => p._id.toString() === item.product);
+        if (prod?.isPreorder && prod?.preorderDeposit > 0) {
+          return sum + (prod.price - prod.preorderDeposit) * item.quantity;
+        }
+        return sum;
+      }, 0),
     });
 
     // 8. Increment coupon usage
