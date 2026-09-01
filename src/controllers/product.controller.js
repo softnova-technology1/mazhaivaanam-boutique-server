@@ -10,9 +10,9 @@ export const formatProductOutput = (p) => {
   const images = (p.images && Array.isArray(p.images) && p.images.length > 0)
     ? p.images.map(img => ({
         ...img,
-        url: (typeof img.url === 'string' && img.url.startsWith('blob:')) ? '/Images/saree1.png' : (img.url || '/Images/saree1.png')
+        url: (typeof img.url === 'string' && img.url.startsWith('blob:')) ? '' : (img.url || '')
       }))
-    : [{ url: '/Images/saree1.png', publicId: '' }];
+    : [];
 
   return {
     ...p,
@@ -428,3 +428,99 @@ export const hardDeleteProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * POST /api/admin/products/bulk/import
+ * Bulk import products from JSON array (parsed from CSV/Excel)
+ */
+export const bulkImportProducts = async (req, res, next) => {
+  try {
+    const rawProducts = req.body.products || (Array.isArray(req.body) ? req.body : []);
+    if (!Array.isArray(rawProducts) || rawProducts.length === 0) {
+      return errorResponse(res, 'No product records provided for import', 400);
+    }
+
+    // Fetch all categories for resolution
+    const categories = await Category.find({}).lean();
+    const defaultCat = categories[0]?._id;
+
+    const createdProducts = [];
+    const errors = [];
+
+    for (let i = 0; i < rawProducts.length; i++) {
+      const item = rawProducts[i];
+      try {
+        if (!item.name || !String(item.name).trim()) {
+          errors.push({ row: i + 1, message: 'Missing product name' });
+          continue;
+        }
+
+        // Match category by name or slug or ID
+        let catId = defaultCat;
+        if (item.category) {
+          const catStr = String(item.category).trim().toLowerCase();
+          const matchCat = categories.find(c =>
+            c._id.toString() === item.category ||
+            c.name.toLowerCase() === catStr ||
+            c.slug.toLowerCase() === catStr
+          );
+          if (matchCat) catId = matchCat._id;
+        }
+
+        const price = Number(item.price) || 0;
+        const mrpPrice = Number(item.mrpPrice) || Math.round(price * 1.15);
+        const stock = (item.stock !== undefined && item.stock !== '' && !isNaN(Number(item.stock))) ? Number(item.stock) : 25;
+
+        let images = [];
+        if (Array.isArray(item.images) && item.images.length > 0) {
+          images = item.images;
+        } else if (item.imageUrl || item.image || item.primaryImage) {
+          images = [{ url: item.imageUrl || item.image || item.primaryImage, publicId: '' }];
+        }
+
+        const newProd = await Product.create({
+          name: String(item.name).trim(),
+          description: item.description || `Handcrafted ${item.name}`,
+          category: catId,
+          fabric: item.fabric || 'Cotton',
+          price,
+          mrpPrice,
+          tag: item.tag || null,
+          isFeatured: Boolean(item.isFeatured),
+          isActive: item.isActive !== false,
+          isPreorder: Boolean(item.isPreorder),
+          weight: item.weight || '',
+          pattern: item.pattern || '',
+          pallu: item.pallu || '',
+          sareeLength: item.sareeLength || '',
+          blouseLength: item.blouseLength || '',
+          blouse: item.blouse || '',
+          height: item.height || '',
+          washCare: item.washCare || '',
+          returnPolicy: item.returnPolicy || 'Not Applicable',
+          note: item.note || 'Product Color May Slightly Vary Due To Photography Lighting.',
+          images,
+        });
+
+        // Create inventory
+        await Inventory.create({
+          product: newProd._id,
+          totalStock: stock,
+          lowStockThreshold: 5,
+        });
+
+        createdProducts.push(newProd);
+      } catch (err) {
+        errors.push({ row: i + 1, message: err.message });
+      }
+    }
+
+    return successResponse(res, {
+      importedCount: createdProducts.length,
+      errorsCount: errors.length,
+      errors,
+    }, `Successfully imported ${createdProducts.length} products`);
+  } catch (error) {
+    next(error);
+  }
+};

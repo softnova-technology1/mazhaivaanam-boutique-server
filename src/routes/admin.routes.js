@@ -7,7 +7,7 @@ import { updateOrderStatusValidator } from '../validators/order.validator.js';
 import upload from '../middleware/upload.middleware.js';
 
 // Controllers
-import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts } from '../controllers/product.controller.js';
+import { createProduct, updateProduct, deleteProduct, hardDeleteProduct, getAdminProducts, bulkImportProducts } from '../controllers/product.controller.js';
 import {
   createCategory, updateCategory, deleteCategory, getAdminCategories,
   createCollection, updateCollection, deleteCollection, getAdminCollections,
@@ -43,6 +43,7 @@ router.get('/dashboard/sales', getSalesAnalytics);
 // Products
 router.get('/products', getAdminProducts);
 router.post('/products', validate(createProductValidator), createProduct);
+router.post('/products/bulk/import', bulkImportProducts);
 router.post('/products/bulk/delete', bulkDeleteProducts);
 router.post('/products/bulk/hard-delete', hardBulkDeleteProducts);
 router.put('/products/:id', validate(updateProductValidator), updateProduct);
