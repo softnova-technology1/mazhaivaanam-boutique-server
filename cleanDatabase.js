@@ -45,30 +45,41 @@ const cleanDB = async () => {
     const addressDeleteResult = await db.collection('addresses').deleteMany({});
     console.log(`Cleared all addresses. Removed: ${addressDeleteResult.deletedCount} addresses.`);
 
-    // 6. Clear ALL contact inquiries
+    // 6. Clear ALL contact inquiries & reviews
     const inquiryDeleteResult = await db.collection('contactinquiries').deleteMany({});
     console.log(`Cleared all contact inquiries. Removed: ${inquiryDeleteResult.deletedCount} inquiries.`);
 
-    // 7. Clear ALL reviews
     const reviewDeleteResult = await db.collection('reviews').deleteMany({});
     console.log(`Cleared all reviews. Removed: ${reviewDeleteResult.deletedCount} reviews.`);
+
+    // 7. Clear ALL products, inventories, coupons, collections, offer configs
+    const prodDeleteResult = await db.collection('products').deleteMany({});
+    console.log(`Cleared all products. Removed: ${prodDeleteResult.deletedCount} products.`);
+
+    const invDeleteResult = await db.collection('inventories').deleteMany({});
+    console.log(`Cleared all inventories. Removed: ${invDeleteResult.deletedCount} inventories.`);
+
+    const couponDeleteResult = await db.collection('coupons').deleteMany({});
+    console.log(`Cleared all coupons. Removed: ${couponDeleteResult.deletedCount} coupons.`);
+
+    const colDeleteResult = await db.collection('collections').deleteMany({});
+    console.log(`Cleared all collections. Removed: ${colDeleteResult.deletedCount} collections.`);
+
+    const offerDeleteResult = await db.collection('limitedofferconfigs').deleteMany({});
+    console.log(`Cleared all offer configs. Removed: ${offerDeleteResult.deletedCount} offer configs.`);
 
     // 8. Count Retained Data
     const prodCount = await db.collection('products').countDocuments();
     const catCount = await db.collection('categories').countDocuments();
-    const invCount = await db.collection('inventories').countDocuments();
-    const offerCount = await db.collection('limitedofferconfigs').countDocuments();
     const userCount = await db.collection('users').countDocuments();
 
     console.log('\n=============================================');
-    console.log('✅ DATABASE CLEANUP COMPLETE & ACCURATE');
+    console.log('✅ DATABASE CLEANUP COMPLETE — FRESH SLATE');
     console.log('=============================================');
     console.log(`• Retained Users: ${userCount} (ONLY admin@mazhaivaanam.com)`);
-    console.log(`• Retained Products: ${prodCount} Sarees`);
-    console.log(`• Retained Categories: ${catCount} Collections`);
-    console.log(`• Retained Inventories: ${invCount} Warehouse Stocks`);
-    console.log(`• Retained Offer Configs: ${offerCount}`);
-    console.log('• Retained Orders: 0 (100% Clean state for real customer orders!)');
+    console.log(`• Retained Categories: ${catCount} Categories`);
+    console.log(`• Retained Products: ${prodCount} (100% Clean)`);
+    console.log('• Retained Orders: 0 (100% Clean state for launch!)');
     console.log('=============================================\n');
 
     process.exit(0);

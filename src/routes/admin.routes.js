@@ -76,6 +76,7 @@ router.delete('/users/:id', deleteUser);
 router.get('/reviews', getPendingReviews);
 router.get('/reviews/all', getAllReviews);
 router.put('/reviews/:reviewId/approve', approveReview);
+router.delete('/reviews/:reviewId', deleteReview);
 
 // Contact Inquiries
 router.get('/inquiries', getInquiries);

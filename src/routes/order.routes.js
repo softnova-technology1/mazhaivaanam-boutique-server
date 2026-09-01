@@ -10,18 +10,16 @@ import { validateCoupon } from '../controllers/coupon.controller.js';
 
 const router = Router();
 
-// Order tracking & Coupon validation — public / customer
+// Static / specific routes FIRST (before any dynamic /:param routes)
 router.get('/tracking/:orderId', trackOrder);
 router.get('/track/:orderId', trackOrder);
 router.post('/validate-coupon', validateCoupon);
+router.post('/payments/verify', protect, verifyPayment); // ← MOVED UP: must be before /:orderId
 
-// Protected routes
+// Protected routes (dynamic routes last)
 router.post('/', protect, validate(createOrderValidator), createOrder);
 router.get('/', protect, getUserOrders);
-router.get('/:orderId', protect, getOrderById);
+router.get('/:orderId', protect, getOrderById);        // ← dynamic: must be last
 router.post('/:orderId/cancel', protect, cancelOrder);
-
-// Payment verification
-router.post('/payments/verify', protect, verifyPayment);
 
 export default router;

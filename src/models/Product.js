@@ -120,6 +120,7 @@ const productSchema = new mongoose.Schema(
     },
     
     // Additional requested fields
+    weightKg: { type: Number, default: 0.5, min: 0 }, // Weight in KG — used for shipping calc
     weight: { type: String, default: '' },
     pattern: { type: String, default: '' },
     pallu: { type: String, default: '' },

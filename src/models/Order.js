@@ -65,6 +65,8 @@ const orderSchema = new mongoose.Schema(
     giftPackCharge: { type: Number, default: 0 },
     convenienceFee: { type: Number, default: 0 },
     shippingFee: { type: Number, default: 0 },
+    shippingWeight: { type: Number, default: 0 },   // Total weight in kg
+    shippingLabel: { type: String, default: '' },    // e.g. "Upto 1kg (0.50 kg)"
     totalAmount: { type: Number, required: true },
     totalSavings: { type: Number, default: 0 },
 

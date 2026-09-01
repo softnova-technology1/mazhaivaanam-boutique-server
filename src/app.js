@@ -28,10 +28,10 @@ app.use(
   })
 );
 
-// CORS — Allow frontend + admin origins
+// CORS — Single origin (Customer store + Admin panel on same port)
+// Admin panel is hidden at /mazhaivaanam-sn2026 (not a separate URL)
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:5173',
-  process.env.ADMIN_URL || 'http://localhost:5174',
 ].filter(Boolean);
 
 app.use(

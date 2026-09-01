@@ -10,6 +10,7 @@ import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
 import { sendOrderConfirmationEmail, sendOrderShippedEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
+import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 
 const GIFT_WRAP_PRICE = 499;
 const CONVENIENCE_FEE = 2;
@@ -69,6 +70,7 @@ export const createOrder = async (req, res, next) => {
         image: prod.images?.[0]?.url || '',
         quantity: item.quantity,
         fabric: prod.fabric,
+        weightKg: prod.weightKg || 0.5, // per-item weight for shipping calc
         category: '',
       };
     });
@@ -81,7 +83,10 @@ export const createOrder = async (req, res, next) => {
     const subtotal = orderItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
     const festivalDiscount = Math.round(subtotal * (FESTIVAL_DISCOUNT_PERCENT / 100));
     const giftPackCharge = giftPackaging ? GIFT_WRAP_PRICE : 0;
-    const shippingFee = deliveryMode === 'pickup' ? 0 : (deliveryMode === 'express' ? 150 : 100);
+
+    // Weight-based shipping calculation
+    const totalWeightKg = calculateTotalWeight(orderItems);
+    const { shippingFee, shippingLabel } = calculateShipping(totalWeightKg, deliveryMode);
 
     // Apply coupon
     let couponDiscount = 0;
@@ -147,6 +152,8 @@ export const createOrder = async (req, res, next) => {
       giftPackCharge,
       convenienceFee: CONVENIENCE_FEE,
       shippingFee,
+      shippingWeight: totalWeightKg,
+      shippingLabel,
       totalAmount,
       totalSavings,
       paymentMethod,
