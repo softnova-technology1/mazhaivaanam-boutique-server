@@ -189,10 +189,10 @@ export const createOrder = async (req, res, next) => {
       paymentMethod,
       paymentStatus: 'pending',
       razorpayOrderId: razorpayOrder.id,
-      status: 'PROCESSING',
+      status: 'CONFIRMED',
       statusHistory: [{
-        status: 'PROCESSING',
-        note: 'Order placed, awaiting payment',
+        status: 'CONFIRMED',
+        note: 'Order placed, awaiting payment confirmation',
       }],
       estimatedDelivery: new Date(Date.now() + (deliveryMode === 'express' ? 5 : 9) * 24 * 60 * 60 * 1000),
       isPreorder: orderItems.some((i) => {
@@ -337,55 +337,6 @@ export const getOrderById = async (req, res, next) => {
   }
 };
 
-/**
- * POST /api/orders/:orderId/cancel
- * Cancel an order (only if PROCESSING or CONFIRMED)
- */
-export const cancelOrder = async (req, res, next) => {
-  try {
-    const order = await Order.findOne({
-      orderId: req.params.orderId,
-      user: req.user._id,
-    });
-
-    if (!order) {
-      return errorResponse(res, 'Order not found', 404);
-    }
-
-    if (!['PROCESSING', 'CONFIRMED'].includes(order.status)) {
-      return errorResponse(res, `Cannot cancel order in "${order.status}" status`, 400);
-    }
-
-    order.status = 'CANCELLED';
-    order.statusHistory.push({
-      status: 'CANCELLED',
-      note: 'Cancelled by customer',
-    });
-    await order.save();
-
-    // Release inventory
-    for (const item of order.items) {
-      const field = order.paymentStatus === 'paid' ? 'sold' : 'reserved';
-      await Inventory.findOneAndUpdate(
-        { product: item.product },
-        {
-          $inc: { [field]: -item.quantity },
-          $push: {
-            stockHistory: {
-              type: 'release',
-              quantity: item.quantity,
-              note: `Released from cancelled order ${order.orderId}`,
-            },
-          },
-        }
-      );
-    }
-
-    successResponse(res, { orderId: order.orderId }, 'Order cancelled');
-  } catch (error) {
-    next(error);
-  }
-};
 
 /**
  * GET /api/tracking/:orderId
@@ -438,7 +389,7 @@ export const updateOrderStatus = async (req, res, next) => {
     await order.save();
 
     // Send email notifications on key status changes
-    if (status === 'SHIPPED') {
+    if (status === 'SHIPPING') {
       const user = await User.findById(order.user);
       if (user) sendOrderShippedEmail(user, order);
     }
