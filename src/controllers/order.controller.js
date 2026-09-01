@@ -110,7 +110,32 @@ export const createOrder = async (req, res, next) => {
         amount: Math.round(totalAmount * 100), // paise (must be integer)
         currency: 'INR',
         receipt: orderId,
-        notes: { orderId, userId: req.user._id.toString() },
+        notes: {
+            // Order identification
+            orderId,
+            userId: req.user._id.toString(),
+
+            // Customer details
+            customerName: shippingAddress?.fullName || '',
+            customerPhone: shippingAddress?.phone || '',
+            customerEmail: req.user.email || '',
+
+            // Shipping address (Razorpay notes max 15 keys, keep compact)
+            shippingCity: shippingAddress?.city || '',
+            shippingState: shippingAddress?.state || '',
+            shippingPinCode: shippingAddress?.pinCode || '',
+            shippingAddress: `${shippingAddress?.addressLine || ''}, ${shippingAddress?.city || ''}, ${shippingAddress?.state || ''} - ${shippingAddress?.pinCode || ''}`.trim(),
+
+            // Order items summary (compact — join names)
+            items: orderItems.map(i => `${i.name} x${i.quantity}`).join(' | ').substring(0, 255),
+            totalItems: orderItems.reduce((s, i) => s + i.quantity, 0),
+
+            // Delivery & extras
+            deliveryMode: deliveryMode || 'standard',
+            couponCode: couponCode || '',
+            giftPackaging: giftPackaging ? 'Yes' : 'No',
+            giftMessage: (giftMessage || '').substring(0, 100),
+          },
       });
     } catch (rpError) {
       const errorMsg = rpError.error?.description || rpError.message || JSON.stringify(rpError);
