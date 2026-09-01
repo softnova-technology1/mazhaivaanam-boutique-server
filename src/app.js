@@ -82,13 +82,10 @@ app.get('/api/health', (req, res) => {
 import { getOfferConfig, spinWheel } from './controllers/offer.controller.js';
 import { protect } from './middleware/auth.middleware.js';
 import { getAllFabrics } from './controllers/fabric.controller.js';
-
-app.get('/api/limited-offer/config', getOfferConfig);
-app.post('/api/limited-offer/spin', protect, spinWheel);
-import { getOfferConfig } from './controllers/offer.controller.js';
 import { getStoreConfig } from './controllers/storeConfig.controller.js';
 
 app.get('/api/limited-offer/config', getOfferConfig);
+app.post('/api/limited-offer/spin', protect, spinWheel);
 app.get('/api/store/config', getStoreConfig); // Public — Client fetches discount config
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productRoutes);
