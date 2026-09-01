@@ -8,7 +8,7 @@ import Coupon from '../models/Coupon.js';
 import User from '../models/User.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
-import { sendOrderConfirmationEmail, sendOrderShippedEmail } from '../utils/sendEmail.js';
+import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 
@@ -248,7 +248,7 @@ export const verifyPayment = async (req, res, next) => {
     // Send confirmation email
     const user = await User.findById(order.user);
     if (user) {
-      sendOrderConfirmationEmail(user, order);
+      sendOrderConfirmationEmail(user, order).catch(err => console.error('Failed to send Order Confirmed email:', err));
     }
 
     successResponse(res, { orderId: order.orderId }, 'Payment verified — order confirmed');
@@ -361,7 +361,10 @@ export const updateOrderStatus = async (req, res, next) => {
     // Send email notifications on key status changes
     if (status === 'SHIPPING') {
       const user = await User.findById(order.user);
-      if (user) sendOrderShippedEmail(user, order);
+      if (user) sendOrderShippedEmail(user, order).catch(err => console.error('Failed to send Shipped email:', err));
+    } else if (status === 'DELIVERED') {
+      const user = await User.findById(order.user);
+      if (user) sendOrderDeliveredEmail(user, order).catch(err => console.error('Failed to send Delivered email:', err));
     }
 
     successResponse(res, order, 'Order status updated');

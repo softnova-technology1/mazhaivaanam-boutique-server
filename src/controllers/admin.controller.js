@@ -3,6 +3,7 @@ import User from '../models/User.js';
 import Product from '../models/Product.js';
 import ContactInquiry from '../models/ContactInquiry.js';
 import Inventory from '../models/Inventory.js';
+import { sendOrderShippedEmail, sendOrderDeliveredEmail } from '../utils/sendEmail.js';
 import { successResponse } from '../utils/apiResponse.js';
 
 /**
@@ -237,6 +238,17 @@ export const bulkUpdateOrderStatus = async (req, res, next) => {
         $push: { statusHistory: historyEntry },
       }
     );
+
+    // Send emails for SHIPPING and DELIVERED statuses
+    if (status === 'SHIPPING' || status === 'DELIVERED') {
+      const orders = await Order.find({ _id: { $in: orderIds } }).populate('user');
+      for (const order of orders) {
+        if (order.user) {
+          if (status === 'SHIPPING') sendOrderShippedEmail(order.user, order).catch(err => console.error('Failed to send bulk Shipped email:', err));
+          else if (status === 'DELIVERED') sendOrderDeliveredEmail(order.user, order).catch(err => console.error('Failed to send bulk Delivered email:', err));
+        }
+      }
+    }
 
     successResponse(res, result, `Successfully updated ${result.modifiedCount} orders to ${status}`);
   } catch (error) {
