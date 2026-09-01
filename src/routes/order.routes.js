@@ -4,7 +4,7 @@ import validate from '../middleware/validate.middleware.js';
 import { createOrderValidator } from '../validators/order.validator.js';
 import {
   createOrder, verifyPayment, getUserOrders,
-  getOrderById, cancelOrder, trackOrder,
+  getOrderById, trackOrder,
 } from '../controllers/order.controller.js';
 import { validateCoupon } from '../controllers/coupon.controller.js';
 
@@ -20,6 +20,5 @@ router.post('/payments/verify', protect, verifyPayment); // ← MOVED UP: must b
 router.post('/', protect, validate(createOrderValidator), createOrder);
 router.get('/', protect, getUserOrders);
 router.get('/:orderId', protect, getOrderById);        // ← dynamic: must be last
-router.post('/:orderId/cancel', protect, cancelOrder);
 
 export default router;

@@ -153,36 +153,41 @@ export const getNewArrivals = async (req, res, next) => {
 };
 
 /**
+ * GET /api/products/limited-offers
+ * Returns only products tagged as 'FESTIVAL CHOICE' or 'LIMITED EDITION'
+ */
+export const getLimitedOfferProducts = async (req, res, next) => {
+  try {
+    const limit = parseInt(req.query.limit) || 20;
+    const products = await Product.find({
+      isActive: true,
+      tag: { $in: ['FESTIVAL CHOICE', 'LIMITED EDITION'] }
+    })
+      .populate('category', 'name slug')
+      .sort({ createdAt: -1 })
+      .limit(limit)
+      .lean();
+    const enriched = products.map(formatProductOutput);
+    successResponse(res, enriched);
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * GET /api/products/best-sellers
- * Returns best sellers (both manual 'BESTSELLER' tagged and dynamic highest-rated products)
+ * Returns only products explicitly tagged as 'BESTSELLER'
  */
 export const getBestSellers = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 12;
 
-    // 1. First get products explicitly tagged as BESTSELLER
-    let products = await Product.find({ isActive: true, tag: 'BESTSELLER' })
+    // Only return products manually tagged as BESTSELLER by admin
+    const products = await Product.find({ isActive: true, tag: 'BESTSELLER' })
       .populate('category', 'name slug')
-      .sort({ averageRating: -1, createdAt: -1 })
+      .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-
-    // 2. If fewer than limit, dynamically fetch highest-rated / featured products to fill the quota
-    if (products.length < limit) {
-      const existingIds = products.map((p) => p._id);
-      const remainingLimit = limit - products.length;
-
-      const dynamicTopSellers = await Product.find({
-        isActive: true,
-        _id: { $nin: existingIds },
-      })
-        .populate('category', 'name slug')
-        .sort({ averageRating: -1, reviewCount: -1, createdAt: -1 })
-        .limit(remainingLimit)
-        .lean();
-
-      products = [...products, ...dynamicTopSellers];
-    }
 
     const enriched = products.map(formatProductOutput);
     successResponse(res, enriched);
