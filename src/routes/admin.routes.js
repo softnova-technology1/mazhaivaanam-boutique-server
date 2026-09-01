@@ -30,7 +30,7 @@ import {
 } from '../controllers/admin.controller.js';
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
-import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
+import { getOfferConfig, updateOfferConfig, getLimitedOfferAdminProducts, assignToLimitedOffer, updateLimitedOfferProduct, removeFromLimitedOffer, getAdminOfferSections, createOfferSection, updateOfferSection, deleteOfferSection, addProductToSection, removeProductFromSection } from '../controllers/offer.controller.js';
 import { updateStoreConfig } from '../controllers/storeConfig.controller.js';
 
 const router = Router();
@@ -117,6 +117,20 @@ router.delete('/upload/:publicId', deleteImage);
 // Limited Offer Config
 router.get('/limited-offer/config', getOfferConfig);
 router.put('/limited-offer', updateOfferConfig);
+
+// Limited Offer Product Management (timed)
+router.get('/limited-offer/products', getLimitedOfferAdminProducts);
+router.post('/limited-offer/products/:productId', assignToLimitedOffer);
+router.put('/limited-offer/products/:productId', updateLimitedOfferProduct);
+router.delete('/limited-offer/products/:productId', removeFromLimitedOffer);
+
+// Offer Sections (section-level timing)
+router.get('/limited-offer/sections', getAdminOfferSections);
+router.post('/limited-offer/sections', createOfferSection);
+router.put('/limited-offer/sections/:sectionId', updateOfferSection);
+router.delete('/limited-offer/sections/:sectionId', deleteOfferSection);
+router.post('/limited-offer/sections/:sectionId/products', addProductToSection);
+router.delete('/limited-offer/sections/:sectionId/products/:productId', removeProductFromSection);
 
 // Store Config (Festival Discount, Fees)
 router.get('/store/config', async (req, res, next) => { const { getStoreConfig } = await import('../controllers/storeConfig.controller.js'); getStoreConfig(req, res, next); });

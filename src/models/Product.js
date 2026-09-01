@@ -142,6 +142,15 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+
+    // Limited Offer timed entry
+    limitedOfferEntry: {
+      isActive:   { type: Boolean, default: false },
+      section:    { type: Number, enum: [1, 2], default: 1 },
+      offerLabel: { type: String, default: '' },
+      startDate:  { type: Date, default: null },
+      endDate:    { type: Date, default: null },
+    },
   },
   {
     timestamps: true,
@@ -167,6 +176,7 @@ productSchema.index({ price: 1 });
 productSchema.index({ tag: 1 });
 productSchema.index({ fabric: 1 });
 productSchema.index({ isFeatured: 1, isActive: 1 });
+productSchema.index({ 'limitedOfferEntry.isActive': 1, 'limitedOfferEntry.endDate': 1 });
 
 const Product = mongoose.model('Product', productSchema);
 export default Product;
