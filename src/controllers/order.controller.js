@@ -6,15 +6,16 @@ import Inventory from '../models/Inventory.js';
 import Cart from '../models/Cart.js';
 import Coupon from '../models/Coupon.js';
 import User from '../models/User.js';
+import StoreConfig from '../models/StoreConfig.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
 import { sendOrderConfirmationEmail, sendOrderShippedEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 
-const GIFT_WRAP_PRICE = 499;
-const CONVENIENCE_FEE = 2;
-const FESTIVAL_DISCOUNT_PERCENT = 5;
+// Fallback constants (used if DB config unavailable)
+const DEFAULT_GIFT_WRAP_PRICE = 499;
+const DEFAULT_CONVENIENCE_FEE = 2;
 
 /**
  * POST /api/orders
@@ -81,8 +82,12 @@ export const createOrder = async (req, res, next) => {
     }, 0);
 
     const subtotal = orderItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
-    const festivalDiscount = Math.round(subtotal * (FESTIVAL_DISCOUNT_PERCENT / 100));
-    const giftPackCharge = giftPackaging ? GIFT_WRAP_PRICE : 0;
+
+    // Fetch store config for fees
+    const storeConfig = await StoreConfig.getConfig();
+    const GIFT_WRAP_PRICE = storeConfig.giftWrapPrice  ?? DEFAULT_GIFT_WRAP_PRICE;
+    const CONVENIENCE_FEE = storeConfig.convenienceFee ?? DEFAULT_CONVENIENCE_FEE;
+    const giftPackCharge  = giftPackaging ? GIFT_WRAP_PRICE : 0;
 
     // Weight-based shipping calculation
     const totalWeightKg = calculateTotalWeight(orderItems);
@@ -97,8 +102,8 @@ export const createOrder = async (req, res, next) => {
       }
     }
 
-    const totalAmount = Math.max(0, subtotal - festivalDiscount - couponDiscount + giftPackCharge + CONVENIENCE_FEE + shippingFee);
-    const totalSavings = mrpTotal - subtotal + festivalDiscount + couponDiscount;
+    const totalAmount  = Math.max(0, subtotal - couponDiscount + giftPackCharge + CONVENIENCE_FEE + shippingFee);
+    const totalSavings = (mrpTotal - subtotal) + couponDiscount;
 
     // 4. Generate order ID
     const orderId = generateOrderId();
@@ -171,7 +176,7 @@ export const createOrder = async (req, res, next) => {
       giftMessage: giftMessage || '',
       mrpTotal,
       subtotal,
-      discount: festivalDiscount,
+      discount: 0,        // festival discount removed
       couponCode: couponCode || '',
       couponDiscount,
       giftPackCharge,

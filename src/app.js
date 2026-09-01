@@ -80,8 +80,10 @@ app.get('/api/health', (req, res) => {
 // ==================== API ROUTES ====================
 
 import { getOfferConfig } from './controllers/offer.controller.js';
+import { getStoreConfig } from './controllers/storeConfig.controller.js';
 
 app.get('/api/limited-offer/config', getOfferConfig);
+app.get('/api/store/config', getStoreConfig); // Public — Client fetches discount config
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRouter);

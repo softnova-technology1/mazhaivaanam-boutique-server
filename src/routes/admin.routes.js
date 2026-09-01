@@ -30,6 +30,7 @@ import {
 import { getCoupons, createCoupon, updateCoupon, deleteCoupon } from '../controllers/coupon.controller.js';
 import { getDiscounts, updateDiscount, removeDiscount, bulkUpdateDiscounts, bulkRemoveDiscounts } from '../controllers/discount.controller.js';
 import { getOfferConfig, updateOfferConfig } from '../controllers/offer.controller.js';
+import { updateStoreConfig } from '../controllers/storeConfig.controller.js';
 
 const router = Router();
 
@@ -111,5 +112,9 @@ router.delete('/upload/:publicId', deleteImage);
 // Limited Offer Config
 router.get('/limited-offer/config', getOfferConfig);
 router.put('/limited-offer', updateOfferConfig);
+
+// Store Config (Festival Discount, Fees)
+router.get('/store/config', async (req, res, next) => { const { getStoreConfig } = await import('../controllers/storeConfig.controller.js'); getStoreConfig(req, res, next); });
+router.put('/store/config', updateStoreConfig);
 
 export default router;
