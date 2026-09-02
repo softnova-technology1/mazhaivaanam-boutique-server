@@ -58,7 +58,12 @@ export const getProducts = async (req, res, next) => {
     if (fabric) filter.fabric = fabric;
     if (tag) filter.tag = tag;
     if (featured === 'true') filter.isFeatured = true;
-    if (preorder === 'true') filter.isPreorder = true;
+    // Preorder filter - default: isolate pre-orders from regular catalog
+    if (preorder === 'true') {
+      filter.isPreorder = true;
+    } else {
+      filter.isPreorder = { $ne: true };
+    }
 
     // Color filter
     if (color) filter['color.hex'] = `#${color}`;
@@ -123,7 +128,7 @@ export const getProducts = async (req, res, next) => {
 export const getFeaturedProducts = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 8;
-    const products = await Product.find({ isActive: true, isFeatured: true })
+    const products = await Product.find({ isActive: true, isFeatured: true, isPreorder: { $ne: true } })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .limit(limit)
@@ -141,7 +146,7 @@ export const getFeaturedProducts = async (req, res, next) => {
 export const getNewArrivals = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 12;
-    const products = await Product.find({ isActive: true, tag: 'NEW ARRIVAL' })
+    const products = await Product.find({ isActive: true, tag: 'NEW ARRIVAL', isPreorder: { $ne: true } })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .limit(limit)
@@ -162,7 +167,8 @@ export const getLimitedOfferProducts = async (req, res, next) => {
     const limit = parseInt(req.query.limit) || 20;
     const products = await Product.find({
       isActive: true,
-      tag: { $in: ['FESTIVAL CHOICE', 'LIMITED EDITION'] }
+      tag: { $in: ['FESTIVAL CHOICE', 'LIMITED EDITION'] },
+      isPreorder: { $ne: true }
     })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
@@ -184,7 +190,7 @@ export const getBestSellers = async (req, res, next) => {
     const limit = parseInt(req.query.limit) || 12;
 
     // Only return products manually tagged as BESTSELLER by admin
-    const products = await Product.find({ isActive: true, tag: 'BESTSELLER' })
+    const products = await Product.find({ isActive: true, tag: 'BESTSELLER', isPreorder: { $ne: true } })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .limit(limit)
@@ -225,6 +231,7 @@ export const searchProducts = async (req, res, next) => {
 
     const products = await Product.find({
       isActive: true,
+      isPreorder: { $ne: true },
       $text: { $search: q },
     })
       .populate('category', 'name slug')
@@ -301,7 +308,11 @@ export const getAdminProducts = async (req, res, next) => {
     }
 
     if (tag) filter.tag = tag;
-    if (preorder === 'true') filter.isPreorder = true;
+    if (preorder === 'true') {
+      filter.isPreorder = true;
+    } else {
+      filter.isPreorder = { $ne: true };
+    }
 
     if (search) {
       filter.$text = { $search: search };
@@ -532,9 +543,13 @@ export const bulkImportProducts = async (req, res, next) => {
           images = [{ url: item.imageUrl || item.image || item.primaryImage, publicId: '' }];
         }
 
+        const shortDesc = item.shortDescription || item.simpleDescription || '';
+        const longDesc = item.description || item.longDescription || item.detailedDescription || '';
+
         const newProd = await Product.create({
           name: String(item.name).trim(),
-          description: item.description || `Handcrafted ${item.name}`,
+          shortDescription: shortDesc ? String(shortDesc).trim() : '',
+          description: longDesc ? String(longDesc).trim() : '',
           category: catId,
           fabric: item.fabric || 'Cotton',
           price,
@@ -543,16 +558,16 @@ export const bulkImportProducts = async (req, res, next) => {
           isFeatured: Boolean(item.isFeatured),
           isActive: item.isActive !== false,
           isPreorder: Boolean(item.isPreorder),
-          weight: item.weight || '',
-          pattern: item.pattern || '',
-          pallu: item.pallu || '',
-          sareeLength: item.sareeLength || '',
-          blouseLength: item.blouseLength || '',
-          blouse: item.blouse || '',
-          height: item.height || '',
-          washCare: item.washCare || '',
-          returnPolicy: item.returnPolicy || 'Not Applicable',
-          note: item.note || 'Product Color May Slightly Vary Due To Photography Lighting.',
+          weight: item.weight !== undefined && item.weight !== null ? String(item.weight).trim() : '',
+          pattern: item.pattern !== undefined && item.pattern !== null ? String(item.pattern).trim() : '',
+          pallu: item.pallu !== undefined && item.pallu !== null ? String(item.pallu).trim() : '',
+          sareeLength: item.sareeLength !== undefined && item.sareeLength !== null ? String(item.sareeLength).trim() : '',
+          blouseLength: item.blouseLength !== undefined && item.blouseLength !== null ? String(item.blouseLength).trim() : '',
+          blouse: item.blouse !== undefined && item.blouse !== null ? String(item.blouse).trim() : '',
+          height: item.height !== undefined && item.height !== null ? String(item.height).trim() : '',
+          washCare: item.washCare !== undefined && item.washCare !== null ? String(item.washCare).trim() : '',
+          returnPolicy: item.returnPolicy !== undefined && item.returnPolicy !== null ? String(item.returnPolicy).trim() : '',
+          note: item.note !== undefined && item.note !== null ? String(item.note).trim() : '',
           images,
         });
 

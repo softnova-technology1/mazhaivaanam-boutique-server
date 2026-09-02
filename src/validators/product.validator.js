@@ -2,21 +2,22 @@ import Joi from 'joi';
 
 export const createProductValidator = {
   body: Joi.object({
-    name: Joi.string().trim().min(2).max(150).required(),
-    description: Joi.string().trim().max(2000).required(),
-    category: Joi.string().required(), // ObjectId
+    name: Joi.string().trim().min(2).max(150).optional(),
+    shortDescription: Joi.string().allow('', null).optional(),
+    description: Joi.string().allow('', null).optional(),
+    category: Joi.string().allow('', null).optional(),
     collection: Joi.string().allow(null, '').optional(),
-    fabric: Joi.string().required(),
-    price: Joi.number().min(0).required(),
+    fabric: Joi.string().allow('', null).optional(),
+    price: Joi.number().min(0).optional(),
     mrpPrice: Joi.number().min(0).optional(),
     images: Joi.array().items(
       Joi.object({
-        url: Joi.string().required(),
+        url: Joi.string().allow('', null).optional(),
         publicId: Joi.string().allow('', null).optional(),
       })
     ).optional(),
     stock: Joi.number().min(0).optional(),
-    tag: Joi.string().valid('BESTSELLER', 'NEW ARRIVAL', 'LIMITED EDITION', 'FESTIVAL CHOICE', '', null).allow('', null).optional(),
+    tag: Joi.string().allow('', null).optional(),
     isFeatured: Joi.boolean().optional(),
     isActive: Joi.boolean().optional(),
     isScheduled: Joi.boolean().optional(),

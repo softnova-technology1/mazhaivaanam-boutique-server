@@ -14,10 +14,16 @@ const productSchema = new mongoose.Schema(
       unique: true,
       index: true,
     },
+    shortDescription: {
+      type: String,
+      default: '',
+      trim: true,
+      maxlength: 300,
+    },
     description: {
       type: String,
-      required: [true, 'Description is required'],
-      maxlength: 2000,
+      default: '',
+      maxlength: 4000,
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,
