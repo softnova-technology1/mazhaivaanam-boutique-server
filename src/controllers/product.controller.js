@@ -313,7 +313,7 @@ export const getAdminProducts = async (req, res, next) => {
     const limitNum = Math.min(100, Math.max(1, parseInt(limit)));
     const skip = (pageNum - 1) * limitNum;
 
-    const [products, total] = await Promise.all([
+    const [products, total, totalAll, totalActive, totalScheduled] = await Promise.all([
       Product.find(filter)
         .populate('category', 'name slug')
         .sort(sortOption)
@@ -321,16 +321,28 @@ export const getAdminProducts = async (req, res, next) => {
         .limit(limitNum)
         .lean(),
       Product.countDocuments(filter),
+      Product.countDocuments({}),
+      Product.countDocuments({ isActive: true }),
+      Product.countDocuments({ isScheduled: true }),
     ]);
 
     const enriched = products.map(formatProductOutput);
 
-    paginatedResponse(res, enriched, {
-      total,
-      page: pageNum,
-      limit: limitNum,
-      totalPages: Math.ceil(total / limitNum),
-      hasMore: pageNum * limitNum < total,
+    res.status(200).json({
+      success: true,
+      data: enriched,
+      stats: {
+        all: totalAll,
+        active: totalActive,
+        scheduled: totalScheduled
+      },
+      pagination: {
+        total,
+        page: pageNum,
+        limit: limitNum,
+        totalPages: Math.ceil(total / limitNum),
+        hasMore: pageNum * limitNum < total,
+      }
     });
   } catch (error) {
     next(error);

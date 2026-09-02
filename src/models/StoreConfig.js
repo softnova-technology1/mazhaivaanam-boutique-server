@@ -9,9 +9,21 @@ const storeConfigSchema = new mongoose.Schema(
   {
     key: { type: String, default: 'main', unique: true },
 
+    // General Store Info
+    storeName: { type: String, default: 'MAZHAI VAANAM' },
+    email: { type: String, default: 'support@mazhaivaanam.com' },
+    phone: { type: String, default: '' },
+    whatsapp: { type: String, default: '' },
+    address: { type: String, default: '' },
+
+    // Social Links
+    facebookUrl: { type: String, default: 'https://www.facebook.com/profile.php?id=61569890920943' },
+    instagramUrl: { type: String, default: 'https://www.instagram.com/mazhaivaanam' },
+    youtubeUrl: { type: String, default: 'https://www.youtube.com/@mazhaivaanam' },
+
     // Fees (configurable without redeploy)
     convenienceFee: { type: Number, default: 2 },
-    giftWrapPrice:  { type: Number, default: 499 },
+    giftWrapPrice: { type: Number, default: 499 },
   },
   { timestamps: true }
 );

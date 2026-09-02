@@ -63,6 +63,14 @@ const productSchema = new mongoose.Schema(
       default: true,
       index: true,
     },
+    isScheduled: {
+      type: Boolean,
+      default: false,
+    },
+    scheduledAt: {
+      type: Date,
+      default: null,
+    },
 
     // Discount fields
     discount: {
