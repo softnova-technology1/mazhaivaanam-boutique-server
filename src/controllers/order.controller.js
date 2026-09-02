@@ -12,6 +12,7 @@ import generateOrderId from '../utils/generateOrderId.js';
 import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
+import { computeDiscountedPrice } from './discount.controller.js';
 
 // Fallback constants (used if DB config unavailable)
 const DEFAULT_GIFT_WRAP_PRICE = 499;
@@ -66,7 +67,9 @@ export const createOrder = async (req, res, next) => {
       const prod = products.find((p) => p._id.toString() === item.product);
       // For pre-order products: charge deposit only, not full price
       const isPreorderDeposit = prod.isPreorder && prod.preorderDeposit > 0;
-      const chargePrice = isPreorderDeposit ? prod.preorderDeposit : prod.price;
+      // Apply admin discount if active (discountedPrice < base price)
+      const basePrice = computeDiscountedPrice(prod.price, prod.discount);
+      const chargePrice = isPreorderDeposit ? prod.preorderDeposit : basePrice;
       return {
         product: prod._id,
         name: isPreorderDeposit ? `${prod.name} (Pre-order Deposit)` : prod.name,

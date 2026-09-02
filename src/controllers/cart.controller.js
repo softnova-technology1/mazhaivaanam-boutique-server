@@ -2,6 +2,33 @@ import Cart from '../models/Cart.js';
 import Product from '../models/Product.js';
 import { successResponse, errorResponse } from '../utils/apiResponse.js';
 
+/** Compute effective (post-discount) price for a product */
+function effectivePrice(product) {
+  const d = product.discount;
+  if (!d || !d.isActive || !d.type) return product.price;
+  const now = new Date();
+  if (d.startDate && now < new Date(d.startDate)) return product.price;
+  if (d.endDate && now > new Date(d.endDate)) return product.price;
+  if (d.type === 'percentage') return Math.round(product.price * (1 - d.value / 100));
+  if (d.type === 'fixed') return Math.max(0, product.price - d.value);
+  return product.price;
+}
+
+/** Enrich cart item: attach discountedPrice & discountActive */
+function enrichItem(item) {
+  const prod = item.product;
+  if (!prod) return item;
+  const discounted = effectivePrice(prod);
+  return {
+    ...item,
+    product: {
+      ...prod,
+      discountedPrice: discounted,
+      discountActive: discounted < prod.price,
+    },
+  };
+}
+
 /**
  * GET /api/cart
  * Get user's cart with populated product data
@@ -9,7 +36,7 @@ import { successResponse, errorResponse } from '../utils/apiResponse.js';
 export const getCart = async (req, res, next) => {
   try {
     let cart = await Cart.findOne({ user: req.user._id })
-      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive isPreorder')
+      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive isPreorder discount')
       .lean();
 
     if (!cart) {
@@ -19,8 +46,11 @@ export const getCart = async (req, res, next) => {
     // Filter out inactive or deleted products
     cart.items = cart.items.filter((item) => item.product && item.product.isActive);
 
-    // Calculate totals
-    const total = cart.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+    // Enrich items with discountedPrice
+    cart.items = cart.items.map(enrichItem);
+
+    // Calculate totals using effective (discounted) price
+    const total = cart.items.reduce((sum, item) => sum + effectivePrice(item.product) * item.quantity, 0);
     const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
 
     successResponse(res, { items: cart.items, total, itemCount });
@@ -68,12 +98,21 @@ export const addToCart = async (req, res, next) => {
 
     // Return populated cart
     cart = await Cart.findOne({ user: req.user._id })
-      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive');
+      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive discount');
 
-    const total = cart.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
-    const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+    const enrichedItems = cart.items.map(item => ({
+      ...item.toObject(),
+      product: {
+        ...item.product.toObject(),
+        discountedPrice: effectivePrice(item.product),
+        discountActive: effectivePrice(item.product) < item.product.price,
+      }
+    }));
 
-    successResponse(res, { items: cart.items, total, itemCount }, 'Added to cart');
+    const total = enrichedItems.reduce((sum, item) => sum + effectivePrice(item.product) * item.quantity, 0);
+    const itemCount = enrichedItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    successResponse(res, { items: enrichedItems, total, itemCount }, 'Added to cart');
   } catch (error) {
     next(error);
   }
@@ -107,12 +146,14 @@ export const updateCartItem = async (req, res, next) => {
     await cart.save();
 
     const populated = await Cart.findOne({ user: req.user._id })
-      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive');
+      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive discount')
+      .lean();
 
-    const total = populated.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
-    const itemCount = populated.items.reduce((sum, i) => sum + i.quantity, 0);
+    const enrichedItems = (populated?.items || []).map(enrichItem);
+    const total = enrichedItems.reduce((sum, i) => sum + effectivePrice(i.product) * i.quantity, 0);
+    const itemCount = enrichedItems.reduce((sum, i) => sum + i.quantity, 0);
 
-    successResponse(res, { items: populated.items, total, itemCount }, 'Cart updated');
+    successResponse(res, { items: enrichedItems, total, itemCount }, 'Cart updated');
   } catch (error) {
     next(error);
   }
@@ -135,16 +176,14 @@ export const removeFromCart = async (req, res, next) => {
     await cart.save();
 
     const populated = await Cart.findOne({ user: req.user._id })
-      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive');
+      .populate('items.product', 'name slug price mrpPrice images tag fabric isActive discount')
+      .lean();
 
-    const total = populated
-      ? populated.items.reduce((sum, i) => sum + i.product.price * i.quantity, 0)
-      : 0;
-    const itemCount = populated
-      ? populated.items.reduce((sum, i) => sum + i.quantity, 0)
-      : 0;
+    const enrichedItems = (populated?.items || []).map(enrichItem);
+    const total = enrichedItems.reduce((sum, i) => sum + effectivePrice(i.product) * i.quantity, 0);
+    const itemCount = enrichedItems.reduce((sum, i) => sum + i.quantity, 0);
 
-    successResponse(res, { items: populated?.items || [], total, itemCount }, 'Item removed');
+    successResponse(res, { items: enrichedItems, total, itemCount }, 'Item removed');
   } catch (error) {
     next(error);
   }
