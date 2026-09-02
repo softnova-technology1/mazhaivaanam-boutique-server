@@ -495,9 +495,13 @@ export const bulkImportProducts = async (req, res, next) => {
           images = [{ url: item.imageUrl || item.image || item.primaryImage, publicId: '' }];
         }
 
+        const shortDesc = item.shortDescription || item.simpleDescription || '';
+        const longDesc = item.description || item.longDescription || item.detailedDescription || '';
+
         const newProd = await Product.create({
           name: String(item.name).trim(),
-          description: item.description || `Handcrafted ${item.name}`,
+          shortDescription: shortDesc ? String(shortDesc).trim() : '',
+          description: longDesc ? String(longDesc).trim() : '',
           category: catId,
           fabric: item.fabric || 'Cotton',
           price,
@@ -506,16 +510,16 @@ export const bulkImportProducts = async (req, res, next) => {
           isFeatured: Boolean(item.isFeatured),
           isActive: item.isActive !== false,
           isPreorder: Boolean(item.isPreorder),
-          weight: item.weight || '',
-          pattern: item.pattern || '',
-          pallu: item.pallu || '',
-          sareeLength: item.sareeLength || '',
-          blouseLength: item.blouseLength || '',
-          blouse: item.blouse || '',
-          height: item.height || '',
-          washCare: item.washCare || '',
-          returnPolicy: item.returnPolicy || 'Not Applicable',
-          note: item.note || 'Product Color May Slightly Vary Due To Photography Lighting.',
+          weight: item.weight !== undefined && item.weight !== null ? String(item.weight).trim() : '',
+          pattern: item.pattern !== undefined && item.pattern !== null ? String(item.pattern).trim() : '',
+          pallu: item.pallu !== undefined && item.pallu !== null ? String(item.pallu).trim() : '',
+          sareeLength: item.sareeLength !== undefined && item.sareeLength !== null ? String(item.sareeLength).trim() : '',
+          blouseLength: item.blouseLength !== undefined && item.blouseLength !== null ? String(item.blouseLength).trim() : '',
+          blouse: item.blouse !== undefined && item.blouse !== null ? String(item.blouse).trim() : '',
+          height: item.height !== undefined && item.height !== null ? String(item.height).trim() : '',
+          washCare: item.washCare !== undefined && item.washCare !== null ? String(item.washCare).trim() : '',
+          returnPolicy: item.returnPolicy !== undefined && item.returnPolicy !== null ? String(item.returnPolicy).trim() : '',
+          note: item.note !== undefined && item.note !== null ? String(item.note).trim() : '',
           images,
         });
 
