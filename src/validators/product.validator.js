@@ -19,6 +19,8 @@ export const createProductValidator = {
     tag: Joi.string().valid('BESTSELLER', 'NEW ARRIVAL', 'LIMITED EDITION', 'FESTIVAL CHOICE', '', null).allow('', null).optional(),
     isFeatured: Joi.boolean().optional(),
     isActive: Joi.boolean().optional(),
+    isScheduled: Joi.boolean().optional(),
+    scheduledAt: Joi.date().allow(null, '').optional(),
     isPreorder: Joi.boolean().optional(),
     preorderDeposit: Joi.number().min(0).optional(),
     preorderProgress: Joi.number().min(0).max(100).optional(),
