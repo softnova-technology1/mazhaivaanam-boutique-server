@@ -4,6 +4,7 @@ import Category from '../models/Category.js';
 import Inventory from '../models/Inventory.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { isDiscountActive, computeDiscountedPrice } from './discount.controller.js';
+import { generateSKU } from '../utils/sku.util.js';
 
 export const formatProductOutput = (p) => {
   if (!p) return p;
@@ -289,9 +290,14 @@ export const getAdminProducts = async (req, res, next) => {
     const { category, tag, search, sort, page = 1, limit = 15, preorder } = req.query;
     const filter = {};
 
+    // Category filter — accepts ObjectId directly
     if (category) {
-      const cat = await Category.findOne({ slug: category });
-      if (cat) filter.category = cat._id;
+      if (mongoose.isValidObjectId(category)) {
+        filter.category = category;
+      } else {
+        const cat = await Category.findOne({ slug: category });
+        if (cat) filter.category = cat._id;
+      }
     }
 
     if (tag) filter.tag = tag;
@@ -355,7 +361,24 @@ export const getAdminProducts = async (req, res, next) => {
  */
 export const createProduct = async (req, res, next) => {
   try {
-    const product = await Product.create(req.body);
+    const productData = req.body;
+
+    // Auto-generate SKU, patternCode, patternSeq, normalizedName
+    const skuData = await generateSKU({
+      name: productData.name,
+      category: productData.category,
+    });
+
+    // Merge SKU data into product
+    const finalData = {
+      ...productData,
+      sku:            skuData.sku,
+      patternCode:    skuData.patternCode,
+      patternSeq:     skuData.patternSeq,
+      normalizedName: skuData.normalizedName,
+    };
+
+    const product = await Product.create(finalData);
 
     // Create inventory entry
     const initialStock = req.body.stock !== undefined ? Number(req.body.stock) : (req.body.isPreorder ? 1 : 25);
@@ -382,6 +405,20 @@ export const updateProduct = async (req, res, next) => {
     const product = await Product.findById(req.params.id);
     if (!product) {
       return errorResponse(res, 'Product not found', 404);
+    }
+
+    // If name changed, regenerate SKU + pattern fields
+    const nameChanged = req.body.name && req.body.name !== product.name;
+    const catChanged  = req.body.category && String(req.body.category) !== String(product.category);
+    if (nameChanged || catChanged) {
+      const skuData = await generateSKU({
+        name:     req.body.name     || product.name,
+        category: req.body.category || product.category,
+      });
+      req.body.sku            = skuData.sku;
+      req.body.patternCode    = skuData.patternCode;
+      req.body.patternSeq     = skuData.patternSeq;
+      req.body.normalizedName = skuData.normalizedName;
     }
 
     Object.assign(product, req.body);

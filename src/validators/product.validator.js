@@ -48,6 +48,11 @@ export const createProductValidator = {
     washCare: Joi.string().allow('').optional(),
     returnPolicy: Joi.string().allow('').optional(),
     note: Joi.string().allow('').optional(),
+    // SKU & Pattern — server-generated, but allowed in body
+    sku:            Joi.string().allow('', null).optional(),
+    patternCode:    Joi.string().allow('', null).optional(),
+    patternSeq:     Joi.number().min(0).optional(),
+    normalizedName: Joi.string().allow('', null).optional(),
   }),
 };
 

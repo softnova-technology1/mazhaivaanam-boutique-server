@@ -140,6 +140,28 @@ const productSchema = new mongoose.Schema(
     returnPolicy: { type: String, default: '' },
     note: { type: String, default: '' },
 
+    // ─── SKU & Pattern Identity ──────────────────────────────────
+    sku: {
+      type: String,
+      unique: true,
+      sparse: true,   // allows null for old products
+      index: true,
+    },
+    normalizedName: {
+      type: String,
+      default: '',
+      index: true,    // for fast pattern-grouping lookup
+    },
+    patternCode: {
+      type: String,
+      default: '',
+      index: true,    // e.g. "EE-001"
+    },
+    patternSeq: {
+      type: Number,
+      default: 1,     // position within same pattern
+    },
+
     averageRating: {
       type: Number,
       default: 0,
