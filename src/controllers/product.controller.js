@@ -4,7 +4,7 @@ import Category from '../models/Category.js';
 import Inventory from '../models/Inventory.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { isDiscountActive, computeDiscountedPrice } from './discount.controller.js';
-import { generateSKU } from '../utils/sku.util.js';
+import { generateSKU, normalizeName } from '../utils/sku.util.js';
 
 export const formatProductOutput = (p) => {
   if (!p) return p;
@@ -374,12 +374,25 @@ export const createProduct = async (req, res, next) => {
   try {
     const productData = req.body;
 
-    // Auto-generate SKU, patternCode, patternSeq, normalizedName
-    const skuData = await generateSKU({
-      name: productData.name,
-      category: productData.category,
-      fabric: productData.fabric,
-    });
+    let skuData;
+    if (productData.isPreorder && productData.sku) {
+      skuData = {
+        sku: productData.sku,
+        patternCode: 'PRE-BOOKING',
+        patternSeq: 1,
+        normalizedName: normalizeName(productData.name)
+      };
+    } else {
+      skuData = await generateSKU({
+        name: productData.name,
+        category: productData.category,
+        fabric: productData.fabric,
+      });
+    }
+
+    if (productData.category) {
+      // Just normal category assignment handled above
+    }
 
     // Merge SKU data into product
     const finalData = {
@@ -424,15 +437,22 @@ export const updateProduct = async (req, res, next) => {
     const catChanged  = req.body.category && String(req.body.category) !== String(product.category);
     const fabricChanged = req.body.fabric && req.body.fabric !== product.fabric;
     if (nameChanged || catChanged || fabricChanged) {
-      const skuData = await generateSKU({
-        name:     req.body.name     || product.name,
-        category: req.body.category || product.category,
-        fabric:   req.body.fabric   || product.fabric,
-      });
-      req.body.sku            = skuData.sku;
-      req.body.patternCode    = skuData.patternCode;
-      req.body.patternSeq     = skuData.patternSeq;
-      req.body.normalizedName = skuData.normalizedName;
+      if (product.isPreorder) {
+        req.body.normalizedName = normalizeName(req.body.name || product.name);
+      } else {
+        const skuData = await generateSKU({
+          name:     req.body.name     || product.name,
+          category: req.body.category || product.category,
+          fabric:   req.body.fabric   || product.fabric,
+        });
+        req.body.sku            = skuData.sku;
+        req.body.patternCode    = skuData.patternCode;
+        req.body.normalizedName = skuData.normalizedName;
+      }
+    }
+
+    if (req.body.category) {
+       // Only normal category assignment
     }
 
     Object.assign(product, req.body);

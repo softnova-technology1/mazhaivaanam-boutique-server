@@ -26,7 +26,7 @@ export const createProductValidator = {
     preorderDeposit: Joi.number().min(0).optional(),
     preorderProgress: Joi.number().min(0).max(100).optional(),
     preorderWeaver: Joi.string().allow('').optional(),
-    preorderEstimatedDays: Joi.number().min(0).optional(),
+    preorderEstimatedDays: Joi.string().allow('').optional(),
     preorderDiscount: Joi.string().allow('').optional(),
     specs: Joi.object({
       fabricType: Joi.string().allow('').optional(),

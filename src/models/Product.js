@@ -112,8 +112,8 @@ const productSchema = new mongoose.Schema(
       default: '',
     },
     preorderEstimatedDays: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: '',
     },
     preorderDiscount: {
       type: String,
@@ -199,10 +199,7 @@ productSchema.pre('save', function (next) {
   if (this.isModified('name')) {
     this.slug = slugify(this.name, { lower: true, strict: true });
   }
-  // Default mrpPrice to price if not set
-  if (!this.mrpPrice || this.mrpPrice <= this.price) {
-    this.mrpPrice = this.price;
-  }
+
   next();
 });
 
