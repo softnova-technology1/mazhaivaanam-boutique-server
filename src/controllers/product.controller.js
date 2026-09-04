@@ -378,6 +378,7 @@ export const createProduct = async (req, res, next) => {
     const skuData = await generateSKU({
       name: productData.name,
       category: productData.category,
+      fabric: productData.fabric,
     });
 
     // Merge SKU data into product
@@ -421,10 +422,12 @@ export const updateProduct = async (req, res, next) => {
     // If name changed, regenerate SKU + pattern fields
     const nameChanged = req.body.name && req.body.name !== product.name;
     const catChanged  = req.body.category && String(req.body.category) !== String(product.category);
-    if (nameChanged || catChanged) {
+    const fabricChanged = req.body.fabric && req.body.fabric !== product.fabric;
+    if (nameChanged || catChanged || fabricChanged) {
       const skuData = await generateSKU({
         name:     req.body.name     || product.name,
         category: req.body.category || product.category,
+        fabric:   req.body.fabric   || product.fabric,
       });
       req.body.sku            = skuData.sku;
       req.body.patternCode    = skuData.patternCode;

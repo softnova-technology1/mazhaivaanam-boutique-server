@@ -17,8 +17,19 @@ export const toCode = (str = '') => {
  * Normalize product name for pattern matching
  * Removes extra spaces, lowercases, trims
  */
-export const normalizeName = (name = '') =>
-  name.toLowerCase().trim().replace(/\s+/g, ' ');
+export const normalizeName = (name = '') => {
+  let cleaned = name.toLowerCase().trim().replace(/\s+/g, ' ');
+  const words = cleaned.split(' ');
+  
+  // Strip common color words and modifiers from the end of the name to group variants correctly
+  const colorWords = ['red', 'green', 'blue', 'yellow', 'black', 'white', 'pink', 'orange', 'purple', 'maroon', 'navy', 'gold', 'silver', 'grey', 'gray', 'brown', 'peach', 'magenta', 'cyan', 'teal', 'violet', 'indigo', 'rose', 'beige', 'mustard', 'olive', 'wine', 'light', 'dark', 'deep', 'pale', 'neon', 'pastel'];
+  
+  while (words.length > 1 && colorWords.includes(words[words.length - 1])) {
+    words.pop();
+  }
+  
+  return words.join(' ');
+};
 
 /**
  * Generate Auto SKU and assign patternCode + patternSeq to a new product.
@@ -32,7 +43,7 @@ export const normalizeName = (name = '') =>
  * @returns {{ sku, patternCode, patternSeq, normalizedName }}
  */
 export const generateSKU = async (productData) => {
-  const { name, category } = productData;
+  const { name, category, fabric } = productData;
 
   // 1. Get category code
   let catCode = 'MV';
@@ -41,12 +52,19 @@ export const generateSKU = async (productData) => {
     if (cat) catCode = toCode(cat.name);
   }
 
+  // 1.5 Get fabric code
+  let fabCode = '';
+  if (fabric) {
+    fabCode = toCode(fabric);
+  }
+
   const normalized = normalizeName(name);
 
-  // 2. Check if same name + category already has a pattern
+  // 2. Check if same name + category + fabric already has a pattern
   const existingPattern = await Product.findOne({
     normalizedName: normalized,
     category: category,
+    fabric: fabric,
   })
     .sort({ patternSeq: -1 })
     .select('patternCode patternSeq')
@@ -59,19 +77,22 @@ export const generateSKU = async (productData) => {
     patternCode = existingPattern.patternCode;
     patternSeq = (existingPattern.patternSeq || 1) + 1;
   } else {
-    // 🆕 New pattern — count distinct patternCodes in this category
+    // 🆕 New pattern — count distinct patternCodes in this category AND fabric
     const existingPatterns = await Product.distinct('patternCode', {
       category: category,
+      fabric: fabric,
       patternCode: { $exists: true, $ne: null, $ne: '' },
     });
     const nextPatNum = String(existingPatterns.length + 1).padStart(3, '0');
-    patternCode = `${catCode}-${nextPatNum}`;
+    patternCode = fabCode ? `${catCode}-${fabCode}-${nextPatNum}` : `${catCode}-${nextPatNum}`;
     patternSeq = 1;
   }
 
-  // 3. Build SKU: MV-{CAT}-{PAT_NUM}-{SEQ}
+  // 3. Build SKU: MV-{CAT}-{FABRIC}-{PAT_NUM}-{SEQ}
   const seqStr = String(patternSeq).padStart(2, '0');
-  const sku = `MV-${catCode}-${patternCode.split('-').pop()}-${seqStr}`;
+  
+  // patternCode is already `CAT-FAB-001` or `CAT-001`, so we just append it to MV-
+  const sku = `MV-${patternCode}-${seqStr}`;
 
   return { sku, patternCode, patternSeq, normalizedName: normalized };
 };

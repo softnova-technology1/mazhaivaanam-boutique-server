@@ -199,9 +199,9 @@ productSchema.pre('save', function (next) {
   if (this.isModified('name')) {
     this.slug = slugify(this.name, { lower: true, strict: true });
   }
-  // Default mrpPrice to price * 1.15 if not set
+  // Default mrpPrice to price if not set
   if (!this.mrpPrice || this.mrpPrice <= this.price) {
-    this.mrpPrice = Math.round(this.price * 1.15);
+    this.mrpPrice = this.price;
   }
   next();
 });
