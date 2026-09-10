@@ -9,7 +9,7 @@ import User from '../models/User.js';
 import StoreConfig from '../models/StoreConfig.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
-import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail } from '../utils/sendEmail.js';
+import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail, sendLowStockEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 import { computeDiscountedPrice } from './discount.controller.js';
@@ -262,7 +262,7 @@ export const verifyPayment = async (req, res, next) => {
 
     // Convert reserved → sold
     for (const item of order.items) {
-      await Inventory.findOneAndUpdate(
+      const updatedInv = await Inventory.findOneAndUpdate(
         { product: item.product },
         {
           $inc: { reserved: -item.quantity, sold: item.quantity },
@@ -273,8 +273,17 @@ export const verifyPayment = async (req, res, next) => {
               note: `Sold via order ${order.orderId}`,
             },
           },
+        },
+        { new: true }
+      ).populate('product', 'name sku');
+
+      // Check if stock is low (1 or 0) and trigger email
+      if (updatedInv) {
+        const availableStock = updatedInv.totalStock - updatedInv.reserved - updatedInv.sold;
+        if (availableStock <= 1 && availableStock >= 0) {
+          sendLowStockEmail(updatedInv.product, availableStock).catch(err => console.error('Low stock email failed:', err));
         }
-      );
+      }
     }
 
     // Clear cart
@@ -381,6 +390,7 @@ export const updateOrderStatus = async (req, res, next) => {
       return errorResponse(res, 'Order not found', 404);
     }
 
+    const previousStatus = order.status;
     order.status = status;
     order.statusHistory.push({
       status,
@@ -400,6 +410,41 @@ export const updateOrderStatus = async (req, res, next) => {
     } else if (status === 'DELIVERED') {
       const user = await User.findById(order.user);
       if (user) sendOrderDeliveredEmail(user, order).catch(err => console.error('Failed to send Delivered email:', err));
+    } else if (status === 'CANCELLED' && previousStatus !== 'CANCELLED') {
+      // Release inventory for cancelled orders
+      for (const item of order.items) {
+        if (order.paymentStatus === 'pending') {
+          // Release from reserved
+          await Inventory.findOneAndUpdate(
+            { product: item.product },
+            { 
+              $inc: { reserved: -item.quantity },
+              $push: {
+                stockHistory: {
+                  type: 'adjustment',
+                  quantity: item.quantity,
+                  note: `Released reserved stock - Order ${order.orderId} cancelled`,
+                },
+              },
+            }
+          );
+        } else {
+          // Release from sold (if paid/refunded)
+          await Inventory.findOneAndUpdate(
+            { product: item.product },
+            { 
+              $inc: { sold: -item.quantity },
+              $push: {
+                stockHistory: {
+                  type: 'adjustment',
+                  quantity: item.quantity,
+                  note: `Returned sold stock - Order ${order.orderId} cancelled`,
+                },
+              },
+            }
+          );
+        }
+      }
     }
 
     successResponse(res, order, 'Order status updated');
@@ -441,6 +486,7 @@ export const getAllOrders = async (req, res, next) => {
     const [orders, total] = await Promise.all([
       Order.find(filter)
         .populate('user', 'firstName lastName email')
+        .populate('items.product', 'sku')
         .sort(sortOption)
         .skip((parseInt(page) - 1) * parseInt(limit))
         .limit(parseInt(limit))

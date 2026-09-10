@@ -1,6 +1,7 @@
 import Inventory from '../models/Inventory.js';
 import Product from '../models/Product.js';
-import { successResponse, errorResponse } from '../utils/apiResponse.js';
+import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
+import { sendLowStockEmail } from '../utils/sendEmail.js';
 import { formatProductOutput } from './product.controller.js';
 
 export const getAllInventory = async (req, res, next) => {
@@ -69,6 +70,14 @@ export const restockProduct = async (req, res, next) => {
     });
     await inv.save();
 
+    const availableStock = inv.totalStock - inv.reserved - inv.sold;
+    if (availableStock <= 1 && availableStock >= 0) {
+      const populatedInv = await Inventory.findById(inv._id).populate('product', 'name sku').lean();
+      if (populatedInv?.product) {
+        sendLowStockEmail(populatedInv.product, availableStock).catch(err => console.error('Low stock email failed:', err));
+      }
+    }
+
     successResponse(res, inv, `Restocked ${quantity} units`);
   } catch (error) {
     next(error);
@@ -89,6 +98,14 @@ export const adjustStock = async (req, res, next) => {
       note: note || `Manual adjustment: ${quantity > 0 ? '+' : ''}${quantity}`,
     });
     await inv.save();
+
+    const availableStock = inv.totalStock - inv.reserved - inv.sold;
+    if (availableStock <= 1 && availableStock >= 0) {
+      const populatedInv = await Inventory.findById(inv._id).populate('product', 'name sku').lean();
+      if (populatedInv?.product) {
+        sendLowStockEmail(populatedInv.product, availableStock).catch(err => console.error('Low stock email failed:', err));
+      }
+    }
 
     successResponse(res, inv, 'Stock adjusted');
   } catch (error) {

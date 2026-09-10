@@ -15,16 +15,16 @@ const uploadLogo = async () => {
     });
 
     const fileContent = fs.readFileSync(
-      "C:\\Users\\ADMIN\\.gemini\\antigravity-ide\\brain\\3aeb812d-e421-4f53-9747-d84a3c8c1f9c\\media__1788261527982.jpg"
+      "d:\\Softnova company project\\2 client site\\mazhaivaanam-boutique\\client\\public\\logo.png"
     );
 
-    const fileName = `assets/email-logo-${Date.now()}.jpg`;
+    const fileName = `assets/email-logo-${Date.now()}.png`;
 
     const command = new PutObjectCommand({
       Bucket: process.env.AWS_S3_BUCKET,
       Key: fileName,
       Body: fileContent,
-      ContentType: "image/jpeg",
+      ContentType: "image/png",
     });
 
     await s3Client.send(command);

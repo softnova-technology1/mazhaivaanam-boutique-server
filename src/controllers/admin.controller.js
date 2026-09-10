@@ -37,6 +37,7 @@ export const getDashboard = async (req, res, next) => {
       // Recent orders: only show confirmed (paid) orders to admin
       Order.find({ paymentStatus: 'paid' })
         .populate('user', 'firstName lastName email')
+        .populate('items.product', 'sku')
         .sort({ createdAt: -1 })
         .limit(10)
         .lean(),

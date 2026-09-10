@@ -1,8 +1,12 @@
 import Product from '../models/Product.js';
+import startOrderExpirationCron from '../cron/orderExpiration.js';
 
 export const startCronJobs = () => {
   console.log('[Cron] Initializing background jobs...');
   
+  // Start the node-cron jobs
+  startOrderExpirationCron();
+
   // Run every 1 minute
   setInterval(async () => {
     try {

@@ -46,7 +46,7 @@ export const sendWelcomeEmail = async (user) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788261890089.jpg" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
         <h2 style="color: #1A1A1A; font-size: 22px;">Welcome, ${user.firstName}!</h2>
@@ -109,7 +109,7 @@ export const sendOrderConfirmationEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788261890089.jpg" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
 
@@ -208,7 +208,7 @@ export const sendOrderShippedEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788261890089.jpg" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
 
@@ -273,7 +273,7 @@ export const sendOrderDeliveredEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788261890089.jpg" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
 
@@ -319,6 +319,40 @@ export const sendOrderDeliveredEmail = async (user, order) => {
           <p style="color: #999; font-size: 12px; margin: 5px 0;">© ${new Date().getFullYear()} Mazhai Vaanam Boutique. All rights reserved.</p>
           <p style="color: #bbb; font-size: 11px; margin: 5px 0;">Handcrafted in India</p>
         </div>
+      </div>
+    `,
+  });
+};
+
+/**
+ * Send low stock alert email to admin
+ */
+export const sendLowStockEmail = async (product, currentStock) => {
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
+  if (!adminEmail) return null;
+
+  return sendEmail({
+    to: adminEmail,
+    subject: `⚠️ Low Stock Alert: ${product.name}`,
+    html: `
+      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <h2 style="color: #d97706; margin-top: 0;">⚠️ Low Stock Alert</h2>
+        <p style="color: #334155; font-size: 16px; line-height: 1.6;">
+          Hello Admin,<br><br>
+          This is an automated alert. The inventory for the following product is running very low:
+        </p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #d97706;">
+          <p style="margin: 0 0 10px 0; font-size: 15px; color: #0f172a;"><strong>Product Name:</strong> ${product.name}</p>
+          <p style="margin: 0 0 10px 0; font-size: 15px; color: #0f172a;"><strong>SKU:</strong> ${product.sku || 'N/A'}</p>
+          <p style="margin: 0; font-size: 15px; color: #ef4444;"><strong>Current Stock:</strong> ${currentStock} item(s) left</p>
+        </div>
+        <p style="color: #334155; font-size: 15px;">
+          Please consider restocking this item soon.
+        </p>
+        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
+        <p style="color: #94a3b8; font-size: 12px; margin: 0;">
+          Mazhai Vaanam Inventory System
+        </p>
       </div>
     `,
   });

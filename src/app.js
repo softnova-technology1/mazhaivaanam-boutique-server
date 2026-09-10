@@ -16,6 +16,7 @@ import orderRoutes from './routes/order.routes.js';
 import reviewRoutes from './routes/review.routes.js';
 import contactRoutes from './routes/contact.routes.js';
 import adminRoutes from './routes/admin.routes.js';
+import webhookRoutes from './routes/webhook.routes.js';
 
 const app = express();
 
@@ -102,6 +103,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/webhooks', webhookRoutes);
 
 // ==================== 404 HANDLER ====================
 

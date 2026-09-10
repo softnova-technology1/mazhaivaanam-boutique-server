@@ -23,6 +23,26 @@ export const formatProductOutput = (p) => {
   };
 };
 
+export const enrichWithInventory = async (products) => {
+  const productIds = products.map(p => p._id);
+  const inventories = await Inventory.find({ product: { $in: productIds } }).lean();
+  
+  const invMap = {};
+  inventories.forEach(inv => {
+    invMap[inv.product.toString()] = {
+      available: Math.max(0, inv.totalStock - inv.reserved - inv.sold),
+      isLowStock: inv.totalStock - inv.reserved - inv.sold <= inv.lowStockThreshold,
+      isOutOfStock: inv.totalStock - inv.reserved - inv.sold <= 0,
+    };
+  });
+
+  return products.map(p => {
+    const formatted = formatProductOutput(p);
+    formatted.stock = invMap[p._id.toString()] || { available: 0, isLowStock: true, isOutOfStock: true };
+    return formatted;
+  });
+};
+
 /**
  * GET /api/products
  * List products with filtering, sorting, search, and pagination
@@ -75,9 +95,16 @@ export const getProducts = async (req, res, next) => {
       if (maxPrice) filter.price.$lte = Number(maxPrice);
     }
 
-    // Text search
-    if (search) {
-      filter.$text = { $search: search };
+    // Text / Partial search
+    if (search && search.trim()) {
+      const cleanSearch = search.trim();
+      const searchRegex = new RegExp(cleanSearch.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'i');
+      filter.$or = [
+        { name: searchRegex },
+        { fabric: searchRegex },
+        { tag: searchRegex },
+        { sku: searchRegex },
+      ];
     }
 
     // Sorting
@@ -106,8 +133,8 @@ export const getProducts = async (req, res, next) => {
       Product.countDocuments(filter),
     ]);
 
-    // Enrich with discount info & image sanitization
-    const enriched = products.map(formatProductOutput);
+    // Enrich with discount info, image sanitization & inventory
+    const enriched = await enrichWithInventory(products);
 
     paginatedResponse(res, enriched, {
       total,
@@ -133,7 +160,7 @@ export const getFeaturedProducts = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -151,7 +178,7 @@ export const getNewArrivals = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -174,7 +201,7 @@ export const getLimitedOfferProducts = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -196,7 +223,7 @@ export const getBestSellers = async (req, res, next) => {
       .limit(limit)
       .lean();
 
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -212,7 +239,7 @@ export const getPreOrders = async (req, res, next) => {
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .lean();
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
     next(error);
@@ -239,7 +266,7 @@ export const searchProducts = async (req, res, next) => {
       .limit(20)
       .lean();
 
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
 
     successResponse(res, enriched);
   } catch (error) {
@@ -343,7 +370,7 @@ export const getAdminProducts = async (req, res, next) => {
       Product.countDocuments({ isScheduled: true }),
     ]);
 
-    const enriched = products.map(formatProductOutput);
+    const enriched = await enrichWithInventory(products);
 
     res.status(200).json({
       success: true,

@@ -383,6 +383,19 @@ export const updateOfferSection = async (req, res, next) => {
     const section = await OfferSection.findByIdAndUpdate(sectionId, { $set: update }, { new: true }).populate({ path: 'productIds', select: 'name price images tag _id' });
     if (!section) return errorResponse(res, 'Section not found', 404);
 
+    // Sync updated timing / active status to attached products
+    const prodUpdate = {};
+    if (endDate !== undefined) prodUpdate['limitedOfferEntry.endDate'] = new Date(endDate);
+    if (startDate !== undefined) prodUpdate['limitedOfferEntry.startDate'] = startDate ? new Date(startDate) : null;
+    if (isActive !== undefined) prodUpdate['limitedOfferEntry.isActive'] = isActive;
+    if (name !== undefined) prodUpdate['limitedOfferEntry.offerLabel'] = name;
+    if (slot !== undefined) prodUpdate['limitedOfferEntry.section'] = Number(slot);
+
+    if (Object.keys(prodUpdate).length > 0 && section.productIds?.length > 0) {
+      const pIds = section.productIds.map(p => p._id || p);
+      await Product.updateMany({ _id: { $in: pIds } }, { $set: prodUpdate });
+    }
+
     return successResponse(res, section, 'Offer section updated');
   } catch (error) {
     next(error);
@@ -398,6 +411,10 @@ export const deleteOfferSection = async (req, res, next) => {
     const { sectionId } = req.params;
     const section = await OfferSection.findByIdAndDelete(sectionId);
     if (!section) return errorResponse(res, 'Section not found', 404);
+
+    if (section.productIds?.length > 0) {
+      await Product.updateMany({ _id: { $in: section.productIds } }, { $set: { 'limitedOfferEntry.isActive': false } });
+    }
 
     return successResponse(res, null, 'Offer section deleted');
   } catch (error) {
@@ -425,6 +442,19 @@ export const addProductToSection = async (req, res, next) => {
 
     if (!section) return errorResponse(res, 'Section not found', 404);
 
+    // Sync product limitedOfferEntry
+    await Product.findByIdAndUpdate(productId, {
+      $set: {
+        limitedOfferEntry: {
+          isActive: true,
+          section: Number(section.slot),
+          offerLabel: section.name,
+          startDate: section.startDate || null,
+          endDate: section.endDate,
+        },
+      },
+    });
+
     return successResponse(res, section, 'Product added to section');
   } catch (error) {
     next(error);
@@ -446,6 +476,13 @@ export const removeProductFromSection = async (req, res, next) => {
     ).populate({ path: 'productIds', select: 'name price images tag _id' });
 
     if (!section) return errorResponse(res, 'Section not found', 404);
+
+    // Deactivate limited offer entry on product
+    await Product.findByIdAndUpdate(productId, {
+      $set: {
+        'limitedOfferEntry.isActive': false,
+      },
+    });
 
     return successResponse(res, section, 'Product removed from section');
   } catch (error) {
