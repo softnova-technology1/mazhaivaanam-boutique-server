@@ -5,6 +5,7 @@ import connectDB from './src/config/db.js';
 import { startCronJobs } from './src/utils/cron.js';
 
 const PORT = parseInt(process.env.PORT, 10) || 5000;
+// Force server restart to load new LimitedOfferConfig schema
 
 let server;
 

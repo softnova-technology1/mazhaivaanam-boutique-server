@@ -11,6 +11,7 @@ export const createOrderValidator = {
     shippingAddress: Joi.object({
       fullName: Joi.string().trim().required(),
       addressLine: Joi.string().trim().allow('').optional(),
+      landmark: Joi.string().trim().allow('').optional(),
       city: Joi.string().trim().allow('').optional(),
       state: Joi.string().trim().allow('').optional(),
       pinCode: Joi.string().trim().allow('').optional(),

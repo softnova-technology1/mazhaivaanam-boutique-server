@@ -132,7 +132,7 @@ export const createOrder = async (req, res, next) => {
             shippingCity: shippingAddress?.city || '',
             shippingState: shippingAddress?.state || '',
             shippingPinCode: shippingAddress?.pinCode || '',
-            shippingAddress: `${shippingAddress?.addressLine || ''}, ${shippingAddress?.city || ''}, ${shippingAddress?.state || ''} - ${shippingAddress?.pinCode || ''}`.trim(),
+            shippingAddress: `${shippingAddress?.addressLine || ''}${shippingAddress?.landmark ? ', ' + shippingAddress.landmark : ''}, ${shippingAddress?.city || ''}, ${shippingAddress?.state || ''} - ${shippingAddress?.pinCode || ''}`.trim(),
 
             // Order items summary (compact — join names)
             items: orderItems.map(i => `${i.name} x${i.quantity}`).join(' | ').substring(0, 255),

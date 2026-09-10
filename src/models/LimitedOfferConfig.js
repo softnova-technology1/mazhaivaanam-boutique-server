@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const limitedOfferConfigSchema = new mongoose.Schema(
   {
+    isActive: { type: Boolean, default: true },
     heroSection: {
       badgeText: { type: String, default: 'Limited Exclusive Offer' },
       title: { type: String, default: 'Exclusive Offers,' },
@@ -59,6 +60,7 @@ const limitedOfferConfigSchema = new mongoose.Schema(
       ],
     },
     spinningWheelSection: {
+      isActive: { type: Boolean, default: true },
       title: { type: String, default: 'Festival Lucky Draw' },
       description: { type: String, default: 'Spin the heritage wheel for a chance to win exclusive gift cards, artisan blouses, or a signature silk saree from our royal vault.' },
       bulletPoints: {

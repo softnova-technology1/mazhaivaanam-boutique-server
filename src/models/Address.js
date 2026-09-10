@@ -18,6 +18,11 @@ const addressSchema = new mongoose.Schema(
       required: [true, 'Address is required'],
       trim: true,
     },
+    landmark: {
+      type: String,
+      default: '',
+      trim: true,
+    },
     city: {
       type: String,
       required: [true, 'City is required'],

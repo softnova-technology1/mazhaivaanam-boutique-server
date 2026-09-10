@@ -34,6 +34,7 @@ const orderSchema = new mongoose.Schema(
     shippingAddress: {
       fullName: { type: String, required: true },
       addressLine: { type: String, default: '' },
+      landmark: { type: String, default: '' },
       city: { type: String, default: '' },
       state: { type: String, default: '' },
       pinCode: { type: String, default: '' },
