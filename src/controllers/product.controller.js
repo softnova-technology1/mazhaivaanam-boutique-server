@@ -596,6 +596,14 @@ export const bulkImportProducts = async (req, res, next) => {
         const shortDesc = item.shortDescription || item.simpleDescription || '';
         const longDesc = item.description || item.longDescription || item.detailedDescription || '';
 
+        let tagEnum = null;
+        if (item.tag) {
+          const upperTag = String(item.tag).toUpperCase().trim().replace('-', ' ');
+          if (['BESTSELLER', 'NEW ARRIVAL', 'LIMITED EDITION', 'FESTIVAL CHOICE'].includes(upperTag)) {
+            tagEnum = upperTag;
+          }
+        }
+
         const newProd = await Product.create({
           name: String(item.name).trim(),
           shortDescription: shortDesc ? String(shortDesc).trim() : '',
@@ -604,7 +612,7 @@ export const bulkImportProducts = async (req, res, next) => {
           fabric: item.fabric || 'Cotton',
           price,
           mrpPrice,
-          tag: item.tag || null,
+          tag: tagEnum,
           isFeatured: Boolean(item.isFeatured),
           isActive: item.isActive !== false,
           isPreorder: Boolean(item.isPreorder),
@@ -620,6 +628,18 @@ export const bulkImportProducts = async (req, res, next) => {
           note: item.note !== undefined && item.note !== null ? String(item.note).trim() : '',
           images,
         });
+
+        // Generate and assign SKU
+        const skuData = await generateSKU({
+          name: newProd.name,
+          category: newProd.category,
+          fabric: newProd.fabric,
+        });
+        newProd.sku = skuData.sku;
+        newProd.patternCode = skuData.patternCode;
+        newProd.patternSeq = skuData.patternSeq;
+        newProd.normalizedName = skuData.normalizedName;
+        await newProd.save();
 
         // Create inventory
         await Inventory.create({
