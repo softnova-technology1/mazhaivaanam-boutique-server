@@ -195,11 +195,17 @@ const productSchema = new mongoose.Schema(
 );
 
 // Generate slug before saving
-productSchema.pre('save', function (next) {
+productSchema.pre('save', async function (next) {
   if (this.isModified('name')) {
-    this.slug = slugify(this.name, { lower: true, strict: true });
+    let baseSlug = slugify(this.name, { lower: true, strict: true });
+    let slug = baseSlug;
+    let counter = 1;
+    while (await mongoose.models.Product.exists({ slug, _id: { $ne: this._id } })) {
+      slug = `${baseSlug}-${counter}`;
+      counter++;
+    }
+    this.slug = slug;
   }
-
   next();
 });
 
