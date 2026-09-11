@@ -17,6 +17,13 @@ export const getStoreConfig = async (req, res, next) => {
       facebookUrl: config.facebookUrl,
       instagramUrl: config.instagramUrl,
       youtubeUrl: config.youtubeUrl,
+      announcementText1: config.announcementText1 || config.announcementText,
+      announcementText2: config.announcementText2 || config.announcementText,
+      announcementText3: config.announcementText3 || config.announcementText,
+      announcementText: config.announcementText || config.announcementText1,
+      announcementBgColor: config.announcementBgColor,
+      announcementTextColor: config.announcementTextColor,
+      announcementEnabled: config.announcementEnabled,
       convenienceFee: config.convenienceFee,
       giftWrapPrice:  config.giftWrapPrice,
     });
@@ -27,13 +34,14 @@ export const getStoreConfig = async (req, res, next) => {
 
 /**
  * PUT /api/admin/store/config
- * Admin only — Fee settings update
+ * Admin only — Fee & Announcement Bar settings update
  */
 export const updateStoreConfig = async (req, res, next) => {
   try {
     const { 
       storeName, email, phone, whatsapp, address, 
       facebookUrl, instagramUrl, youtubeUrl,
+      announcementText1, announcementText2, announcementText3, announcementText, announcementBgColor, announcementTextColor, announcementEnabled,
       convenienceFee, giftWrapPrice 
     } = req.body;
 
@@ -49,6 +57,14 @@ export const updateStoreConfig = async (req, res, next) => {
     if (facebookUrl !== undefined) config.facebookUrl = facebookUrl;
     if (instagramUrl !== undefined) config.instagramUrl = instagramUrl;
     if (youtubeUrl !== undefined) config.youtubeUrl = youtubeUrl;
+
+    if (announcementText1 !== undefined) config.announcementText1 = announcementText1;
+    if (announcementText2 !== undefined) config.announcementText2 = announcementText2;
+    if (announcementText3 !== undefined) config.announcementText3 = announcementText3;
+    if (announcementText !== undefined) config.announcementText = announcementText;
+    if (announcementBgColor !== undefined) config.announcementBgColor = announcementBgColor;
+    if (announcementTextColor !== undefined) config.announcementTextColor = announcementTextColor;
+    if (announcementEnabled !== undefined) config.announcementEnabled = Boolean(announcementEnabled);
 
     if (convenienceFee !== undefined) config.convenienceFee = convenienceFee;
     if (giftWrapPrice  !== undefined) config.giftWrapPrice  = giftWrapPrice;

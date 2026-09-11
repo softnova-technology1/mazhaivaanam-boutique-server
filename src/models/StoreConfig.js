@@ -21,6 +21,15 @@ const storeConfigSchema = new mongoose.Schema(
     instagramUrl: { type: String, default: 'https://www.instagram.com/mazhaivaanam' },
     youtubeUrl: { type: String, default: 'https://www.youtube.com/@mazhaivaanam' },
 
+    // Announcement Bar Controls (3 Rotating Messages)
+    announcementText1: { type: String, default: '✨ Handwoven Luxury, Delivered Worldwide.' },
+    announcementText2: { type: String, default: '🥻 Unveiling Authentic Kanjeevaram & Banarasi Heritage.' },
+    announcementText3: { type: String, default: '📞 Book a Personalized Video Shopping Experience.' },
+    announcementText: { type: String, default: '✨ Handwoven Luxury, Delivered Worldwide.' },
+    announcementBgColor: { type: String, default: '#6B102A' },
+    announcementTextColor: { type: String, default: '#F4E4BC' },
+    announcementEnabled: { type: Boolean, default: true },
+
     // Fees (configurable without redeploy)
     convenienceFee: { type: Number, default: 2 },
     giftWrapPrice: { type: Number, default: 499 },
