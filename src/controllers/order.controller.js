@@ -71,17 +71,17 @@ export const createOrder = async (req, res, next) => {
         product: prod._id,
         name: prod.name,
         price: basePrice,
-        image: prod.images?.[0]?.url || '',
+        image: (typeof prod.images?.[0] === 'string' ? prod.images[0] : prod.images?.[0]?.url) || prod.image || '/Images/placeholder.svg',
         quantity: item.quantity,
         fabric: prod.fabric,
         weightKg: prod.weightKg || 0.5,
-        category: '',
+        category: prod.category || '',
       };
     });
 
     const mrpTotal = orderItems.reduce((sum, i) => {
       const prod = products.find((p) => p._id.toString() === i.product.toString());
-      return sum + (prod.mrpPrice || Math.round(prod.price * 1.15)) * i.quantity;
+      return sum + (prod?.mrpPrice || prod?.oldPrice || prod?.price || i.price) * i.quantity;
     }, 0);
 
     const subtotal = orderItems.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -142,7 +142,7 @@ export const createOrder = async (req, res, next) => {
             deliveryMode: deliveryMode || 'standard',
             couponCode: couponCode || '',
             giftPackaging: giftPackaging ? 'Yes' : 'No',
-            giftMessage: (giftMessage || '').substring(0, 100),
+            giftMessage: (giftMessage || '').substring(0, 250),
           },
       });
     } catch (rpError) {
@@ -358,8 +358,18 @@ export const getOrderById = async (req, res, next) => {
  */
 export const trackOrder = async (req, res, next) => {
   try {
-    const order = await Order.findOne({ orderId: req.params.orderId })
-      .select('orderId status statusHistory trackingNumber courier estimatedDelivery items createdAt deliveryMode')
+    const rawId = req.params.orderId?.trim();
+    if (!rawId) {
+      return errorResponse(res, 'Order ID is required', 400);
+    }
+
+    // Try finding by case-insensitive orderId (e.g., MV-100234 or mv-100234) or ObjectId
+    const query = mongoose.Types.ObjectId.isValid(rawId)
+      ? { $or: [{ _id: rawId }, { orderId: new RegExp(`^${rawId}$`, 'i') }] }
+      : { orderId: new RegExp(`^${rawId}$`, 'i') };
+
+    const order = await Order.findOne(query)
+      .select('orderId status statusHistory trackingNumber courier estimatedDelivery items createdAt deliveryMode totalAmount subtotal mrpTotal totalSavings shippingAddress')
       .lean();
 
     if (!order) {

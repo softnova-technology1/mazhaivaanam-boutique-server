@@ -26,7 +26,7 @@ const storeConfigSchema = new mongoose.Schema(
     announcementText2: { type: String, default: '🥻 Unveiling Authentic Kanjeevaram & Banarasi Heritage.' },
     announcementText3: { type: String, default: '📞 Book a Personalized Video Shopping Experience.' },
     announcementText: { type: String, default: '✨ Handwoven Luxury, Delivered Worldwide.' },
-    announcementBgColor: { type: String, default: '#6B102A' },
+    announcementBgColor: { type: String, default: '#4F4E22' },
     announcementTextColor: { type: String, default: '#F4E4BC' },
     announcementEnabled: { type: Boolean, default: true },
 

@@ -78,24 +78,42 @@ export const sendOrderConfirmationEmail = async (user, order) => {
     .map(
       (item) => `
       <tr>
-        <td style="padding: 16px 12px; border-bottom: 1px solid #F0E6D2;">
-          <strong style="color: #1A1A1A; font-size: 15px;">${item.name}</strong><br/>
-          <span style="color: #888; font-size: 13px;">Qty: ${item.quantity}</span>
+        <td style="padding: 14px 12px; border-bottom: 1px solid #F0E6D2;">
+          <strong style="color: #1A1A1A; font-size: 14px;">${item.name}</strong><br/>
+          <span style="color: #888; font-size: 12px;">Qty: ${item.quantity}</span>
         </td>
-        <td style="padding: 16px 12px; border-bottom: 1px solid #F0E6D2; text-align: right; color: #1A1A1A; font-weight: 600;">
-          ₹${item.price.toLocaleString('en-IN')}
+        <td style="padding: 14px 12px; border-bottom: 1px solid #F0E6D2; text-align: right; color: #1A1A1A; font-weight: 600; font-size: 14px;">
+          ₹${(item.price * (item.quantity || 1)).toLocaleString('en-IN')}
         </td>
       </tr>
     `
     )
     .join('');
 
+  const totalAmt = order.totalAmount || order.finalAmount || 0;
+  const taxableAmount = Math.round(totalAmt / 1.05);
+  const totalTax = totalAmt - taxableAmount;
+  const cgst = Math.round(totalTax / 2);
+  const sgst = totalTax - cgst;
+
+  const giftMessageHtml = order.giftMessage
+    ? `
+      <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 14px 18px; margin: 20px 0;">
+        <div style="font-weight: 700; color: #B45309; font-size: 13px; margin-bottom: 4px;">
+          🎁 GIFT CARD MESSAGE:
+        </div>
+        <div style="color: #78350F; font-style: italic; font-size: 14px; line-height: 1.5; word-break: break-word;">
+          "${order.giftMessage.replace(/^["']+|["']+$/g, '')}"
+        </div>
+      </div>
+    `
+    : '';
+
   const savingsHtml = order.totalSavings > 0 
     ? `
-      <div style="background: rgba(40, 167, 69, 0.08); border: 1px dashed #28a745; border-radius: 8px; padding: 15px; text-align: center; margin: 25px 0;">
-        <span style="font-size: 18px;">✨</span>
-        <p style="color: #1e7e34; font-size: 15px; font-weight: 600; margin: 5px 0 0 0;">
-          Amazing! You saved ₹${order.totalSavings.toLocaleString('en-IN')} on this order today!
+      <div style="background: rgba(40, 167, 69, 0.08); border: 1px dashed #28a745; border-radius: 8px; padding: 12px; text-align: center; margin: 15px 0;">
+        <p style="color: #1e7e34; font-size: 14px; font-weight: 600; margin: 0;">
+          ✨ Amazing! You saved ₹${order.totalSavings.toLocaleString('en-IN')} on this order!
         </p>
       </div>
     `
@@ -103,62 +121,92 @@ export const sendOrderConfirmationEmail = async (user, order) => {
 
   return sendEmail({
     to: user.email,
-    subject: `Order Confirmed — ${order.orderId} ✨`,
+    subject: `Official Tax Invoice & Order Confirmation — #${order.orderId} ✨`,
     html: `
-      <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; padding: 40px; background: #FFFDF8; border-top: 5px solid #6B102A; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+      <div style="font-family: 'Georgia', serif; max-width: 650px; margin: 0 auto; padding: 35px; background: #FFFDF8; border-top: 5px solid #6B102A; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
         
         <!-- Logo Section -->
-        <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
-          <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
+        <div style="text-align: center; margin-bottom: 30px;">
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 75px; margin-bottom: 8px;" />
+          <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 6px; text-transform: uppercase;">Luxury Handloom Boutique</p>
         </div>
 
-        <h2 style="color: #1A1A1A; font-size: 22px; font-weight: normal; border-bottom: 1px solid #F0E6D2; padding-bottom: 15px;">Thank you, ${user.firstName}!</h2>
-        <p style="color: #555; line-height: 1.8; font-size: 15px;">
-          Your order <strong>${order.orderId}</strong> has been successfully confirmed. Our artisans are getting everything ready with the utmost care. Here is a summary of your beautiful selections:
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #F0E6D2; padding-bottom: 15px; margin-bottom: 20px;">
+          <div>
+            <h2 style="color: #1A1A1A; font-size: 20px; margin: 0; font-weight: 600;">Tax Invoice & Receipt</h2>
+            <p style="color: #666; font-size: 13px; margin: 4px 0 0 0;">Order #${order.orderId}</p>
+          </div>
+          <div style="text-align: right;">
+            <span style="display: inline-block; background: #28a745; color: white; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">CONFIRMED</span>
+          </div>
+        </div>
+
+        <p style="color: #555; line-height: 1.7; font-size: 14px;">
+          Dear <strong>${user.firstName || 'Valued Customer'}</strong>, thank you for your order! Here is your official Tax Invoice and Order breakdown:
         </p>
         
-        <table style="width: 100%; border-collapse: collapse; margin: 25px 0;">
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
           <thead>
             <tr style="background: #6B102A; color: white;">
-              <th style="padding: 14px 12px; text-align: left; font-size: 14px; font-weight: 500; letter-spacing: 1px;">ITEM</th>
-              <th style="padding: 14px 12px; text-align: right; font-size: 14px; font-weight: 500; letter-spacing: 1px;">PRICE</th>
+              <th style="padding: 12px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 1px;">ITEM DESCRIPTION</th>
+              <th style="padding: 12px; text-align: right; font-size: 13px; font-weight: 600; letter-spacing: 1px;">AMOUNT</th>
             </tr>
           </thead>
           <tbody>${itemsHtml}</tbody>
         </table>
 
-        <div style="background: #f9f5f0; padding: 25px; border-radius: 8px; margin: 20px 0; border: 1px solid #F0E6D2;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <span style="color: #666; font-size: 14px;">Total Paid:</span>
-            <strong style="color: #1A1A1A; font-size: 16px;">₹${order.totalAmount.toLocaleString('en-IN')}</strong>
+        <!-- Invoice Breakdown Table -->
+        <div style="background: #f9f5f0; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #F0E6D2; font-size: 13px;">
+          <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #555;">
+            <span>Subtotal (MRP):</span>
+            <span>₹${(order.mrpTotal || order.subtotal || totalAmt).toLocaleString('en-IN')}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <span style="color: #666; font-size: 14px;">Delivery Mode:</span>
-            <strong style="color: #1A1A1A; font-size: 14px;">${order.deliveryMode === 'express' ? 'Express (3-5 days)' : 'Standard (7-10 days)'}</strong>
+          ${order.couponDiscount > 0 ? `
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #28a745;">
+              <span>Coupon Discount (${order.couponCode}):</span>
+              <span>- ₹${order.couponDiscount.toLocaleString('en-IN')}</span>
+            </div>
+          ` : ''}
+          ${order.convenienceFee > 0 ? `
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #555;">
+              <span>Convenience Fee:</span>
+              <span>₹${order.convenienceFee.toLocaleString('en-IN')}</span>
+            </div>
+          ` : ''}
+          ${order.giftPackCharge > 0 ? `
+            <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #555;">
+              <span>🎁 Gift Packaging Addon:</span>
+              <span>₹${order.giftPackCharge.toLocaleString('en-IN')}</span>
+            </div>
+          ` : ''}
+          <div style="display: flex; justify-content: space-between; padding: 4px 0; color: #555;">
+            <span>Shipping & Handling:</span>
+            <span>${order.shippingFee > 0 ? `₹${order.shippingFee.toLocaleString('en-IN')}` : 'FREE (Complimentary)'}</span>
           </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span style="color: #666; font-size: 14px;">Payment Method:</span>
-            <strong style="color: #1A1A1A; font-size: 14px;">${(order.paymentMethod || '').toUpperCase()}</strong>
+
+          <div style="border-top: 1px dashed #cbd5e1; margin: 10px 0 6px 0; padding-top: 8px; color: #777; font-size: 12px;">
+            <div>GST Tax Breakdown (5% Apparel): Taxable ₹${taxableAmount.toLocaleString('en-IN')} | CGST ₹${cgst.toLocaleString('en-IN')} | SGST ₹${sgst.toLocaleString('en-IN')}</div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; border-top: 2px solid #6B102A; padding-top: 10px; margin-top: 8px; font-size: 16px; font-weight: 700; color: #6B102A;">
+            <span>Grand Total Paid:</span>
+            <span>₹${totalAmt.toLocaleString('en-IN')}</span>
           </div>
         </div>
 
+        ${giftMessageHtml}
         ${savingsHtml}
 
-        <p style="color: #555; line-height: 1.8; font-size: 15px; margin-top: 35px; font-style: italic; text-align: center;">
-          "Thank you for ordering from Mazhai Vaanam! We pour our heart and heritage into every weave, and we're so excited for you to experience the magic of our premium handcrafted sarees."
-        </p>
-
-        <div style="text-align: center; margin: 40px 0;">
-          <a href="${process.env.FRONTEND_URL}/track-order?orderId=${order.orderId}" style="background: #6B102A; color: white; padding: 16px 36px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; border-radius: 4px; display: inline-block;">
-            TRACK ORDER
+        <div style="text-align: center; margin: 35px 0;">
+          <a href="${process.env.FRONTEND_URL}/track-order?orderId=${order.orderId}" style="background: #6B102A; color: white; padding: 14px 32px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; border-radius: 4px; display: inline-block;">
+            TRACK ORDER ONLINE
           </a>
         </div>
 
-        <hr style="border: none; border-top: 1px solid #F0E6D2; margin: 30px 0;" />
+        <hr style="border: none; border-top: 1px solid #F0E6D2; margin: 25px 0;" />
         <div style="text-align: center;">
-          <p style="color: #999; font-size: 12px; margin: 5px 0;">© ${new Date().getFullYear()} Mazhai Vaanam Boutique. All rights reserved.</p>
-          <p style="color: #bbb; font-size: 11px; margin: 5px 0;">Handcrafted in India</p>
+          <p style="color: #888; font-size: 12px; margin: 3px 0;">© ${new Date().getFullYear()} Mazhai Vaanam Boutique. All rights reserved.</p>
+          <p style="color: #aaa; font-size: 11px; margin: 3px 0;">124, Silk Weaver Street, Coimbatore, Tamil Nadu - 641001</p>
         </div>
       </div>
     `,

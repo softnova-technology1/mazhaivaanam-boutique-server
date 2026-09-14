@@ -6,7 +6,15 @@ export const registerValidator = {
     lastName: Joi.string().trim().max(50).allow('').optional(),
     email: Joi.string().email().required(),
     phone: Joi.string().trim().allow('').optional(),
-    password: Joi.string().min(6).max(128).required(),
+    password: Joi.string()
+      .min(8)
+      .max(128)
+      .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/)
+      .required()
+      .messages({
+        'string.min': 'Password must be at least 8 characters long.',
+        'string.pattern.base': 'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (@$!%*?&# etc.).',
+      }),
   }),
 };
 

@@ -4,8 +4,15 @@ import { successResponse, errorResponse } from '../utils/apiResponse.js';
 
 export const submitInquiry = async (req, res, next) => {
   try {
-    const { name, email, phone, subject, message } = req.body;
-    const inquiry = await ContactInquiry.create({ name, email, phone: phone || '', subject: subject || 'General Inquiry', message });
+    const { name, email, phone, subject, message, attachments } = req.body;
+    const inquiry = await ContactInquiry.create({ 
+      name, 
+      email, 
+      phone: phone || '', 
+      subject: subject || 'General Inquiry', 
+      message,
+      attachments: attachments || []
+    });
 
     // Notify admin
     sendEmail({
@@ -19,6 +26,7 @@ export const submitInquiry = async (req, res, next) => {
           <p><strong>Subject:</strong> ${subject || 'General Inquiry'}</p>
           <p><strong>Message:</strong></p>
           <p style="background: #f5f5f5; padding: 16px; border-radius: 8px;">${message}</p>
+          ${attachments && attachments.length > 0 ? `<p><strong>Attachments:</strong> ${attachments.length} reference file(s) attached.</p>` : ''}
         </div>
       `,
     });
@@ -72,3 +80,14 @@ export const replyToInquiry = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteInquiry = async (req, res, next) => {
+  try {
+    const inquiry = await ContactInquiry.findByIdAndDelete(req.params.id);
+    if (!inquiry) return errorResponse(res, 'Inquiry not found', 404);
+    successResponse(res, null, 'Inquiry deleted successfully');
+  } catch (error) {
+    next(error);
+  }
+};
+

@@ -92,6 +92,7 @@ const orderSchema = new mongoose.Schema(
       type: String,
       enum: [
         'CONFIRMED',
+        'PACKING',
         'SHIPPING',
         'DELIVERED',
         'CANCELLED'

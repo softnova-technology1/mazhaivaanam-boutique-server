@@ -41,6 +41,13 @@ const contactInquirySchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    attachments: [
+      {
+        url: { type: String, default: '' },
+        name: { type: String, default: '' },
+        fileType: { type: String, default: '' }
+      }
+    ],
   },
   {
     timestamps: true,

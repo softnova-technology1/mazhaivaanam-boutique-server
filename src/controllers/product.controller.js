@@ -67,10 +67,14 @@ export const getProducts = async (req, res, next) => {
 
     const filter = { isActive: true };
 
-    // Category filter (by slug)
+    // Category filter (by ObjectId or slug)
     if (category) {
-      const cat = await Category.findOne({ slug: category });
-      if (cat) filter.category = cat._id;
+      if (mongoose.isValidObjectId(category)) {
+        filter.category = category;
+      } else {
+        const cat = await Category.findOne({ slug: category });
+        if (cat) filter.category = cat._id;
+      }
     }
 
     // Direct filters
@@ -178,6 +182,7 @@ export const getNewArrivals = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
+
     const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
@@ -187,7 +192,7 @@ export const getNewArrivals = async (req, res, next) => {
 
 /**
  * GET /api/products/limited-offers
- * Returns only products tagged as 'FESTIVAL CHOICE' or 'LIMITED EDITION'
+ * Returns products tagged as 'FESTIVAL CHOICE' or 'LIMITED EDITION'
  */
 export const getLimitedOfferProducts = async (req, res, next) => {
   try {
@@ -201,6 +206,7 @@ export const getLimitedOfferProducts = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(limit)
       .lean();
+
     const enriched = await enrichWithInventory(products);
     successResponse(res, enriched);
   } catch (error) {
@@ -210,13 +216,12 @@ export const getLimitedOfferProducts = async (req, res, next) => {
 
 /**
  * GET /api/products/best-sellers
- * Returns only products explicitly tagged as 'BESTSELLER'
+ * Returns products tagged as 'BESTSELLER'
  */
 export const getBestSellers = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 12;
 
-    // Only return products manually tagged as BESTSELLER by admin
     const products = await Product.find({ isActive: true, tag: 'BESTSELLER', isPreorder: { $ne: true } })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
@@ -583,7 +588,7 @@ export const bulkImportProducts = async (req, res, next) => {
         }
 
         const price = Number(item.price) || 0;
-        const mrpPrice = Number(item.mrpPrice) || Math.round(price * 1.15);
+        const mrpPrice = Number(item.mrpPrice || item.mrp || item.oldPrice) || price;
         const stock = (item.stock !== undefined && item.stock !== '' && !isNaN(Number(item.stock))) ? Number(item.stock) : 25;
 
         let images = [];
@@ -656,6 +661,7 @@ export const bulkImportProducts = async (req, res, next) => {
 
     return successResponse(res, {
       importedCount: createdProducts.length,
+      products: createdProducts,
       errorsCount: errors.length,
       errors,
     }, `Successfully imported ${createdProducts.length} products`);

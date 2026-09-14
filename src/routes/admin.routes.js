@@ -14,7 +14,7 @@ import {
   createCollection, updateCollection, deleteCollection, getAdminCollections,
 } from '../controllers/category.controller.js';
 import { getAllOrders, updateOrderStatus } from '../controllers/order.controller.js';
-import { getInquiries, replyToInquiry } from '../controllers/contact.controller.js';
+import { getInquiries, replyToInquiry, deleteInquiry } from '../controllers/contact.controller.js';
 import {
   getProductReviews, createReview, deleteReview, getPendingReviews, approveReview, getAllReviews,
 } from '../controllers/review.controller.js';
@@ -88,6 +88,7 @@ router.delete('/reviews/:reviewId', deleteReview);
 // Contact Inquiries
 router.get('/inquiries', getInquiries);
 router.put('/inquiries/:id/reply', replyToInquiry);
+router.delete('/inquiries/:id', deleteInquiry);
 
 // Inventory
 router.get('/inventory', getAllInventory);

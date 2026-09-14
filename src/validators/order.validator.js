@@ -6,7 +6,7 @@ export const createOrderValidator = {
       Joi.object({
         product: Joi.string().required(),
         quantity: Joi.number().integer().min(1).required(),
-      })
+      }).unknown(true)
     ).min(1).required(),
     shippingAddress: Joi.object({
       fullName: Joi.string().trim().required(),
@@ -28,9 +28,9 @@ export const createOrderValidator = {
 export const updateOrderStatusValidator = {
   body: Joi.object({
     status: Joi.string().valid(
-      'CONFIRMED', 'SHIPPING', 'DELIVERED', 'CANCELLED'
+      'CONFIRMED', 'PACKING', 'SHIPPING', 'DELIVERED', 'CANCELLED'
     ).required().messages({
-      'any.only': 'Status must be one of [CONFIRMED, SHIPPING, DELIVERED, CANCELLED]'
+      'any.only': 'Status must be one of [CONFIRMED, PACKING, SHIPPING, DELIVERED, CANCELLED]'
     }),
     location: Joi.string().allow('').optional(),
     note: Joi.string().allow('').optional(),
