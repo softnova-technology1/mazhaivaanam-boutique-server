@@ -20,6 +20,8 @@ export const getDashboard = async (req, res, next) => {
       revenueResult,
       pendingCheckoutResult,
       recentOrders,
+      recentUsers,
+      recentInquiries,
     ] = await Promise.all([
       // Only count orders where payment is confirmed (paid) — exclude pending/abandoned
       Order.countDocuments({ paymentStatus: 'paid' }),
@@ -41,6 +43,8 @@ export const getDashboard = async (req, res, next) => {
         .sort({ createdAt: -1 })
         .limit(10)
         .lean(),
+      User.find({ role: 'customer' }).sort({ createdAt: -1 }).limit(10).lean(),
+      ContactInquiry.find().sort({ createdAt: -1 }).limit(10).lean(),
     ]);
 
     const revenue = revenueResult[0]?.total || 0;
@@ -78,6 +82,8 @@ export const getDashboard = async (req, res, next) => {
       },
       statusBreakdown,
       recentOrders,
+      recentUsers,
+      recentInquiries,
     });
   } catch (error) {
     next(error);
