@@ -83,6 +83,14 @@ const limitedOfferConfigSchema = new mongoose.Schema(
         ],
       },
     },
+    offerZonePopup: {
+      isActive: { type: Boolean, default: true },
+      badgeText: { type: String, default: 'LIMITED TIME OFFER' },
+      title: { type: String, default: 'Exclusive Festival Vault Unlocked!' },
+      description: { type: String, default: 'Explore handpicked royal silk sarees, artisan blouses, and limited-time festive deals.' },
+      bgImage: { type: String, default: '/Images/limited.png' },
+      buttonText: { type: String, default: 'EXPLORE OFFERS NOW' },
+    },
   },
   { timestamps: true }
 );

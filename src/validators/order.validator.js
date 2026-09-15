@@ -20,7 +20,7 @@ export const createOrderValidator = {
     deliveryMode: Joi.string().valid('express', 'standard', 'pickup').default('standard'),
     giftPackaging: Joi.boolean().default(false),
     giftMessage: Joi.string().max(500).allow('').optional(),
-    paymentMethod: Joi.string().valid('card', 'upi', 'netbanking', 'cod').required(),
+    paymentMethod: Joi.string().allow('').optional(),
     couponCode: Joi.string().trim().uppercase().allow('').optional(),
   }),
 };

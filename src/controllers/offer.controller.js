@@ -15,6 +15,19 @@ export const getOfferConfig = async (req, res, next) => {
 
     if (!config) {
       config = await LimitedOfferConfig.create({});
+      if (config.toObject) config = config.toObject();
+    }
+
+    // Default fallback for offerZonePopup if pre-existing DB document didn't have it
+    if (!config.offerZonePopup) {
+      config.offerZonePopup = {
+        isActive: true,
+        badgeText: 'LIMITED TIME OFFER',
+        title: 'Exclusive Festival Vault Unlocked!',
+        description: 'Explore handpicked royal silk sarees, artisan blouses, and limited-time festive deals.',
+        bgImage: '/Images/limited.png',
+        buttonText: 'EXPLORE OFFERS NOW',
+      };
     }
 
     return successResponse(res, config, 'Limited offer configuration loaded');
@@ -114,6 +127,47 @@ export const spinWheel = async (req, res, next) => {
       { prize: wonPrize, couponCode },
       'Congratulations! 🎉'
     );
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * GET /api/limited-offer/my-coupons
+ * Protected — returns logged-in user's won coupons & spin rewards
+ */
+export const getMyCoupons = async (req, res, next) => {
+  try {
+    const spinRecords = await SpinRecord.find({ user: req.user._id })
+      .sort({ createdAt: -1 })
+      .lean();
+
+    const codes = spinRecords.map(r => r.couponCode).filter(Boolean);
+    const coupons = await Coupon.find({ code: { $in: codes } }).lean();
+    const couponMap = new Map(coupons.map(c => [c.code, c]));
+
+    const userCoupons = spinRecords.map(rec => {
+      const cDetails = rec.couponCode ? couponMap.get(rec.couponCode) : null;
+      const isExpired = cDetails?.validUntil ? new Date(cDetails.validUntil) < new Date() : false;
+      const isUsed = cDetails ? (cDetails.usedCount >= (cDetails.usageLimit || 1)) : false;
+
+      return {
+        _id: rec._id,
+        prize: rec.prize,
+        couponCode: rec.couponCode,
+        wonAt: rec.createdAt,
+        type: cDetails?.type || 'percentage',
+        value: cDetails?.value || 10,
+        validUntil: cDetails?.validUntil || new Date(new Date(rec.createdAt).getTime() + 7 * 24 * 60 * 60 * 1000),
+        usageLimit: cDetails?.usageLimit || 1,
+        usedCount: cDetails?.usedCount || 0,
+        isExpired,
+        isUsed,
+        isActive: cDetails ? (cDetails.isActive && !isExpired && !isUsed) : true,
+      };
+    });
+
+    return successResponse(res, userCoupons, 'User coupons loaded successfully');
   } catch (error) {
     next(error);
   }
