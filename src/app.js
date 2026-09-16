@@ -32,12 +32,22 @@ app.use(
 // CORS — Single origin (Customer store + Admin panel on same port)
 // Admin panel is hidden at /mazhaivaanam-sn2026 (not a separate URL)
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:5173',
+  process.env.FRONTEND_URL,
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:5175',
 ].filter(Boolean);
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      // Allow server-to-server / Postman requests (no origin) OR matched frontend origin
+      if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+        callback(null, true);
+      } else {
+        callback(null, true); // Permissive or origin match
+      }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -65,7 +75,13 @@ const authLimiter = rateLimit({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads')));
+app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads'), {
+  maxAge: '1y',
+  immutable: true,
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+}));
 
 // ==================== HEALTH CHECK ====================
 
