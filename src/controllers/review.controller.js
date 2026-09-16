@@ -106,6 +106,27 @@ export const approveReview = async (req, res, next) => {
   }
 };
 
+// Admin: Edit review text
+export const updateReview = async (req, res, next) => {
+  try {
+    const review = await Review.findById(req.params.reviewId);
+    if (!review) return errorResponse(res, 'Review not found', 404);
+
+    if (req.body.text) review.text = req.body.text;
+    if (req.body.rating) review.rating = req.body.rating;
+    
+    await review.save();
+
+    if (review.isApproved) {
+      await recalculateRating(review.product);
+    }
+
+    successResponse(res, review, 'Review updated successfully');
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Admin: Get all pending reviews
 export const getPendingReviews = async (req, res, next) => {
   try {
