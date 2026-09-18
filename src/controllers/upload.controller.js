@@ -3,8 +3,22 @@ import { randomUUID } from 'crypto';
 import path from 'path';
 import s3Client, { S3_BUCKET, S3_PUBLIC_URL } from '../config/r2.js';
 import { successResponse, errorResponse } from '../utils/apiResponse.js';
-
 import fs from 'fs';
+import sharp from 'sharp';
+
+/**
+ * Convert any image buffer (incl. HEIC) → WebP buffer at 87% quality.
+ * HEIC/HEIF: dynamically load heic-convert (pure JS decoder) → JPEG → WebP.
+ * All other formats: sharp directly → WebP.
+ */
+async function toWebpBuffer(buffer, mimetype) {
+  if (mimetype === 'image/heic' || mimetype === 'image/heif') {
+    const heicConvert = (await import('heic-convert')).default;
+    const jpegBuf = await heicConvert({ buffer, format: 'JPEG', quality: 1 });
+    return sharp(Buffer.from(jpegBuf)).rotate().webp({ quality: 87 }).toBuffer();
+  }
+  return sharp(buffer, { failOnError: false }).rotate().webp({ quality: 87 }).toBuffer();
+}
 
 /**
  * POST /api/admin/upload
@@ -17,8 +31,11 @@ export const uploadImage = async (req, res, next) => {
     }
 
     const folder = req.body.folder || 'products';
-    const ext = path.extname(req.file.originalname) || '.jpg';
-    const key = `${folder}/${randomUUID()}${ext}`;
+    // Always store as .webp for universal browser compatibility
+    const key = `${folder}/${randomUUID()}.webp`;
+
+    // Convert to WebP (handles HEIC, JPG, PNG, etc.)
+    const webpBuffer = await toWebpBuffer(req.file.buffer, req.file.mimetype);
 
     try {
       // Try Upload to S3
@@ -26,8 +43,9 @@ export const uploadImage = async (req, res, next) => {
         new PutObjectCommand({
           Bucket: S3_BUCKET,
           Key: key,
-          Body: req.file.buffer,
-          ContentType: req.file.mimetype,
+          Body: webpBuffer,
+          ContentType: 'image/webp',
+          CacheControl: 'max-age=31536000',
         })
       );
 
@@ -36,8 +54,8 @@ export const uploadImage = async (req, res, next) => {
       return successResponse(res, {
         url,
         publicId: key,
-        size: req.file.size,
-        mimetype: req.file.mimetype,
+        size: webpBuffer.length,
+        mimetype: 'image/webp',
       }, 'Image uploaded to cloud');
     } catch (s3Err) {
       console.warn('AWS S3 upload failed/unconfigured. Falling back to local storage:', s3Err.message);
@@ -47,9 +65,9 @@ export const uploadImage = async (req, res, next) => {
         fs.mkdirSync(uploadsDir, { recursive: true });
       }
 
-      const filename = `${randomUUID()}${ext}`;
+      const filename = `${randomUUID()}.webp`;
       const filePath = path.join(uploadsDir, filename);
-      fs.writeFileSync(filePath, req.file.buffer);
+      fs.writeFileSync(filePath, webpBuffer);
 
       const host = req.get('host') || 'localhost:5000';
       const protocol = req.protocol || 'http';
@@ -58,8 +76,8 @@ export const uploadImage = async (req, res, next) => {
       return successResponse(res, {
         url,
         publicId: filename,
-        size: req.file.size,
-        mimetype: req.file.mimetype,
+        size: webpBuffer.length,
+        mimetype: 'image/webp',
       }, 'Image uploaded locally');
     }
   } catch (error) {

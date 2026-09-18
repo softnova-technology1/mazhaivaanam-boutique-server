@@ -27,8 +27,16 @@ export const normalizeName = (name = '') => {
   while (words.length > 1 && colorWords.includes(words[words.length - 1])) {
     words.pop();
   }
+
+  cleaned = words.join(' ');
+
+  // Strip trailing variant suffixes so P1/P2/P3 and -1/-2/-3 are grouped as same pattern:
+  // e.g. "Soft Lichi Silk Saree P1" → "soft lichi silk saree"
+  // e.g. "Handblock Mul Cotton Saree-1" → "handblock mul cotton saree"
+  cleaned = cleaned.replace(/\s*[-#]?\s*p\d+$/i, '').trim();  // P1, P2, P3, #P1
+  cleaned = cleaned.replace(/\s*-\s*\d+$/i, '').trim();        // -1, -2, -3, - 1
   
-  return words.join(' ');
+  return cleaned;
 };
 
 /**
