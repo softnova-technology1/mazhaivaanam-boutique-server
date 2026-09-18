@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { protect } from '../middleware/auth.middleware.js';
 import validate from '../middleware/validate.middleware.js';
-import { createOrderValidator } from '../validators/order.validator.js';
+import { createOrderValidator, shippingEstimateValidator } from '../validators/order.validator.js';
 import {
   createOrder, verifyPayment, getUserOrders,
-  getOrderById, trackOrder,
+  getOrderById, trackOrder, estimateShipping,
 } from '../controllers/order.controller.js';
 import { validateCoupon } from '../controllers/coupon.controller.js';
 
@@ -14,6 +14,7 @@ const router = Router();
 router.get('/tracking/:orderId', trackOrder);
 router.get('/track/:orderId', trackOrder);
 router.post('/validate-coupon', validateCoupon);
+router.post('/shipping-estimate', validate(shippingEstimateValidator), estimateShipping); // public — zone-wise fee preview
 router.post('/payments/verify', protect, verifyPayment); // ← MOVED UP: must be before /:orderId
 
 // Protected routes (dynamic routes last)

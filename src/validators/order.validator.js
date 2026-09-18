@@ -25,6 +25,20 @@ export const createOrderValidator = {
   }),
 };
 
+export const shippingEstimateValidator = {
+  body: Joi.object({
+    items: Joi.array().items(
+      Joi.object({
+        product: Joi.string().required(),
+        quantity: Joi.number().integer().min(1).required(),
+      }).unknown(true)
+    ).min(1).required(),
+    state: Joi.string().trim().allow('').optional(),
+    pinCode: Joi.string().trim().allow('').optional(),
+    deliveryMode: Joi.string().valid('express', 'standard', 'pickup').default('standard'),
+  }),
+};
+
 export const updateOrderStatusValidator = {
   body: Joi.object({
     status: Joi.string().valid(

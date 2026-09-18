@@ -67,7 +67,8 @@ const orderSchema = new mongoose.Schema(
     convenienceFee: { type: Number, default: 0 },
     shippingFee: { type: Number, default: 0 },
     shippingWeight: { type: Number, default: 0 },   // Total weight in kg
-    shippingLabel: { type: String, default: '' },    // e.g. "Upto 1kg (0.50 kg)"
+    shippingLabel: { type: String, default: '' },    // e.g. "Upto 1kg (0.50 kg) · Tamil Nadu"
+    shippingZone: { type: String, default: '' },     // 'Tamil Nadu' | 'Other States'
     totalAmount: { type: Number, required: true },
     totalSavings: { type: Number, default: 0 },
 

@@ -19,6 +19,31 @@ const DEFAULT_GIFT_WRAP_PRICE = 499;
 const DEFAULT_CONVENIENCE_FEE = 2;
 
 /**
+ * POST /api/orders/shipping-estimate
+ * Public — cart/checkout page-la address select panna udane zone-wise shipping fee preview
+ */
+export const estimateShipping = async (req, res, next) => {
+  try {
+    const { items, state, pinCode, deliveryMode } = req.body;
+
+    const productIds = items.map((i) => i.product);
+    const products = await Product.find({ _id: { $in: productIds }, isActive: true })
+      .select('weightKg')
+      .lean();
+
+    const weightedItems = items.map((item) => {
+      const prod = products.find((p) => p._id.toString() === item.product);
+      return { weightKg: prod?.weightKg, quantity: item.quantity };
+    });
+
+    const totalWeightKg = calculateTotalWeight(weightedItems);
+    successResponse(res, calculateShipping(totalWeightKg, deliveryMode, { state, pinCode }));
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
  * POST /api/orders
  * Place a new order — creates Razorpay order
  */
@@ -92,9 +117,9 @@ export const createOrder = async (req, res, next) => {
     const CONVENIENCE_FEE = storeConfig.convenienceFee ?? DEFAULT_CONVENIENCE_FEE;
     const giftPackCharge  = giftPackaging ? GIFT_WRAP_PRICE : 0;
 
-    // Weight-based shipping calculation
+    // Weight + zone based shipping calculation (Tamil Nadu vs other states)
     const totalWeightKg = calculateTotalWeight(orderItems);
-    const { shippingFee, shippingLabel } = calculateShipping(totalWeightKg, deliveryMode);
+    const { shippingFee, shippingLabel, shippingZone } = calculateShipping(totalWeightKg, deliveryMode, shippingAddress);
 
     // Apply coupon
     let couponDiscount = 0;
@@ -187,6 +212,7 @@ export const createOrder = async (req, res, next) => {
       shippingFee,
       shippingWeight: totalWeightKg,
       shippingLabel,
+      shippingZone,
       totalAmount,
       totalSavings,
       paymentMethod,
