@@ -346,8 +346,14 @@ export const getAdminProducts = async (req, res, next) => {
       filter.isPreorder = { $ne: true };
     }
 
-    if (search) {
-      filter.$text = { $search: search };
+    if (search && search.trim()) {
+      const searchRegex = new RegExp(search.trim().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'i');
+      filter.$or = [
+        { name: searchRegex },
+        { fabric: searchRegex },
+        { tag: searchRegex },
+        { sku: searchRegex },
+      ];
     }
 
     let sortOption = { createdAt: -1 };
