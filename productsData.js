@@ -21,11 +21,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p1/IMG_2609.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p1/IMG_2609.webp",
         "alt": "Soft Lichi Silk Saree P1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p1/IMG_2610.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p1/IMG_2610.webp",
         "alt": "Soft Lichi Silk Saree P1"
       }
     ],
@@ -53,11 +53,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p2/IMG_2613.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p2/IMG_2613.webp",
         "alt": "Soft Lichi Silk Saree P2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p2/IMG_2614.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p2/IMG_2614.webp",
         "alt": "Soft Lichi Silk Saree P2"
       }
     ],
@@ -85,11 +85,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p3/IMG_2626.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p3/IMG_2626.webp",
         "alt": "Soft Lichi Silk Saree P3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p3/IMG_2628.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p3/IMG_2628.webp",
         "alt": "Soft Lichi Silk Saree P3"
       }
     ],
@@ -117,11 +117,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p4/IMG_2630.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p4/IMG_2630.webp",
         "alt": "Soft Lichi Silk Saree P4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p4/IMG_2631.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-p4/IMG_2631.webp",
         "alt": "Soft Lichi Silk Saree P4"
       }
     ],
@@ -149,11 +149,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-1/IMG_2632.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-1/IMG_2632.webp",
         "alt": "Linen Cotton -Digital print-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-1/IMG_2633.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-1/IMG_2633.webp",
         "alt": "Linen Cotton -Digital print-1"
       }
     ],
@@ -181,11 +181,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-2/IMG_2634.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-2/IMG_2634.webp",
         "alt": "Linen Cotton -Digital print-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-2/IMG_2635.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-2/IMG_2635.webp",
         "alt": "Linen Cotton -Digital print-2"
       }
     ],
@@ -213,11 +213,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-3/IMG_2636.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-3/IMG_2636.webp",
         "alt": "Linen Cotton -Digital print-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-3/IMG_2637.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-3/IMG_2637.webp",
         "alt": "Linen Cotton -Digital print-3"
       }
     ],
@@ -245,11 +245,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-4/IMG_2638.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-4/IMG_2638.webp",
         "alt": "Linen Cotton -Digital print-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-4/IMG_2640.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-4/IMG_2640.webp",
         "alt": "Linen Cotton -Digital print-4"
       }
     ],
@@ -277,11 +277,11 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-5/IMG_2642.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-5/IMG_2642.webp",
         "alt": "Linen Cotton -Digital print-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-5/IMG_2643.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-digital-print-5/IMG_2643.webp",
         "alt": "Linen Cotton -Digital print-5"
       }
     ],
@@ -309,15 +309,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2644.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2644.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2645.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2645.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2646.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2646.webp",
         "alt": "Soft linen Cotton  Saree"
       }
     ],
@@ -345,15 +345,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2648.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2648.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2649.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2649.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2650.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2650.webp",
         "alt": "Soft linen Cotton  Saree"
       }
     ],
@@ -381,15 +381,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2651.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2651.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2652.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2652.webp",
         "alt": "Soft linen Cotton  Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2653.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-linen-cotton-saree/IMG_2653.webp",
         "alt": "Soft linen Cotton  Saree"
       }
     ],
@@ -417,15 +417,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2655.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2655.webp",
         "alt": "Semi Tussar Silk  Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2656.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2656.webp",
         "alt": "Semi Tussar Silk  Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2657.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-1/IMG_2657.webp",
         "alt": "Semi Tussar Silk  Saree _1"
       }
     ],
@@ -453,15 +453,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2658.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2658.webp",
         "alt": "Semi Tussar Silk  Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2659.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2659.webp",
         "alt": "Semi Tussar Silk  Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2661.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-2/IMG_2661.webp",
         "alt": "Semi Tussar Silk  Saree_2"
       }
     ],
@@ -489,15 +489,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2662.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2662.webp",
         "alt": "Semi Tussar Silk  Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2663.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2663.webp",
         "alt": "Semi Tussar Silk  Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2665.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-tussar-silk-saree-3/IMG_2665.webp",
         "alt": "Semi Tussar Silk  Saree_3"
       }
     ],
@@ -525,15 +525,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2667.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2667.webp",
         "alt": "Linen Cotton Saree 1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2668.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2668.webp",
         "alt": "Linen Cotton Saree 1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2669.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-1/IMG_2669.webp",
         "alt": "Linen Cotton Saree 1"
       }
     ],
@@ -561,15 +561,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2670.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2670.webp",
         "alt": "Linen Cotton Saree 2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2671.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2671.webp",
         "alt": "Linen Cotton Saree 2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2672.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-2/IMG_2672.webp",
         "alt": "Linen Cotton Saree 2"
       }
     ],
@@ -597,15 +597,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2673.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2673.webp",
         "alt": "Linen Cotton Saree 3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2674.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2674.webp",
         "alt": "Linen Cotton Saree 3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2675.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-3/IMG_2675.webp",
         "alt": "Linen Cotton Saree 3"
       }
     ],
@@ -633,15 +633,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2676.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2676.webp",
         "alt": "Linen Cotton Saree 4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2677.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2677.webp",
         "alt": "Linen Cotton Saree 4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2678.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-4/IMG_2678.webp",
         "alt": "Linen Cotton Saree 4"
       }
     ],
@@ -669,15 +669,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2679.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2679.webp",
         "alt": "Linen Cotton Saree 5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2680.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2680.webp",
         "alt": "Linen Cotton Saree 5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2681.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-5/IMG_2681.webp",
         "alt": "Linen Cotton Saree 5"
       }
     ],
@@ -705,15 +705,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2682.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2682.webp",
         "alt": "Linen Cotton Saree 6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2683.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2683.webp",
         "alt": "Linen Cotton Saree 6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2684.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-6/IMG_2684.webp",
         "alt": "Linen Cotton Saree 6"
       }
     ],
@@ -741,15 +741,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2685.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2685.webp",
         "alt": "Linen Cotton Saree 7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2686.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2686.webp",
         "alt": "Linen Cotton Saree 7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2687.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-7/IMG_2687.webp",
         "alt": "Linen Cotton Saree 7"
       }
     ],
@@ -777,15 +777,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2688.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2688.webp",
         "alt": "Linen Cotton Saree 8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2689.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2689.webp",
         "alt": "Linen Cotton Saree 8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2690.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/linen-cotton-saree-8/IMG_2690.webp",
         "alt": "Linen Cotton Saree 8"
       }
     ],
@@ -813,15 +813,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2707.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2707.webp",
         "alt": "Paithani Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2708.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2708.webp",
         "alt": "Paithani Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2709.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-1/IMG_2709.webp",
         "alt": "Paithani Saree _1"
       }
     ],
@@ -849,15 +849,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2710.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2710.webp",
         "alt": "Paithani Saree _2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2711.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2711.webp",
         "alt": "Paithani Saree _2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2712.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-2/IMG_2712.webp",
         "alt": "Paithani Saree _2"
       }
     ],
@@ -885,15 +885,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2713.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2713.webp",
         "alt": "Paithani Saree _3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2714.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2714.webp",
         "alt": "Paithani Saree _3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2715.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-3/IMG_2715.webp",
         "alt": "Paithani Saree _3"
       }
     ],
@@ -921,15 +921,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2716.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2716.webp",
         "alt": "Paithani Saree _4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2717.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2717.webp",
         "alt": "Paithani Saree _4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2720.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-4/IMG_2720.webp",
         "alt": "Paithani Saree _4"
       }
     ],
@@ -957,15 +957,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2721.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2721.webp",
         "alt": "Paithani Saree _5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2722.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2722.webp",
         "alt": "Paithani Saree _5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2723.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-5/IMG_2723.webp",
         "alt": "Paithani Saree _5"
       }
     ],
@@ -993,15 +993,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2724.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2724.webp",
         "alt": "Paithani Saree _6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2725.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2725.webp",
         "alt": "Paithani Saree _6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2726.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-6/IMG_2726.webp",
         "alt": "Paithani Saree _6"
       }
     ],
@@ -1029,15 +1029,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2728.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2728.webp",
         "alt": "Paithani Saree _7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2729.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2729.webp",
         "alt": "Paithani Saree _7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2730.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-7/IMG_2730.webp",
         "alt": "Paithani Saree _7"
       }
     ],
@@ -1065,15 +1065,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2731.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2731.webp",
         "alt": "Paithani Saree _8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2732.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2732.webp",
         "alt": "Paithani Saree _8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2734.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-8/IMG_2734.webp",
         "alt": "Paithani Saree _8"
       }
     ],
@@ -1101,15 +1101,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2735.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2735.webp",
         "alt": "Paithani Saree _9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2736.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2736.webp",
         "alt": "Paithani Saree _9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2737.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/paithani-saree-9/IMG_2737.webp",
         "alt": "Paithani Saree _9"
       }
     ],
@@ -1137,15 +1137,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2738.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2738.webp",
         "alt": "Semi Raw Silk-Paithani Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2739.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2739.webp",
         "alt": "Semi Raw Silk-Paithani Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2740.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-1/IMG_2740.webp",
         "alt": "Semi Raw Silk-Paithani Saree-1"
       }
     ],
@@ -1173,15 +1173,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2742.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2742.webp",
         "alt": "Semi Raw Silk-Paithani Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2744.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2744.webp",
         "alt": "Semi Raw Silk-Paithani Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2745.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-2/IMG_2745.webp",
         "alt": "Semi Raw Silk-Paithani Saree-2"
       }
     ],
@@ -1209,15 +1209,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2747.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2747.webp",
         "alt": "Semi Raw Silk-Paithani Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2749.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2749.webp",
         "alt": "Semi Raw Silk-Paithani Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2750.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-3/IMG_2750.webp",
         "alt": "Semi Raw Silk-Paithani Saree-3"
       }
     ],
@@ -1245,15 +1245,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2751.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2751.webp",
         "alt": "Semi Raw Silk-Paithani Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2752.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2752.webp",
         "alt": "Semi Raw Silk-Paithani Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2753.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-4/IMG_2753.webp",
         "alt": "Semi Raw Silk-Paithani Saree-4"
       }
     ],
@@ -1281,15 +1281,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2754.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2754.webp",
         "alt": "Semi Raw Silk-Paithani Saree-black"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2755.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2755.webp",
         "alt": "Semi Raw Silk-Paithani Saree-black"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2756.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/semi-raw-silk-paithani-saree-black/IMG_2756.webp",
         "alt": "Semi Raw Silk-Paithani Saree-black"
       }
     ],
@@ -1317,15 +1317,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2757.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2757.webp",
         "alt": "Jamdani Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2758.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2758.webp",
         "alt": "Jamdani Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2759.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-1/IMG_2759.webp",
         "alt": "Jamdani Saree-1"
       }
     ],
@@ -1353,15 +1353,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2761.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2761.webp",
         "alt": "Jamdani Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2762.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2762.webp",
         "alt": "Jamdani Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2763.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-2/IMG_2763.webp",
         "alt": "Jamdani Saree-2"
       }
     ],
@@ -1389,15 +1389,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2764.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2764.webp",
         "alt": "Jamdani Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2765.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2765.webp",
         "alt": "Jamdani Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2766.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-3/IMG_2766.webp",
         "alt": "Jamdani Saree-3"
       }
     ],
@@ -1425,15 +1425,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2767.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2767.webp",
         "alt": "Jamdani Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2769.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2769.webp",
         "alt": "Jamdani Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2770.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-4/IMG_2770.webp",
         "alt": "Jamdani Saree-4"
       }
     ],
@@ -1461,15 +1461,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2771.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2771.webp",
         "alt": "Jamdani Saree-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2772.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2772.webp",
         "alt": "Jamdani Saree-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2773.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-5/IMG_2773.webp",
         "alt": "Jamdani Saree-5"
       }
     ],
@@ -1497,15 +1497,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2774.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2774.webp",
         "alt": "Jamdani Saree-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2775.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2775.webp",
         "alt": "Jamdani Saree-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2776.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/jamdani-saree-6/IMG_2776.webp",
         "alt": "Jamdani Saree-6"
       }
     ],
@@ -1533,15 +1533,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2777.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2777.webp",
         "alt": "Handblock Mul Cotton Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2778.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2778.webp",
         "alt": "Handblock Mul Cotton Saree-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2779.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-1/IMG_2779.webp",
         "alt": "Handblock Mul Cotton Saree-1"
       }
     ],
@@ -1569,15 +1569,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2782.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2782.webp",
         "alt": "Handblock Mul Cotton Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2785.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2785.webp",
         "alt": "Handblock Mul Cotton Saree-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2786.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-2/IMG_2786.webp",
         "alt": "Handblock Mul Cotton Saree-2"
       }
     ],
@@ -1605,15 +1605,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2787.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2787.webp",
         "alt": "Handblock Mul Cotton Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2788.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2788.webp",
         "alt": "Handblock Mul Cotton Saree-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2790.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-3/IMG_2790.webp",
         "alt": "Handblock Mul Cotton Saree-3"
       }
     ],
@@ -1641,15 +1641,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2792.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2792.webp",
         "alt": "Handblock Mul Cotton Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2793.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2793.webp",
         "alt": "Handblock Mul Cotton Saree-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2794.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-4/IMG_2794.webp",
         "alt": "Handblock Mul Cotton Saree-4"
       }
     ],
@@ -1677,15 +1677,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2795.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2795.webp",
         "alt": "Handblock Mul Cotton Saree-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2796.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2796.webp",
         "alt": "Handblock Mul Cotton Saree-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2797.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-5/IMG_2797.webp",
         "alt": "Handblock Mul Cotton Saree-5"
       }
     ],
@@ -1713,15 +1713,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2798.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2798.webp",
         "alt": "Handblock Mul Cotton Saree-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2799.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2799.webp",
         "alt": "Handblock Mul Cotton Saree-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2800.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-6/IMG_2800.webp",
         "alt": "Handblock Mul Cotton Saree-6"
       }
     ],
@@ -1749,15 +1749,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2801.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2801.webp",
         "alt": "Handblock Mul Cotton Saree-7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2802.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2802.webp",
         "alt": "Handblock Mul Cotton Saree-7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2803.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-7/IMG_2803.webp",
         "alt": "Handblock Mul Cotton Saree-7"
       }
     ],
@@ -1785,15 +1785,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2804.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2804.webp",
         "alt": "Handblock Mul Cotton Saree-8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2805.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2805.webp",
         "alt": "Handblock Mul Cotton Saree-8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2806.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-8/IMG_2806.webp",
         "alt": "Handblock Mul Cotton Saree-8"
       }
     ],
@@ -1821,15 +1821,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2807.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2807.webp",
         "alt": "Handblock Mul Cotton Saree-9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2808.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2808.webp",
         "alt": "Handblock Mul Cotton Saree-9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2809.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-9/IMG_2809.webp",
         "alt": "Handblock Mul Cotton Saree-9"
       }
     ],
@@ -1857,15 +1857,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2810.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2810.webp",
         "alt": "Handblock Mul Cotton Saree-10"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2811.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2811.webp",
         "alt": "Handblock Mul Cotton Saree-10"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2812.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-10/IMG_2812.webp",
         "alt": "Handblock Mul Cotton Saree-10"
       }
     ],
@@ -1893,15 +1893,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2813.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2813.webp",
         "alt": "Handblock Mul Cotton Saree-11"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2814.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2814.webp",
         "alt": "Handblock Mul Cotton Saree-11"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2815.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-11/IMG_2815.webp",
         "alt": "Handblock Mul Cotton Saree-11"
       }
     ],
@@ -1929,15 +1929,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2816.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2816.webp",
         "alt": "Handblock Mul Cotton Saree-12"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2817.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2817.webp",
         "alt": "Handblock Mul Cotton Saree-12"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2818.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-12/IMG_2818.webp",
         "alt": "Handblock Mul Cotton Saree-12"
       }
     ],
@@ -1965,15 +1965,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2819.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2819.webp",
         "alt": "Handblock Mul Cotton Saree-13"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2820.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2820.webp",
         "alt": "Handblock Mul Cotton Saree-13"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2821.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-13/IMG_2821.webp",
         "alt": "Handblock Mul Cotton Saree-13"
       }
     ],
@@ -2001,15 +2001,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2822.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2822.webp",
         "alt": "Handblock Mul Cotton Saree-14"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2823.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2823.webp",
         "alt": "Handblock Mul Cotton Saree-14"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2824.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-14/IMG_2824.webp",
         "alt": "Handblock Mul Cotton Saree-14"
       }
     ],
@@ -2037,15 +2037,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2825.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2825.webp",
         "alt": "Handblock Mul Cotton Saree-15"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2826.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2826.webp",
         "alt": "Handblock Mul Cotton Saree-15"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2827.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-15/IMG_2827.webp",
         "alt": "Handblock Mul Cotton Saree-15"
       }
     ],
@@ -2073,15 +2073,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2828.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2828.webp",
         "alt": "Handblock Mul Cotton Saree-16"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2829.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2829.webp",
         "alt": "Handblock Mul Cotton Saree-16"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2830.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-16/IMG_2830.webp",
         "alt": "Handblock Mul Cotton Saree-16"
       }
     ],
@@ -2109,15 +2109,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2831.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2831.webp",
         "alt": "Handblock Mul Cotton Saree-17"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2832.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2832.webp",
         "alt": "Handblock Mul Cotton Saree-17"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2833.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-17/IMG_2833.webp",
         "alt": "Handblock Mul Cotton Saree-17"
       }
     ],
@@ -2145,15 +2145,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2834.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2834.webp",
         "alt": "Handblock Mul Cotton Saree-18"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2835.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2835.webp",
         "alt": "Handblock Mul Cotton Saree-18"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2836.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-18/IMG_2836.webp",
         "alt": "Handblock Mul Cotton Saree-18"
       }
     ],
@@ -2181,15 +2181,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2837.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2837.webp",
         "alt": "Handblock Mul Cotton Saree-19"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2838.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2838.webp",
         "alt": "Handblock Mul Cotton Saree-19"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2839.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-19/IMG_2839.webp",
         "alt": "Handblock Mul Cotton Saree-19"
       }
     ],
@@ -2217,15 +2217,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2840.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2840.webp",
         "alt": "Handblock Mul Cotton Saree-20"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2841.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2841.webp",
         "alt": "Handblock Mul Cotton Saree-20"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2842.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-20/IMG_2842.webp",
         "alt": "Handblock Mul Cotton Saree-20"
       }
     ],
@@ -2253,15 +2253,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2843.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2843.webp",
         "alt": "Handblock Mul Cotton Saree-21"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2844.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2844.webp",
         "alt": "Handblock Mul Cotton Saree-21"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2845.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-21/IMG_2845.webp",
         "alt": "Handblock Mul Cotton Saree-21"
       }
     ],
@@ -2289,15 +2289,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2846.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2846.webp",
         "alt": "Handblock Mul Cotton Saree-22"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2847.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2847.webp",
         "alt": "Handblock Mul Cotton Saree-22"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2848.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-22/IMG_2848.webp",
         "alt": "Handblock Mul Cotton Saree-22"
       }
     ],
@@ -2325,15 +2325,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2849.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2849.webp",
         "alt": "Handblock Mul Cotton Saree-23"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2850.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2850.webp",
         "alt": "Handblock Mul Cotton Saree-23"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2851.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-23/IMG_2851.webp",
         "alt": "Handblock Mul Cotton Saree-23"
       }
     ],
@@ -2361,15 +2361,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2852.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2852.webp",
         "alt": "Handblock Mul Cotton Saree-24"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2854.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2854.webp",
         "alt": "Handblock Mul Cotton Saree-24"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2856.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-24/IMG_2856.webp",
         "alt": "Handblock Mul Cotton Saree-24"
       }
     ],
@@ -2397,15 +2397,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2857.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2857.webp",
         "alt": "Handblock Mul Cotton Saree-25"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2858.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2858.webp",
         "alt": "Handblock Mul Cotton Saree-25"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2859.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-25/IMG_2859.webp",
         "alt": "Handblock Mul Cotton Saree-25"
       }
     ],
@@ -2433,15 +2433,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2860.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2860.webp",
         "alt": "Handblock Mul Cotton Saree-26"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2861.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2861.webp",
         "alt": "Handblock Mul Cotton Saree-26"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2862.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-26/IMG_2862.webp",
         "alt": "Handblock Mul Cotton Saree-26"
       }
     ],
@@ -2469,15 +2469,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2863.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2863.webp",
         "alt": "Handblock Mul Cotton Saree-27"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2864.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2864.webp",
         "alt": "Handblock Mul Cotton Saree-27"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2865.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/handblock-mul-cotton-saree-27/IMG_2865.webp",
         "alt": "Handblock Mul Cotton Saree-27"
       }
     ],
@@ -2505,15 +2505,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2866.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2866.webp",
         "alt": "Mul Mul Cotton Saree1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2867.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2867.webp",
         "alt": "Mul Mul Cotton Saree1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2868.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree1/IMG_2868.webp",
         "alt": "Mul Mul Cotton Saree1"
       }
     ],
@@ -2541,15 +2541,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2869.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2869.webp",
         "alt": "Mul Mul Cotton Saree2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2871.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2871.webp",
         "alt": "Mul Mul Cotton Saree2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2872.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree2/IMG_2872.webp",
         "alt": "Mul Mul Cotton Saree2"
       }
     ],
@@ -2577,15 +2577,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2873.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2873.webp",
         "alt": "Mul Mul Cotton Saree3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2874.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2874.webp",
         "alt": "Mul Mul Cotton Saree3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2875.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree3/IMG_2875.webp",
         "alt": "Mul Mul Cotton Saree3"
       }
     ],
@@ -2613,15 +2613,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2876.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2876.webp",
         "alt": "Mul Mul Cotton Saree4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2877.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2877.webp",
         "alt": "Mul Mul Cotton Saree4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2878.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree4/IMG_2878.webp",
         "alt": "Mul Mul Cotton Saree4"
       }
     ],
@@ -2649,15 +2649,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2879.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2879.webp",
         "alt": "Mul Mul Cotton Saree5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2880.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2880.webp",
         "alt": "Mul Mul Cotton Saree5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2881.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree5/IMG_2881.webp",
         "alt": "Mul Mul Cotton Saree5"
       }
     ],
@@ -2685,15 +2685,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2882.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2882.webp",
         "alt": "Mul Mul Cotton Saree6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2883.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2883.webp",
         "alt": "Mul Mul Cotton Saree6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2884.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree6/IMG_2884.webp",
         "alt": "Mul Mul Cotton Saree6"
       }
     ],
@@ -2721,15 +2721,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2885.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2885.webp",
         "alt": "Mul Mul Cotton Saree7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2887.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2887.webp",
         "alt": "Mul Mul Cotton Saree7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2888.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree7/IMG_2888.webp",
         "alt": "Mul Mul Cotton Saree7"
       }
     ],
@@ -2757,15 +2757,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2889.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2889.webp",
         "alt": "Mul Mul Cotton Saree8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2890.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2890.webp",
         "alt": "Mul Mul Cotton Saree8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2891.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree8/IMG_2891.webp",
         "alt": "Mul Mul Cotton Saree8"
       }
     ],
@@ -2793,15 +2793,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2892.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2892.webp",
         "alt": "Mul Mul Cotton Saree9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2893.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2893.webp",
         "alt": "Mul Mul Cotton Saree9"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2894.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree9/IMG_2894.webp",
         "alt": "Mul Mul Cotton Saree9"
       }
     ],
@@ -2829,15 +2829,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2895.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2895.webp",
         "alt": "Mul Mul Cotton Saree10"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2896.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2896.webp",
         "alt": "Mul Mul Cotton Saree10"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2897.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/mul-mul-cotton-saree10/IMG_2897.webp",
         "alt": "Mul Mul Cotton Saree10"
       }
     ],
@@ -2865,15 +2865,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2898.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2898.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2900.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2900.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2901.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-1/IMG_2901.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_1"
       }
     ],
@@ -2901,15 +2901,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2902.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2902.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2903.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2903.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2904.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-2/IMG_2904.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_2"
       }
     ],
@@ -2937,15 +2937,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2912.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2912.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2913.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2913.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2915.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-3/IMG_2915.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_3"
       }
     ],
@@ -2973,15 +2973,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2916.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2916.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2918.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2918.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2919.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-4/IMG_2919.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_4"
       }
     ],
@@ -3009,15 +3009,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2920.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2920.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2921.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2921.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2922.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-5/IMG_2922.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_5"
       }
     ],
@@ -3045,15 +3045,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2923.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2923.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2924.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2924.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2926.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-6/IMG_2926.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_6"
       }
     ],
@@ -3081,15 +3081,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2927.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2927.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2928.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2928.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2930.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-7/IMG_2930.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_7"
       }
     ],
@@ -3117,15 +3117,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2931.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2931.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2932.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2932.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_8"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2934.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-leaf-emb-8/IMG_2934.webp",
         "alt": "Khadi Cotton Saree_Leaf EMB_8"
       }
     ],
@@ -3153,15 +3153,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2935.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2935.webp",
         "alt": "Khadi Cotton Saree_Ball Print_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2936.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2936.webp",
         "alt": "Khadi Cotton Saree_Ball Print_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2937.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-1/IMG_2937.webp",
         "alt": "Khadi Cotton Saree_Ball Print_1"
       }
     ],
@@ -3189,15 +3189,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2938.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2938.webp",
         "alt": "Khadi Cotton Saree_Ball Print_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2939.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2939.webp",
         "alt": "Khadi Cotton Saree_Ball Print_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2941.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-2/IMG_2941.webp",
         "alt": "Khadi Cotton Saree_Ball Print_2"
       }
     ],
@@ -3225,15 +3225,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2942.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2942.webp",
         "alt": "Khadi Cotton Saree_Ball Print_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2943.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2943.webp",
         "alt": "Khadi Cotton Saree_Ball Print_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2944.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-3/IMG_2944.webp",
         "alt": "Khadi Cotton Saree_Ball Print_3"
       }
     ],
@@ -3261,15 +3261,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2945.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2945.webp",
         "alt": "Khadi Cotton Saree_Ball Print_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2946.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2946.webp",
         "alt": "Khadi Cotton Saree_Ball Print_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2947.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-saree-ball-print-4/IMG_2947.webp",
         "alt": "Khadi Cotton Saree_Ball Print_4"
       }
     ],
@@ -3297,15 +3297,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2951.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2951.webp",
         "alt": "The Rangoli Khadi Saree_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2952.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2952.webp",
         "alt": "The Rangoli Khadi Saree_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2953.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-1/IMG_2953.webp",
         "alt": "The Rangoli Khadi Saree_1"
       }
     ],
@@ -3333,15 +3333,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2954.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2954.webp",
         "alt": "The Rangoli Khadi Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2955.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2955.webp",
         "alt": "The Rangoli Khadi Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2956.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-2/IMG_2956.webp",
         "alt": "The Rangoli Khadi Saree_2"
       }
     ],
@@ -3369,15 +3369,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2957.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2957.webp",
         "alt": "The Rangoli Khadi Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2958.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2958.webp",
         "alt": "The Rangoli Khadi Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2959.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-3/IMG_2959.webp",
         "alt": "The Rangoli Khadi Saree_3"
       }
     ],
@@ -3405,15 +3405,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2960.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2960.webp",
         "alt": "The Rangoli Khadi Saree_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2961.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2961.webp",
         "alt": "The Rangoli Khadi Saree_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2962.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-4/IMG_2962.webp",
         "alt": "The Rangoli Khadi Saree_4"
       }
     ],
@@ -3441,15 +3441,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2963.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2963.webp",
         "alt": "The Rangoli Khadi Saree_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2964.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2964.webp",
         "alt": "The Rangoli Khadi Saree_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2965.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/the-rangoli-khadi-saree-5/IMG_2965.webp",
         "alt": "The Rangoli Khadi Saree_5"
       }
     ],
@@ -3477,15 +3477,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2966.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2966.webp",
         "alt": "Khadi Cotton _Sunflower Print-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2967.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2967.webp",
         "alt": "Khadi Cotton _Sunflower Print-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2968.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-1/IMG_2968.webp",
         "alt": "Khadi Cotton _Sunflower Print-1"
       }
     ],
@@ -3513,15 +3513,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2969.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2969.webp",
         "alt": "Khadi Cotton _Sunflower Print-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2970.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2970.webp",
         "alt": "Khadi Cotton _Sunflower Print-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2971.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-2/IMG_2971.webp",
         "alt": "Khadi Cotton _Sunflower Print-2"
       }
     ],
@@ -3549,15 +3549,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2972.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2972.webp",
         "alt": "Khadi Cotton _Sunflower Print-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2973.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2973.webp",
         "alt": "Khadi Cotton _Sunflower Print-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2974.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-3/IMG_2974.webp",
         "alt": "Khadi Cotton _Sunflower Print-3"
       }
     ],
@@ -3585,15 +3585,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2975.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2975.webp",
         "alt": "Khadi Cotton _Sunflower Print-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2976.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2976.webp",
         "alt": "Khadi Cotton _Sunflower Print-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2977.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-4/IMG_2977.webp",
         "alt": "Khadi Cotton _Sunflower Print-4"
       }
     ],
@@ -3621,15 +3621,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2978.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2978.webp",
         "alt": "Khadi Cotton _Sunflower Print-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2980.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2980.webp",
         "alt": "Khadi Cotton _Sunflower Print-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2981.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-5/IMG_2981.webp",
         "alt": "Khadi Cotton _Sunflower Print-5"
       }
     ],
@@ -3657,15 +3657,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2982.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2982.webp",
         "alt": "Khadi Cotton _Sunflower Print-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2983.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2983.webp",
         "alt": "Khadi Cotton _Sunflower Print-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2984.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadi-cotton-sunflower-print-6/IMG_2984.webp",
         "alt": "Khadi Cotton _Sunflower Print-6"
       }
     ],
@@ -3693,15 +3693,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2985.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2985.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2986.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2986.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2987.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-1/IMG_2987.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-1"
       }
     ],
@@ -3729,15 +3729,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2988.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2988.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2989.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2989.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2990.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-2/IMG_2990.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-2"
       }
     ],
@@ -3765,15 +3765,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2991.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2991.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2992.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2992.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2993.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-3/IMG_2993.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-3"
       }
     ],
@@ -3801,15 +3801,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2994.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2994.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2995.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2995.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2996.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-4/IMG_2996.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-4"
       }
     ],
@@ -3837,15 +3837,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_2997.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_2997.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_2999.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_2999.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_3001.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-5/IMG_3001.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-5"
       }
     ],
@@ -3873,15 +3873,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3002.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3002.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3003.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3003.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3004.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/khadhi-cotton-shiuli-flower-with-zari-border-6/IMG_3004.webp",
         "alt": "Khadhi Cotton_shiuli flower with Zari border-6"
       }
     ],
@@ -3909,15 +3909,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3005.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3005.webp",
         "alt": "Pure  Raga  Tissue Saree_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3006.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3006.webp",
         "alt": "Pure  Raga  Tissue Saree_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3007.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-1/IMG_3007.webp",
         "alt": "Pure  Raga  Tissue Saree_1"
       }
     ],
@@ -3945,15 +3945,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3008.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3008.webp",
         "alt": "Pure  Raga  Tissue Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3009.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3009.webp",
         "alt": "Pure  Raga  Tissue Saree_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3010.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-2/IMG_3010.webp",
         "alt": "Pure  Raga  Tissue Saree_2"
       }
     ],
@@ -3981,15 +3981,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3011.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3011.webp",
         "alt": "Pure  Raga  Tissue Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3012.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3012.webp",
         "alt": "Pure  Raga  Tissue Saree_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3013.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-3/IMG_3013.webp",
         "alt": "Pure  Raga  Tissue Saree_3"
       }
     ],
@@ -4017,15 +4017,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3014.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3014.webp",
         "alt": "Pure  Raga  Tissue Saree_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3015.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3015.webp",
         "alt": "Pure  Raga  Tissue Saree_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3016.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-4/IMG_3016.webp",
         "alt": "Pure  Raga  Tissue Saree_4"
       }
     ],
@@ -4053,15 +4053,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3017.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3017.webp",
         "alt": "Pure  Raga  Tissue Saree_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3018.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3018.webp",
         "alt": "Pure  Raga  Tissue Saree_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3019.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-5/IMG_3019.webp",
         "alt": "Pure  Raga  Tissue Saree_5"
       }
     ],
@@ -4089,15 +4089,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3020.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3020.webp",
         "alt": "Pure  Raga  Tissue Saree_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3021.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3021.webp",
         "alt": "Pure  Raga  Tissue Saree_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3022.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/pure-raga-tissue-saree-6/IMG_3022.webp",
         "alt": "Pure  Raga  Tissue Saree_6"
       }
     ],
@@ -4125,15 +4125,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3023.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3023.webp",
         "alt": "Soft Lichi Silk Saree_ 1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3024.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3024.webp",
         "alt": "Soft Lichi Silk Saree_ 1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3025.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-1/IMG_3025.webp",
         "alt": "Soft Lichi Silk Saree_ 1"
       }
     ],
@@ -4161,15 +4161,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3026.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3026.webp",
         "alt": "Soft Lichi Silk Saree_ 2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3027.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3027.webp",
         "alt": "Soft Lichi Silk Saree_ 2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3028.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-2/IMG_3028.webp",
         "alt": "Soft Lichi Silk Saree_ 2"
       }
     ],
@@ -4197,15 +4197,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3029.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3029.webp",
         "alt": "Soft Lichi Silk Saree_ 3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3030.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3030.webp",
         "alt": "Soft Lichi Silk Saree_ 3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3031.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-3/IMG_3031.webp",
         "alt": "Soft Lichi Silk Saree_ 3"
       }
     ],
@@ -4233,15 +4233,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3032.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3032.webp",
         "alt": "Soft Lichi Silk Saree_ 4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3033.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3033.webp",
         "alt": "Soft Lichi Silk Saree_ 4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3034.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-4/IMG_3034.webp",
         "alt": "Soft Lichi Silk Saree_ 4"
       }
     ],
@@ -4269,15 +4269,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3035.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3035.webp",
         "alt": "Soft Lichi Silk Saree_ 5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3036.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3036.webp",
         "alt": "Soft Lichi Silk Saree_ 5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3037.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-5/IMG_3037.webp",
         "alt": "Soft Lichi Silk Saree_ 5"
       }
     ],
@@ -4305,15 +4305,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3038.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3038.webp",
         "alt": "Soft Lichi Silk Saree_ 6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3039.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3039.webp",
         "alt": "Soft Lichi Silk Saree_ 6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3040.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/soft-lichi-silk-saree-6/IMG_3040.webp",
         "alt": "Soft Lichi Silk Saree_ 6"
       }
     ],
@@ -4341,15 +4341,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3041.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3041.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3042.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3042.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3043.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-1/IMG_3043.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_1"
       }
     ],
@@ -4377,15 +4377,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3045.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3045.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3046.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3046.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3047.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-2/IMG_3047.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_2"
       }
     ],
@@ -4413,15 +4413,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3048.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3048.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3049.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3049.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3050.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-3/IMG_3050.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_3"
       }
     ],
@@ -4449,15 +4449,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3052.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3052.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3053.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3053.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3054.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-4/IMG_3054.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_4"
       }
     ],
@@ -4485,15 +4485,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3055.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3055.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3056.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3056.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3057.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-5/IMG_3057.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_5"
       }
     ],
@@ -4521,15 +4521,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3058.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3058.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3059.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3059.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3060.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-6/IMG_3060.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_6"
       }
     ],
@@ -4557,15 +4557,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3061.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3061.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3063.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3063.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3064.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-georgette-saree-with-zari-check-pattern-7/IMG_3064.webp",
         "alt": "Viscose Georgette Saree with Zari Check Pattern_7"
       }
     ],
@@ -4593,15 +4593,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3065.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3065.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3066.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3066.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3067.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-1/IMG_3067.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_1"
       }
     ],
@@ -4629,15 +4629,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3068.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3068.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3070.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3070.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3071.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-2/IMG_3071.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_2"
       }
     ],
@@ -4665,15 +4665,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3072.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3072.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3073.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3073.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3074.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-3/IMG_3074.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_3"
       }
     ],
@@ -4701,15 +4701,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3075.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3075.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3076.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3076.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3077.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-lichi-silk-saree-with-elegant-zari-weaving-4/IMG_3077.webp",
         "alt": "Premium Lichi Silk Saree with Elegant Zari Weaving_4"
       }
     ],
@@ -4737,15 +4737,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3078.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3078.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3079.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3079.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3080.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-1/IMG_3080.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_1"
       }
     ],
@@ -4773,15 +4773,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3081.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3081.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3082.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3082.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3083.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-2/IMG_3083.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_2"
       }
     ],
@@ -4809,15 +4809,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3084.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3084.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3085.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3085.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3086.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/lichi-silk-saree-with-rich-banarasi-style-jacquard-weaving-3/IMG_3086.webp",
         "alt": "Lichi Silk Saree with Rich Banarasi Style Jacquard Weaving_3"
       }
     ],
@@ -4845,15 +4845,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3087.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3087.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3088.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3088.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3089.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-1/IMG_3089.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_1"
       }
     ],
@@ -4881,15 +4881,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3090.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3090.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3091.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3091.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3092.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-2/IMG_3092.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_2"
       }
     ],
@@ -4917,15 +4917,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3094.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3094.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3095.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3095.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3096.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/meenakari-cotton-silk-check-saree-with-rich-weaving-3/IMG_3096.webp",
         "alt": "Meenakari Cotton Silk Check Saree with Rich Weaving_3"
       }
     ],
@@ -4953,15 +4953,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3097.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3097.webp",
         "alt": "Premium Viscose Khadi Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3098.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3098.webp",
         "alt": "Premium Viscose Khadi Saree _1"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3100.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-1/IMG_3100.webp",
         "alt": "Premium Viscose Khadi Saree _1"
       }
     ],
@@ -4989,15 +4989,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3101.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3101.webp",
         "alt": "Premium Viscose Khadi Saree _2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3102.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3102.webp",
         "alt": "Premium Viscose Khadi Saree _2"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3103.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-2/IMG_3103.webp",
         "alt": "Premium Viscose Khadi Saree _2"
       }
     ],
@@ -5025,15 +5025,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3104.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3104.webp",
         "alt": "Premium Viscose Khadi Saree _3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3105.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3105.webp",
         "alt": "Premium Viscose Khadi Saree _3"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3106.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-3/IMG_3106.webp",
         "alt": "Premium Viscose Khadi Saree _3"
       }
     ],
@@ -5061,15 +5061,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3107.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3107.webp",
         "alt": "Premium Viscose Khadi Saree _4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3108.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3108.webp",
         "alt": "Premium Viscose Khadi Saree _4"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3109.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-4/IMG_3109.webp",
         "alt": "Premium Viscose Khadi Saree _4"
       }
     ],
@@ -5097,15 +5097,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3110.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3110.webp",
         "alt": "Premium Viscose Khadi Saree _5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3111.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3111.webp",
         "alt": "Premium Viscose Khadi Saree _5"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3112.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-5/IMG_3112.webp",
         "alt": "Premium Viscose Khadi Saree _5"
       }
     ],
@@ -5133,15 +5133,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3114.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3114.webp",
         "alt": "Premium Viscose Khadi Saree _6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3116.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3116.webp",
         "alt": "Premium Viscose Khadi Saree _6"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3117.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-6/IMG_3117.webp",
         "alt": "Premium Viscose Khadi Saree _6"
       }
     ],
@@ -5169,15 +5169,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3118.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3118.webp",
         "alt": "Premium Viscose Khadi Saree _7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3119.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3119.webp",
         "alt": "Premium Viscose Khadi Saree _7"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3120.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/premium-viscose-khadi-saree-7/IMG_3120.webp",
         "alt": "Premium Viscose Khadi Saree _7"
       }
     ],
@@ -5205,15 +5205,15 @@ export const productsData = [
     "note": "Digital images may vary slightly from the actual product colour due to screen settings and photography lighting",
     "images": [
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3121.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3121.webp",
         "alt": "Viscose Khadi Silk Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3122.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3122.webp",
         "alt": "Viscose Khadi Silk Saree"
       },
       {
-        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3123.HEIC",
+        "url": "https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/products/viscose-khadi-silk-saree/IMG_3123.webp",
         "alt": "Viscose Khadi Silk Saree"
       }
     ],
