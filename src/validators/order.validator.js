@@ -8,8 +8,10 @@ export const createOrderValidator = {
         quantity: Joi.number().integer().min(1).required(),
       }).unknown(true)
     ).min(1).required(),
+    email: Joi.string().trim().email().allow('').optional(),
     shippingAddress: Joi.object({
       fullName: Joi.string().trim().required(),
+      email: Joi.string().trim().email().allow('').optional(),
       addressLine: Joi.string().trim().allow('').optional(),
       landmark: Joi.string().trim().allow('').optional(),
       city: Joi.string().trim().allow('').optional(),

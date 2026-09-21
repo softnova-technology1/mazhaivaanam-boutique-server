@@ -136,6 +136,29 @@ export const createOrder = async (req, res, next) => {
     // 4. Generate order ID
     const orderId = generateOrderId();
 
+    // 4b. Resolve user (authenticated user or find/auto-create customer for guest checkout)
+    let user = req.user;
+    const customerEmail = (shippingAddress?.email || req.body.email || user?.email || '').toLowerCase().trim();
+    if (!user) {
+      if (customerEmail) {
+        user = await User.findOne({ email: customerEmail });
+      }
+      if (!user) {
+        const nameParts = (shippingAddress?.fullName || 'Guest Customer').trim().split(' ');
+        const firstName = nameParts[0] || 'Valued';
+        const lastName = nameParts.slice(1).join(' ') || 'Customer';
+        const randomPassword = crypto.randomBytes(8).toString('hex') + 'Mv!';
+        user = await User.create({
+          firstName,
+          lastName,
+          email: customerEmail || `guest_${Date.now()}@mazhaivaanam.com`,
+          phone: shippingAddress?.phone || '',
+          password: randomPassword,
+          role: 'customer',
+        });
+      }
+    }
+
     // 5. Create Razorpay order
     let razorpayOrder;
     try {
@@ -146,12 +169,12 @@ export const createOrder = async (req, res, next) => {
         notes: {
             // Order identification
             orderId,
-            userId: req.user._id.toString(),
+            userId: user._id.toString(),
 
             // Customer details
-            customerName: shippingAddress?.fullName || '',
-            customerPhone: shippingAddress?.phone || '',
-            customerEmail: req.user.email || '',
+            customerName: shippingAddress?.fullName || `${user.firstName || ''} ${user.lastName || ''}`.trim(),
+            customerPhone: shippingAddress?.phone || user.phone || '',
+            customerEmail: customerEmail || user.email || '',
 
             // Shipping address (Razorpay notes max 15 keys, keep compact)
             shippingCity: shippingAddress?.city || '',
@@ -196,9 +219,12 @@ export const createOrder = async (req, res, next) => {
     // 7. Save order
     const order = await Order.create({
       orderId,
-      user: req.user._id,
+      user: user._id,
       items: orderItems,
-      shippingAddress,
+      shippingAddress: {
+        ...shippingAddress,
+        email: customerEmail || user.email || '',
+      },
       deliveryMode: deliveryMode || 'standard',
       giftPackaging: giftPackaging || false,
       giftMessage: giftMessage || '',

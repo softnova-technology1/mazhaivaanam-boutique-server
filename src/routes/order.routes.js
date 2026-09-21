@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { protect } from '../middleware/auth.middleware.js';
+import { protect, optionalAuth } from '../middleware/auth.middleware.js';
 import validate from '../middleware/validate.middleware.js';
 import { createOrderValidator, shippingEstimateValidator } from '../validators/order.validator.js';
 import {
@@ -15,11 +15,13 @@ router.get('/tracking/:orderId', trackOrder);
 router.get('/track/:orderId', trackOrder);
 router.post('/validate-coupon', validateCoupon);
 router.post('/shipping-estimate', validate(shippingEstimateValidator), estimateShipping); // public — zone-wise fee preview
-router.post('/payments/verify', protect, verifyPayment); // ← MOVED UP: must be before /:orderId
+router.post('/payments/verify', optionalAuth, verifyPayment); // ← public/optionalAuth: verify payment for guest or user
 
-// Protected routes (dynamic routes last)
-router.post('/', protect, validate(createOrderValidator), createOrder);
+// Order creation (supports both logged-in users & guest checkout)
+router.post('/', optionalAuth, validate(createOrderValidator), createOrder);
+
+// User-specific protected routes
 router.get('/', protect, getUserOrders);
-router.get('/:orderId', protect, getOrderById);        // ← dynamic: must be last
+router.get('/:orderId', optionalAuth, getOrderById);        // ← dynamic: must be last
 
 export default router;
