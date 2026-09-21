@@ -177,7 +177,7 @@ export const getFeaturedProducts = async (req, res, next) => {
 export const getNewArrivals = async (req, res, next) => {
   try {
     const limit = parseInt(req.query.limit) || 12;
-    const products = await Product.find({ isActive: true, tag: 'NEW ARRIVAL', isPreorder: { $ne: true } })
+    const products = await Product.find({ isActive: true, tag: 'Fresh Pick', isPreorder: { $ne: true } })
       .populate('category', 'name slug')
       .sort({ createdAt: -1 })
       .limit(limit)
@@ -479,7 +479,7 @@ export const updateProduct = async (req, res, next) => {
     const nameChanged = req.body.name && req.body.name !== product.name;
     const catChanged  = req.body.category && String(req.body.category) !== String(product.category);
     const fabricChanged = req.body.fabric && req.body.fabric !== product.fabric;
-    if (nameChanged || catChanged || fabricChanged) {
+    if (nameChanged || catChanged || fabricChanged || !product.sku) {
       if (product.isPreorder) {
         req.body.normalizedName = normalizeName(req.body.name || product.name);
       } else {
@@ -490,6 +490,7 @@ export const updateProduct = async (req, res, next) => {
         });
         req.body.sku            = skuData.sku;
         req.body.patternCode    = skuData.patternCode;
+        req.body.patternSeq     = skuData.patternSeq;
         req.body.normalizedName = skuData.normalizedName;
       }
     }
@@ -615,8 +616,11 @@ export const bulkImportProducts = async (req, res, next) => {
         let tagEnum = null;
         if (item.tag) {
           const upperTag = String(item.tag).toUpperCase().trim().replace('-', ' ');
-          if (['BESTSELLER', 'NEW ARRIVAL', 'LIMITED EDITION', 'FESTIVAL CHOICE'].includes(upperTag)) {
-            tagEnum = upperTag;
+          if (['BESTSELLER', 'LIMITED EDITION', 'FESTIVAL CHOICE', 'TRENDING', 'FRESH PICK', 'TRADITIONAL CHARM', 'ELEGANT PICK'].includes(upperTag)) {
+            if (upperTag === 'FRESH PICK') tagEnum = 'Fresh Pick';
+            else if (upperTag === 'TRADITIONAL CHARM') tagEnum = 'Traditional Charm';
+            else if (upperTag === 'ELEGANT PICK') tagEnum = 'Elegant Pick';
+            else tagEnum = upperTag;
           }
         }
 

@@ -57,7 +57,7 @@ const productSchema = new mongoose.Schema(
     ],
     tag: {
       type: String,
-      enum: ['BESTSELLER', 'NEW ARRIVAL', 'LIMITED EDITION', 'FESTIVAL CHOICE', null],
+      enum: ['BESTSELLER', 'Fresh Pick', 'LIMITED EDITION', 'FESTIVAL CHOICE', 'Traditional Charm', 'TRENDING', 'Elegant Pick', null],
       default: null,
     },
     isFeatured: {

@@ -86,11 +86,16 @@ export const generateSKU = async (productData) => {
     patternSeq = (existingPattern.patternSeq || 1) + 1;
   } else {
     // 🆕 New pattern — count distinct patternCodes in this category AND fabric
-    const existingPatterns = await Product.distinct('patternCode', {
+    const query = {
       category: category,
-      fabric: fabric,
       patternCode: { $exists: true, $ne: null, $ne: '' },
-    });
+    };
+    if (fabric) {
+      // Escape special regex chars if any, though fabric shouldn't have them
+      query.fabric = { $regex: new RegExp(`^${fabric.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`, 'i') };
+    }
+    
+    const existingPatterns = await Product.distinct('patternCode', query);
     
     let maxPatNum = 0;
     for (const pat of existingPatterns) {
