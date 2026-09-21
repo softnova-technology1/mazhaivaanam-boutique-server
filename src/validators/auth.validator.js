@@ -9,11 +9,11 @@ export const registerValidator = {
     password: Joi.string()
       .min(8)
       .max(128)
-      .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/)
+      .pattern(/^(?=.*[A-Z])(?=.*\d).{8,}$/)
       .required()
       .messages({
         'string.min': 'Password must be at least 8 characters long.',
-        'string.pattern.base': 'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (@$!%*?&# etc.).',
+        'string.pattern.base': 'Password must contain at least 8 characters, 1 uppercase letter (A-Z), and 1 number (0-9).',
       }),
   }),
 };

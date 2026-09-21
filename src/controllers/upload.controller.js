@@ -7,7 +7,9 @@ import fs from 'fs';
 import sharp from 'sharp';
 
 /**
- * Convert any image buffer (incl. HEIC) → WebP buffer at 87% quality.
+ * Convert any image buffer (incl. HEIC) → high-quality WebP buffer.
+ * Product photography needs enough detail for the 4:5 shop cards and zoomed
+ * product view, so avoid the visibly lossy default compression level.
  * HEIC/HEIF: dynamically load heic-convert (pure JS decoder) → JPEG → WebP.
  * All other formats: sharp directly → WebP.
  */
@@ -15,9 +17,9 @@ async function toWebpBuffer(buffer, mimetype) {
   if (mimetype === 'image/heic' || mimetype === 'image/heif') {
     const heicConvert = (await import('heic-convert')).default;
     const jpegBuf = await heicConvert({ buffer, format: 'JPEG', quality: 1 });
-    return sharp(Buffer.from(jpegBuf)).rotate().webp({ quality: 87 }).toBuffer();
+    return sharp(Buffer.from(jpegBuf)).rotate().webp({ quality: 93, effort: 6 }).toBuffer();
   }
-  return sharp(buffer, { failOnError: false }).rotate().webp({ quality: 87 }).toBuffer();
+  return sharp(buffer, { failOnError: false }).rotate().webp({ quality: 93, effort: 6 }).toBuffer();
 }
 
 /**
