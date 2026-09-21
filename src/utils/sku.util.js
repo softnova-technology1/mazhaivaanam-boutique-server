@@ -91,7 +91,18 @@ export const generateSKU = async (productData) => {
       fabric: fabric,
       patternCode: { $exists: true, $ne: null, $ne: '' },
     });
-    const nextPatNum = String(existingPatterns.length + 1).padStart(3, '0');
+    
+    let maxPatNum = 0;
+    for (const pat of existingPatterns) {
+      const parts = pat.split('-');
+      const numStr = parts[parts.length - 1];
+      const num = parseInt(numStr, 10);
+      if (!isNaN(num) && num > maxPatNum) {
+        maxPatNum = num;
+      }
+    }
+    
+    const nextPatNum = String(maxPatNum + 1).padStart(3, '0');
     patternCode = fabCode ? `${catCode}-${fabCode}-${nextPatNum}` : `${catCode}-${nextPatNum}`;
     patternSeq = 1;
   }

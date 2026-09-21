@@ -365,8 +365,13 @@ export const getAdminProducts = async (req, res, next) => {
     }
 
     const pageNum = Math.max(1, parseInt(page));
-    const limitNum = Math.min(100, Math.max(1, parseInt(limit)));
-    const skip = (pageNum - 1) * limitNum;
+    let limitNum;
+    if (limit === 'all' || limit === '-1') {
+      limitNum = 0;
+    } else {
+      limitNum = Math.min(100, Math.max(1, parseInt(limit)));
+    }
+    const skip = limitNum === 0 ? 0 : (pageNum - 1) * limitNum;
 
     const [products, total, totalAll, totalActive, totalScheduled] = await Promise.all([
       Product.find(filter)
