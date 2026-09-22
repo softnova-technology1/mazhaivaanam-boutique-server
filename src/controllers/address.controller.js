@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Address from '../models/Address.js';
 import { successResponse, errorResponse } from '../utils/apiResponse.js';
 
@@ -12,16 +13,22 @@ export const getAddresses = async (req, res, next) => {
 
 export const createAddress = async (req, res, next) => {
   try {
+    const state = (req.body.state || req.body.stateName || '').trim();
+    const addressData = {
+      ...req.body,
+      ...(state ? { state } : {})
+    };
+
     // If this is set as default, unset others
-    if (req.body.isDefault) {
+    if (addressData.isDefault) {
       await Address.updateMany({ user: req.user._id }, { isDefault: false });
     }
 
     // If this is the first address, make it default
     const count = await Address.countDocuments({ user: req.user._id });
-    if (count === 0) req.body.isDefault = true;
+    if (count === 0) addressData.isDefault = true;
 
-    const address = await Address.create({ ...req.body, user: req.user._id });
+    const address = await Address.create({ ...addressData, user: req.user._id });
     successResponse(res, address, 'Address added', 201);
   } catch (error) {
     next(error);
@@ -30,14 +37,23 @@ export const createAddress = async (req, res, next) => {
 
 export const updateAddress = async (req, res, next) => {
   try {
-    const address = await Address.findOne({ _id: req.params.id, user: req.user._id });
+    const addressId = req.params.id;
+    if (!addressId || !mongoose.Types.ObjectId.isValid(addressId)) {
+      return errorResponse(res, 'Valid address ID is required', 400);
+    }
+    const address = await Address.findOne({ _id: addressId, user: req.user._id });
     if (!address) return errorResponse(res, 'Address not found', 404);
 
     if (req.body.isDefault) {
       await Address.updateMany({ user: req.user._id }, { isDefault: false });
     }
 
-    Object.assign(address, req.body);
+    const updateData = { ...req.body };
+    if (req.body.stateName && !req.body.state) {
+      updateData.state = req.body.stateName;
+    }
+
+    Object.assign(address, updateData);
     await address.save();
     successResponse(res, address, 'Address updated');
   } catch (error) {
@@ -47,7 +63,11 @@ export const updateAddress = async (req, res, next) => {
 
 export const deleteAddress = async (req, res, next) => {
   try {
-    const address = await Address.findOneAndDelete({ _id: req.params.id, user: req.user._id });
+    const addressId = req.params.id;
+    if (!addressId || !mongoose.Types.ObjectId.isValid(addressId)) {
+      return errorResponse(res, 'Valid address ID is required', 400);
+    }
+    const address = await Address.findOneAndDelete({ _id: addressId, user: req.user._id });
     if (!address) return errorResponse(res, 'Address not found', 404);
 
     // If deleted address was default, make the first remaining address default
@@ -67,10 +87,14 @@ export const deleteAddress = async (req, res, next) => {
 
 export const setDefaultAddress = async (req, res, next) => {
   try {
+    const addressId = req.params.id;
+    if (!addressId || !mongoose.Types.ObjectId.isValid(addressId)) {
+      return errorResponse(res, 'Valid address ID is required', 400);
+    }
     await Address.updateMany({ user: req.user._id }, { isDefault: false });
 
     const address = await Address.findOneAndUpdate(
-      { _id: req.params.id, user: req.user._id },
+      { _id: addressId, user: req.user._id },
       { isDefault: true },
       { new: true }
     );

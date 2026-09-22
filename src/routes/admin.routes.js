@@ -13,7 +13,7 @@ import {
   createCategory, updateCategory, deleteCategory, getAdminCategories,
   createCollection, updateCollection, deleteCollection, getAdminCollections,
 } from '../controllers/category.controller.js';
-import { getAllOrders, updateOrderStatus } from '../controllers/order.controller.js';
+import { getAllOrders, updateOrderStatus, deleteOrder, bulkDeleteOrders } from '../controllers/order.controller.js';
 import { getInquiries, replyToInquiry, deleteInquiry } from '../controllers/contact.controller.js';
 import {
   getProductReviews, createReview, deleteReview, getPendingReviews, approveReview, updateReview, getAllReviews,
@@ -71,7 +71,9 @@ router.delete('/collections/:id', deleteCollection);
 // Orders
 router.get('/orders', getAllOrders);
 router.put('/orders/bulk/status', bulkUpdateOrderStatus);
+router.post('/orders/bulk/delete', bulkDeleteOrders);
 router.put('/orders/:orderId/status', validate(updateOrderStatusValidator), updateOrderStatus);
+router.delete('/orders/:orderId', deleteOrder);
 
 // Users
 router.get('/users', getUsers);
