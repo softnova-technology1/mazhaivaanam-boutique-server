@@ -566,3 +566,32 @@ export const getAllOrders = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * DELETE /api/admin/orders/:orderId
+ * Admin only — single order delete
+ */
+export const deleteOrder = async (req, res, next) => {
+  try {
+    const order = await Order.findByIdAndDelete(req.params.orderId);
+    if (!order) return errorResponse(res, 'Order not found', 404);
+    successResponse(res, null, 'Order deleted successfully');
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * POST /api/admin/orders/bulk/delete
+ * Admin only — bulk delete orders by IDs
+ */
+export const bulkDeleteOrders = async (req, res, next) => {
+  try {
+    const { orderIds } = req.body;
+    if (!orderIds?.length) return errorResponse(res, 'No order IDs provided', 400);
+    const result = await Order.deleteMany({ _id: { $in: orderIds } });
+    successResponse(res, { deletedCount: result.deletedCount }, `${result.deletedCount} order(s) deleted successfully`);
+  } catch (error) {
+    next(error);
+  }
+};
