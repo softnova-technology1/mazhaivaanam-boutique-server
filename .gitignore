@@ -31,3 +31,9 @@ build/
 Thumbs.db
 .vscode/
 .idea/
+
+.env
+list_s3_folders.cjs
+list_s3.cjs
+.env.example
+check_images_s3.cjs
