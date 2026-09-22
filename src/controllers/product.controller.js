@@ -15,9 +15,13 @@ export const formatProductOutput = (p) => {
       }))
     : [];
 
+  const isLoActive = Boolean(p.limitedOfferEntry && p.limitedOfferEntry.isActive);
+  const limitedOfferEntry = isLoActive ? p.limitedOfferEntry : null;
+
   return {
     ...p,
     images,
+    limitedOfferEntry,
     discountedPrice: computeDiscountedPrice(p.price, p.discount),
     discountActive: isDiscountActive(p.discount),
   };
@@ -49,6 +53,12 @@ export const enrichWithInventory = async (products) => {
  */
 export const getProducts = async (req, res, next) => {
   try {
+    // Automatically clean any products in DB where limitedOfferEntry is inactive but retains endDate
+    await Product.updateMany(
+      { 'limitedOfferEntry.isActive': false, 'limitedOfferEntry.endDate': { $ne: null } },
+      { $set: { 'limitedOfferEntry.endDate': null, 'limitedOfferEntry.startDate': null, 'limitedOfferEntry.offerLabel': '' } }
+    );
+
     const {
       category,
       occasion,

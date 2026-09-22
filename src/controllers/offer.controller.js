@@ -30,6 +30,37 @@ export const getOfferConfig = async (req, res, next) => {
       };
     }
 
+    // Clean up any unwanted "-Diwali" / "___DIWALI" / "--Diwalli" text suffixes
+    let needsDbUpdate = false;
+    if (config.heroSection?.title && /[-_,\s]*(Diwali|Diwalli)$/i.test(config.heroSection.title)) {
+      config.heroSection.title = config.heroSection.title.replace(/[-_,\s]*(Diwali|Diwalli)$/i, '').trim();
+      if (!config.heroSection.title.endsWith(',')) config.heroSection.title += ',';
+      needsDbUpdate = true;
+    }
+    if (config.heroSection?.titleItalic && /[-_\s]*(Diwali|Diwalli)/i.test(config.heroSection.titleItalic)) {
+      config.heroSection.titleItalic = config.heroSection.titleItalic.replace(/[-_\s]*(Diwali|Diwalli)/gi, '').trim();
+      needsDbUpdate = true;
+    }
+    if (config.timerSection?.description && /___DIWALI/i.test(config.timerSection.description)) {
+      config.timerSection.description = config.timerSection.description.replace(/___DIWALI/gi, '').trim();
+      needsDbUpdate = true;
+    }
+    if (config.featuredDuoSection?.description && /--Diwalli/i.test(config.featuredDuoSection.description)) {
+      config.featuredDuoSection.description = config.featuredDuoSection.description.replace(/--Diwalli/gi, '').trim();
+      needsDbUpdate = true;
+    }
+
+    if (needsDbUpdate && config._id) {
+      await LimitedOfferConfig.updateOne({ _id: config._id }, {
+        $set: {
+          'heroSection.title': config.heroSection.title,
+          'heroSection.titleItalic': config.heroSection.titleItalic,
+          'timerSection.description': config.timerSection.description,
+          'featuredDuoSection.description': config.featuredDuoSection.description,
+        }
+      });
+    }
+
     return successResponse(res, config, 'Limited offer configuration loaded');
   } catch (error) {
     next(error);
@@ -467,7 +498,17 @@ export const deleteOfferSection = async (req, res, next) => {
     if (!section) return errorResponse(res, 'Section not found', 404);
 
     if (section.productIds?.length > 0) {
-      await Product.updateMany({ _id: { $in: section.productIds } }, { $set: { 'limitedOfferEntry.isActive': false } });
+      await Product.updateMany(
+        { _id: { $in: section.productIds } },
+        {
+          $set: {
+            'limitedOfferEntry.isActive': false,
+            'limitedOfferEntry.endDate': null,
+            'limitedOfferEntry.startDate': null,
+            'limitedOfferEntry.offerLabel': '',
+          },
+        }
+      );
     }
 
     return successResponse(res, null, 'Offer section deleted');
@@ -531,10 +572,13 @@ export const removeProductFromSection = async (req, res, next) => {
 
     if (!section) return errorResponse(res, 'Section not found', 404);
 
-    // Deactivate limited offer entry on product
+    // Deactivate limited offer entry on product and clear endDate
     await Product.findByIdAndUpdate(productId, {
       $set: {
         'limitedOfferEntry.isActive': false,
+        'limitedOfferEntry.endDate': null,
+        'limitedOfferEntry.startDate': null,
+        'limitedOfferEntry.offerLabel': '',
       },
     });
 
