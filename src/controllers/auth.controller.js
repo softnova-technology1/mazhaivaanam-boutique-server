@@ -158,8 +158,8 @@ export const updateProfile = async (req, res, next) => {
     if (firstName !== undefined) user.firstName = firstName;
     if (lastName !== undefined) user.lastName = lastName;
     if (phone !== undefined) user.phone = phone;
-    if (birthday !== undefined) user.birthday = birthday;
-    if (anniversary !== undefined) user.anniversary = anniversary;
+    if (birthday !== undefined) user.birthday = birthday || null;
+    if (anniversary !== undefined) user.anniversary = anniversary || null;
 
     await user.save();
 

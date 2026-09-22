@@ -30,8 +30,8 @@ export const updateProfileValidator = {
     firstName: Joi.string().trim().min(1).max(50).optional(),
     lastName: Joi.string().trim().max(50).allow('').optional(),
     phone: Joi.string().trim().allow('').optional(),
-    birthday: Joi.date().allow(null).optional(),
-    anniversary: Joi.date().allow(null).optional(),
+    birthday: Joi.date().allow(null, '').optional(),
+    anniversary: Joi.date().allow(null, '').optional(),
   }),
 };
 
