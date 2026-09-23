@@ -35,7 +35,6 @@ export const SHIPPING_ZONES = {
     { label: 'Upto 3kg',   uptoKg: 3.0,      price: 140 },
     { label: 'Upto 4kg',   uptoKg: 4.0,      price: 160 },
     { label: 'Upto 5kg',   uptoKg: 5.0,      price: 180 },
-    { label: 'Above 5kg',  uptoKg: Infinity, price: 200 },
   ],
   [ZONE_OTHER]: [
     { label: 'Standard',   uptoKg: 0.5,      price: 60  },
@@ -46,7 +45,6 @@ export const SHIPPING_ZONES = {
     { label: 'Upto 3kg',   uptoKg: 3.0,      price: 145 },
     { label: 'Upto 4kg',   uptoKg: 4.0,      price: 170 },
     { label: 'Upto 5kg',   uptoKg: 5.0,      price: 190 },
-    { label: 'Above 5kg',  uptoKg: Infinity, price: 220 },
   ],
 };
 
@@ -69,6 +67,14 @@ export function resolveShippingZone({ state = '', pinCode = '' } = {}) {
 
 function findSlab(totalWeightKg, zone) {
   const rates = SHIPPING_ZONES[zone] || SHIPPING_ZONES[ZONE_OTHER];
+  if (totalWeightKg > 5.0) {
+    const extraKg = Math.ceil(totalWeightKg - 5.0);
+    if (zone === ZONE_TAMIL_NADU) {
+      return { label: `Bulk (${totalWeightKg.toFixed(2)}kg)`, price: 180 + (extraKg * 25), uptoKg: totalWeightKg };
+    } else {
+      return { label: `Bulk (${totalWeightKg.toFixed(2)}kg)`, price: 190 + (extraKg * 30), uptoKg: totalWeightKg };
+    }
+  }
   return rates.find((r) => totalWeightKg <= r.uptoKg);
 }
 

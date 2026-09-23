@@ -142,6 +142,8 @@ const productSchema = new mongoose.Schema(
     blouseLength: { type: String, default: '' },
     blouse: { type: String, default: '' },
     height: { type: String, default: '' },
+    style: { type: String, default: '' },
+    border: { type: String, default: '' },
     washCare: { type: String, default: '' },
     returnPolicy: { type: String, default: '' },
     note: { type: String, default: '' },

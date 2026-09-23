@@ -5,6 +5,8 @@ node_modules/
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
 
 # Logs
 logs/
@@ -12,6 +14,7 @@ logs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Uploads & Temporary Storage
 uploads/
@@ -32,8 +35,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-.env
+# Custom Scripts & Temporary Files
 list_s3_folders.cjs
 list_s3.cjs
-.env.example
 check_images_s3.cjs
+importProducts.js
+deleteProducts.js
