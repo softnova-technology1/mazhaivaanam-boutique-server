@@ -611,7 +611,7 @@ export const bulkImportProducts = async (req, res, next) => {
 
         const price = Number(item.price) || 0;
         const mrpPrice = Number(item.mrpPrice || item.mrp || item.oldPrice) || price;
-        const stock = (item.stock !== undefined && item.stock !== '' && !isNaN(Number(item.stock))) ? Number(item.stock) : 25;
+        const stock = (item.stock !== undefined && item.stock !== '' && !isNaN(Number(item.stock))) ? Number(item.stock) : 0;
 
         let images = [];
         if (Array.isArray(item.images) && item.images.length > 0) {
