@@ -521,10 +521,18 @@ export const updateOrderStatus = async (req, res, next) => {
  */
 export const getAllOrders = async (req, res, next) => {
   try {
-    const { status, paymentStatus, dateRange, sort = 'newest', page = 1, limit = 20 } = req.query;
+    const { status, paymentStatus, dateRange, sort = 'newest', page = 1, limit = 20, search } = req.query;
     const filter = {};
     if (status) filter.status = status;
     if (paymentStatus) filter.paymentStatus = paymentStatus;
+    
+    if (search) {
+      filter.$or = [
+        { orderId: { $regex: search, $options: 'i' } },
+        { 'shippingAddress.fullName': { $regex: search, $options: 'i' } },
+        { 'shippingAddress.phone': { $regex: search, $options: 'i' } },
+      ];
+    }
     
     if (dateRange) {
       if (dateRange === '7days') {
