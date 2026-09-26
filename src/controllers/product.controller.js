@@ -11,9 +11,9 @@ export const formatProductOutput = (p) => {
   if (!p) return p;
   const images = (p.images && Array.isArray(p.images) && p.images.length > 0)
     ? p.images.map(img => ({
-        ...img,
-        url: (typeof img.url === 'string' && img.url.startsWith('blob:')) ? '' : (img.url || '')
-      }))
+      ...img,
+      url: (typeof img.url === 'string' && img.url.startsWith('blob:')) ? '' : (img.url || '')
+    }))
     : [];
 
   const isLoActive = Boolean(p.limitedOfferEntry && p.limitedOfferEntry.isActive);
@@ -31,7 +31,7 @@ export const formatProductOutput = (p) => {
 export const enrichWithInventory = async (products) => {
   const productIds = products.map(p => p._id);
   const inventories = await Inventory.find({ product: { $in: productIds } }).lean();
-  
+
   const invMap = {};
   inventories.forEach(inv => {
     invMap[inv.product.toString()] = {
@@ -451,9 +451,9 @@ export const createProduct = async (req, res, next) => {
     // Merge SKU data into product
     const finalData = {
       ...productData,
-      sku:            skuData.sku,
-      patternCode:    skuData.patternCode,
-      patternSeq:     skuData.patternSeq,
+      sku: skuData.sku,
+      patternCode: skuData.patternCode,
+      patternSeq: skuData.patternSeq,
       normalizedName: skuData.normalizedName,
     };
 
@@ -488,26 +488,26 @@ export const updateProduct = async (req, res, next) => {
 
     // If name changed, regenerate SKU + pattern fields
     const nameChanged = req.body.name && req.body.name !== product.name;
-    const catChanged  = req.body.category && String(req.body.category) !== String(product.category);
+    const catChanged = req.body.category && String(req.body.category) !== String(product.category);
     const fabricChanged = req.body.fabric && req.body.fabric !== product.fabric;
     if (nameChanged || catChanged || fabricChanged || !product.sku) {
       if (product.isPreorder) {
         req.body.normalizedName = normalizeName(req.body.name || product.name);
       } else {
         const skuData = await generateSKU({
-          name:     req.body.name     || product.name,
+          name: req.body.name || product.name,
           category: req.body.category || product.category,
-          fabric:   req.body.fabric   || product.fabric,
+          fabric: req.body.fabric || product.fabric,
         });
-        req.body.sku            = skuData.sku;
-        req.body.patternCode    = skuData.patternCode;
-        req.body.patternSeq     = skuData.patternSeq;
+        req.body.sku = skuData.sku;
+        req.body.patternCode = skuData.patternCode;
+        req.body.patternSeq = skuData.patternSeq;
         req.body.normalizedName = skuData.normalizedName;
       }
     }
 
     if (req.body.category) {
-       // Only normal category assignment
+      // Only normal category assignment
     }
 
     Object.assign(product, req.body);
@@ -706,4 +706,4 @@ export const bulkImportProducts = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
+};
