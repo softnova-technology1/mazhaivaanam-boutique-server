@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import Product from '../models/Product.js';
 import Category from '../models/Category.js';
+import Fabric from '../models/Fabric.js';
 import Inventory from '../models/Inventory.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { isDiscountActive, computeDiscountedPrice } from './discount.controller.js';
@@ -582,8 +583,11 @@ export const bulkImportProducts = async (req, res, next) => {
       return errorResponse(res, 'No product records provided for import', 400);
     }
 
-    // Fetch all categories for resolution
-    const categories = await Category.find({}).lean();
+    // Fetch all categories and fabrics for resolution
+    const [categories, fabrics] = await Promise.all([
+      Category.find({}).lean(),
+      Fabric.find({}).lean(),
+    ]);
     const defaultCat = categories[0]?._id;
 
     const createdProducts = [];
@@ -607,6 +611,13 @@ export const bulkImportProducts = async (req, res, next) => {
             c.slug.toLowerCase() === catStr
           );
           if (matchCat) catId = matchCat._id;
+        }
+
+        // Match fabric by name (case-insensitive) to ensure official casing
+        let fabricVal = (item.fabric && String(item.fabric).trim()) || 'Cotton';
+        const matchFab = fabrics.find(f => f.name.toLowerCase() === fabricVal.toLowerCase());
+        if (matchFab) {
+          fabricVal = matchFab.name;
         }
 
         const price = Number(item.price) || 0;
@@ -639,7 +650,7 @@ export const bulkImportProducts = async (req, res, next) => {
           shortDescription: shortDesc ? String(shortDesc).trim() : '',
           description: longDesc ? String(longDesc).trim() : '',
           category: catId,
-          fabric: item.fabric || 'Cotton',
+          fabric: fabricVal,
           price,
           mrpPrice,
           tag: tagEnum,
@@ -648,6 +659,8 @@ export const bulkImportProducts = async (req, res, next) => {
           isPreorder: Boolean(item.isPreorder),
           weight: item.weight !== undefined && item.weight !== null ? String(item.weight).trim() : '',
           pattern: item.pattern !== undefined && item.pattern !== null ? String(item.pattern).trim() : '',
+          style: item.style !== undefined && item.style !== null ? String(item.style).trim() : '',
+          border: item.border !== undefined && item.border !== null ? String(item.border).trim() : '',
           pallu: item.pallu !== undefined && item.pallu !== null ? String(item.pallu).trim() : '',
           sareeLength: item.sareeLength !== undefined && item.sareeLength !== null ? String(item.sareeLength).trim() : '',
           blouseLength: item.blouseLength !== undefined && item.blouseLength !== null ? String(item.blouseLength).trim() : '',

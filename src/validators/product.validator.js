@@ -49,6 +49,7 @@ export const createProductValidator = {
     }).unknown(true).optional(),
     weight: Joi.string().allow('', null).optional(),
     pattern: Joi.string().allow('', null).optional(),
+    border: Joi.string().allow('', null).optional(),
     pallu: Joi.string().allow('', null).optional(),
     sareeLength: Joi.string().allow('', null).optional(),
     blouseLength: Joi.string().allow('', null).optional(),
