@@ -120,7 +120,7 @@ export const sendOrderConfirmationEmail = async (user, order) => {
     : '';
 
   return sendEmail({
-    to: user.email,
+    to: order.shippingAddress?.email || user?.email,
     subject: `Official Tax Invoice & Order Confirmation — #${order.orderId} ✨`,
     html: `
       <div style="font-family: 'Georgia', serif; max-width: 650px; margin: 0 auto; padding: 35px; background: #FFFDF8; border-top: 5px solid #6B102A; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
@@ -405,5 +405,43 @@ export const sendLowStockEmail = async (product, currentStock) => {
     `,
   });
 };
+
+/**
+ * Send new order alert email to admin
+ */
+export const sendAdminNewOrderEmail = async (order) => {
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
+  if (!adminEmail) return null;
+
+  return sendEmail({
+    to: adminEmail,
+    subject: `🎉 New Order Received! [${order.orderId || order._id}]`,
+    html: `
+      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;">
+        <h2 style="color: #16a34a; margin-top: 0;">🎉 New Order Received!</h2>
+        <p style="color: #334155; font-size: 16px; line-height: 1.6;">
+          Hello Admin,<br><br>
+          You have received a new order. Here are the details:
+        </p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 6px; margin: 20px 0; border-left: 4px solid #16a34a;">
+          <p style="margin: 0 0 10px 0; font-size: 15px; color: #0f172a;"><strong>Order ID:</strong> ${order.orderId || order._id}</p>
+          <p style="margin: 0 0 10px 0; font-size: 15px; color: #0f172a;"><strong>Total Amount:</strong> ₹${(order.totalAmount || 0).toLocaleString('en-IN')}</p>
+          <p style="margin: 0; font-size: 15px; color: #0f172a;"><strong>Payment Mode:</strong> ${(order.paymentMethod || 'N/A').toUpperCase()}</p>
+        </div>
+        <p style="color: #334155; font-size: 15px;">
+          Please check the Admin Panel for full details and to process the order.
+        </p>
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/admin/orders" style="background: #6B102A; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">View in Admin Panel</a>
+        </div>
+        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
+        <p style="color: #94a3b8; font-size: 12px; margin: 0;">
+          Mazhai Vaanam System
+        </p>
+      </div>
+    `,
+  });
+};
+
 
 export default sendEmail;

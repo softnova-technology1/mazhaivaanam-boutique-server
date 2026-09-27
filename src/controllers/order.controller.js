@@ -9,7 +9,7 @@ import User from '../models/User.js';
 import StoreConfig from '../models/StoreConfig.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
-import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail, sendLowStockEmail } from '../utils/sendEmail.js';
+import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail, sendLowStockEmail, sendAdminNewOrderEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 import { computeDiscountedPrice } from './discount.controller.js';
@@ -342,10 +342,17 @@ export const verifyPayment = async (req, res, next) => {
     await Cart.findOneAndUpdate({ user: order.user }, { items: [] });
 
     // Send confirmation email
-    const user = await User.findById(order.user);
-    if (user) {
-      sendOrderConfirmationEmail(user, order).catch(err => console.error('Failed to send Order Confirmed email:', err));
+    let emailUser = await User.findById(order.user);
+    if (!emailUser) {
+      emailUser = {
+        firstName: order.shippingAddress?.fullName?.split(' ')[0] || 'Valued Customer',
+        email: order.shippingAddress?.email
+      };
     }
+    
+    sendOrderConfirmationEmail(emailUser, order).catch(err => console.error('Failed to send Order Confirmed email:', err));
+    sendAdminNewOrderEmail(order).catch(err => console.error('Failed to send Admin Order email:', err));
+
 
     successResponse(res, { orderId: order.orderId }, 'Payment verified — order confirmed');
   } catch (error) {
