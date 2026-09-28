@@ -29,7 +29,7 @@ export const register = async (req, res, next) => {
     });
 
     // Generate tokens
-    const { accessToken, refreshToken } = generateTokenPair(user._id);
+    const { accessToken, refreshToken } = generateTokenPair(user._id, user.role);
 
     // Save refresh token
     user.refreshToken = refreshToken;
@@ -79,7 +79,7 @@ export const login = async (req, res, next) => {
     }
 
     // Generate tokens
-    const { accessToken, refreshToken } = generateTokenPair(user._id);
+    const { accessToken, refreshToken } = generateTokenPair(user._id, user.role);
 
     // Save refresh token
     user.refreshToken = refreshToken;
@@ -122,7 +122,7 @@ export const refreshToken = async (req, res, next) => {
     }
 
     // Generate new token pair
-    const tokens = generateTokenPair(user._id);
+    const tokens = generateTokenPair(user._id, user.role);
 
     // Update stored refresh token
     user.refreshToken = tokens.refreshToken;
