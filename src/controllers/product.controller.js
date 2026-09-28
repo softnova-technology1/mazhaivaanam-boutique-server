@@ -392,9 +392,9 @@ export const getAdminProducts = async (req, res, next) => {
         .limit(limitNum)
         .lean(),
       Product.countDocuments(filter),
-      Product.countDocuments({}),
-      Product.countDocuments({ isActive: true }),
-      Product.countDocuments({ isScheduled: true }),
+      Product.countDocuments(preorder === 'true' ? { isPreorder: true } : { isPreorder: { $ne: true } }),
+      Product.countDocuments({ isActive: true, ...(preorder === 'true' ? { isPreorder: true } : { isPreorder: { $ne: true } }) }),
+      Product.countDocuments({ isScheduled: true, ...(preorder === 'true' ? { isPreorder: true } : { isPreorder: { $ne: true } }) }),
     ]);
 
     const enriched = await enrichWithInventory(products);

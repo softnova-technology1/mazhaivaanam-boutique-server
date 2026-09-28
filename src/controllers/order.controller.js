@@ -9,7 +9,7 @@ import User from '../models/User.js';
 import StoreConfig from '../models/StoreConfig.js';
 import razorpay from '../config/razorpay.js';
 import generateOrderId from '../utils/generateOrderId.js';
-import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail, sendLowStockEmail } from '../utils/sendEmail.js';
+import { sendOrderConfirmationEmail, sendOrderShippedEmail, sendOrderDeliveredEmail, sendLowStockEmail, sendAdminNewOrderEmail } from '../utils/sendEmail.js';
 import { successResponse, errorResponse, paginatedResponse } from '../utils/apiResponse.js';
 import { calculateShipping, calculateTotalWeight } from '../utils/shipping.js';
 import { computeDiscountedPrice } from './discount.controller.js';
@@ -342,10 +342,17 @@ export const verifyPayment = async (req, res, next) => {
     await Cart.findOneAndUpdate({ user: order.user }, { items: [] });
 
     // Send confirmation email
-    const user = await User.findById(order.user);
-    if (user) {
-      sendOrderConfirmationEmail(user, order).catch(err => console.error('Failed to send Order Confirmed email:', err));
+    let emailUser = await User.findById(order.user);
+    if (!emailUser) {
+      emailUser = {
+        firstName: order.shippingAddress?.fullName?.split(' ')[0] || 'Valued Customer',
+        email: order.shippingAddress?.email
+      };
     }
+    
+    sendOrderConfirmationEmail(emailUser, order).catch(err => console.error('Failed to send Order Confirmed email:', err));
+    sendAdminNewOrderEmail(order).catch(err => console.error('Failed to send Admin Order email:', err));
+
 
     successResponse(res, { orderId: order.orderId }, 'Payment verified — order confirmed');
   } catch (error) {
@@ -521,10 +528,18 @@ export const updateOrderStatus = async (req, res, next) => {
  */
 export const getAllOrders = async (req, res, next) => {
   try {
-    const { status, paymentStatus, dateRange, sort = 'newest', page = 1, limit = 20 } = req.query;
+    const { status, paymentStatus, dateRange, sort = 'newest', page = 1, limit = 20, search } = req.query;
     const filter = {};
     if (status) filter.status = status;
     if (paymentStatus) filter.paymentStatus = paymentStatus;
+    
+    if (search) {
+      filter.$or = [
+        { orderId: { $regex: search, $options: 'i' } },
+        { 'shippingAddress.fullName': { $regex: search, $options: 'i' } },
+        { 'shippingAddress.phone': { $regex: search, $options: 'i' } },
+      ];
+    }
     
     if (dateRange) {
       if (dateRange === '7days') {

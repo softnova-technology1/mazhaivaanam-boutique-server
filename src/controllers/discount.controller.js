@@ -51,8 +51,13 @@ export const getDiscounts = async (req, res, next) => {
 
     // Category filter
     if (category) {
-      const cat = await Category.findOne({ slug: category });
-      if (cat) filter.category = cat._id;
+      // If it's a valid ObjectId, use it directly. Otherwise assume slug.
+      if (category.match(/^[0-9a-fA-F]{24}$/)) {
+        filter.category = category;
+      } else {
+        const cat = await Category.findOne({ slug: category });
+        if (cat) filter.category = cat._id;
+      }
     }
 
     // Text search
