@@ -39,6 +39,7 @@ const orderSchema = new mongoose.Schema(
       state: { type: String, default: '' },
       pinCode: { type: String, default: '' },
       phone: { type: String, required: true },
+      email: { type: String, default: '' },   // for order confirmation emails
     },
     deliveryMode: {
       type: String,

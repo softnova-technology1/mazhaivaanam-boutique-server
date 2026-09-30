@@ -33,6 +33,7 @@ app.use(
 // In development, localhost variants are also permitted for convenience
 const allowedOrigins = [
   process.env.FRONTEND_URL,
+  process.env.ADMIN_URL,
   ...(process.env.NODE_ENV !== 'production'
     ? ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175']
     : []),
@@ -76,7 +77,15 @@ const authLimiter = rateLimit({
 
 // ==================== BODY PARSING & STATIC ====================
 
-app.use(express.json({ limit: '10mb' }));
+// Preserve raw body for Razorpay webhook signature verification
+app.use(express.json({
+  limit: '10mb',
+  verify: (req, res, buf) => {
+    if (req.originalUrl.startsWith('/api/webhooks')) {
+      req.rawBody = buf.toString();
+    }
+  }
+}));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads'), {
   maxAge: '1y',

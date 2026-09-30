@@ -189,7 +189,7 @@ export const changePassword = async (req, res, next) => {
     await user.save();
 
     // Generate fresh tokens
-    const tokens = generateTokenPair(user._id);
+    const tokens = generateTokenPair(user._id, user.role);
     user.refreshToken = tokens.refreshToken;
     await user.save();
 
@@ -259,7 +259,7 @@ export const resetPassword = async (req, res, next) => {
     await user.save();
 
     // Generate fresh tokens
-    const tokens = generateTokenPair(user._id);
+    const tokens = generateTokenPair(user._id, user.role);
     user.refreshToken = tokens.refreshToken;
     await user.save();
 

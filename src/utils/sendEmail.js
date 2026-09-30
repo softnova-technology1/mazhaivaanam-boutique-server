@@ -1,32 +1,33 @@
-import transporter from '../config/email.js';
+import { Resend } from 'resend';
 
 /**
- * Send email using configured SMTP transporter
+ * Send email using Resend API
  * @param {Object} options - { to, subject, html, text }
  */
 const sendEmail = async ({ to, subject, html, text }) => {
   try {
-    const isPlaceholder = !process.env.SMTP_USER || 
-                          process.env.SMTP_USER === 'your_email@gmail.com' || 
-                          !process.env.SMTP_PASS || 
-                          process.env.SMTP_PASS === 'your_email_app_password';
-
-    if (isPlaceholder) {
-      console.log(`ℹ️  [Email Skipped] "${subject}" -> ${to} (SMTP credentials not configured in .env)`);
+    if (!process.env.RESEND_API_KEY) {
+      console.log(`ℹ️  [Email Skipped] "${subject}" -> ${to} (RESEND_API_KEY not configured)`);
       return null;
     }
 
-    const mailOptions = {
-      from: `"Mazhai Vaanam Boutique" <${process.env.SMTP_USER}>`,
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { data, error } = await resend.emails.send({
+      from: 'Mazhai Vaanam Boutique <noreply@mazhaivaanam.com>',
       to,
       subject,
       html,
       text: text || '',
-    };
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log(`📧 Email sent: ${info.messageId}`);
-    return info;
+    if (error) {
+      console.error('❌ Resend error:', error.message);
+      return null;
+    }
+
+    console.log(`📧 Email sent via Resend: ${data?.id}`);
+    return data;
   } catch (error) {
     console.error('❌ Email send error:', error.message);
     // Don't throw — email failure shouldn't block the main flow
@@ -432,7 +433,7 @@ export const sendAdminNewOrderEmail = async (order) => {
           Please check the Admin Panel for full details and to process the order.
         </p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/admin/orders" style="background: #6B102A; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">View in Admin Panel</a>
+          <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/mazhaivaanam-sn2026/orders" style="background: #6B102A; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">View in Admin Panel</a>
         </div>
         <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
         <p style="color: #94a3b8; font-size: 12px; margin: 0;">

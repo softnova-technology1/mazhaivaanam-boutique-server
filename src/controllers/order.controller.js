@@ -258,13 +258,8 @@ export const createOrder = async (req, res, next) => {
       preorderBalanceDue: 0,
     });
 
-    // 8. Increment coupon usage
-    if (couponCode && couponDiscount > 0) {
-      await Coupon.findOneAndUpdate(
-        { code: couponCode.toUpperCase() },
-        { $inc: { usedCount: 1 } }
-      );
-    }
+    // NOTE: Coupon usage count is incremented only after payment is verified
+    // (see verifyPayment) — not here, to avoid waste on abandoned orders
 
     successResponse(res, {
       orderId: order.orderId,
@@ -340,6 +335,14 @@ export const verifyPayment = async (req, res, next) => {
 
     // Clear cart
     await Cart.findOneAndUpdate({ user: order.user }, { items: [] });
+
+    // Increment coupon usage (only after confirmed payment)
+    if (order.couponCode && order.couponDiscount > 0) {
+      await Coupon.findOneAndUpdate(
+        { code: order.couponCode.toUpperCase() },
+        { $inc: { usedCount: 1 } }
+      );
+    }
 
     // Send confirmation email
     let emailUser = await User.findById(order.user);
