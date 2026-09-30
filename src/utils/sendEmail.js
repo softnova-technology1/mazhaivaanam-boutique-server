@@ -46,7 +46,7 @@ export const sendWelcomeEmail = async (user) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/logo-1790747968910.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
         <h2 style="color: #1A1A1A; font-size: 22px;">Welcome, ${user.firstName}!</h2>
@@ -127,7 +127,7 @@ export const sendOrderConfirmationEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 30px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 75px; margin-bottom: 8px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/logo-1790747968910.png" alt="Mazhai Vaanam" style="max-height: 75px; margin-bottom: 8px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 6px; text-transform: uppercase;">Luxury Handloom Boutique</p>
         </div>
 
@@ -256,7 +256,7 @@ export const sendOrderShippedEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/logo-1790747968910.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
 
@@ -321,7 +321,7 @@ export const sendOrderDeliveredEmail = async (user, order) => {
         
         <!-- Logo Section -->
         <div style="text-align: center; margin-bottom: 35px;">
-          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/email-logo-1788719141519.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
+          <img src="https://mazhaivaanam2026pvi.s3.ap-southeast-1.amazonaws.com/assets/logo-1790747968910.png" alt="Mazhai Vaanam" style="max-height: 80px; margin-bottom: 10px;" />
           <p style="color: #C8A34D; font-size: 11px; letter-spacing: 4px; margin-top: 8px; text-transform: uppercase;">Premium Boutique</p>
         </div>
 

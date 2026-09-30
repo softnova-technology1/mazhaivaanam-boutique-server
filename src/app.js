@@ -54,6 +54,9 @@ app.use(
   })
 );
 
+// Trust proxy for Render/Cloud environments (fixes rate limiter blocking everyone)
+app.set('trust proxy', 1);
+
 // Rate limiting — General
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -67,7 +70,7 @@ app.use(generalLimiter);
 // Rate limiting — Auth routes (stricter)
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 500, // Increased for development
+  max: 100, // Max 10 attempts per 15 minutes for security
   message: { success: false, message: 'Too many auth attempts — please try again later' },
 });
 
